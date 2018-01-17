@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class HelicopterFlightController : MonoBehaviour
 {
-    Rigidbody rigidBody;
+    Rigidbody rigidBody = null;
 
-    Vector3 v3UpForce;
+    Vector3 v3UpForce = Vector3.zero;
     bool bEngineStatus = false;
-    float fEngineCoefficient = 0.0f;
 
-    float fCollective;
-    float fAntiTorque;
+    float fThrottle = 0.0f;
+    float fCollective = 0.0f;
+    float fAntiTorque = 0.0f;
     Vector3 v3CycleDir = Vector3.zero;
 
     const float PASSIVE_INPUT_STEP = 0.03125f;
+    const float VELOCITY_LERP_STEP = 0.0625f;
     
 	void Start ()
     {
@@ -27,52 +28,72 @@ public class HelicopterFlightController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
             ToggleEngine();
 
-        if (bEngineStatus == false)
+        if (bEngineStatus == true)
         {
-
-        }
-        else
-        {
+            ControlThrottle();
             ControlCollective();
             ControlAntiTorque();
             ControlCycle();
         }
 
-        rigidBody.AddRelativeForce((v3UpForce + v3CycleDir) * fEngineCoefficient);
+        rigidBody.AddRelativeForce((v3UpForce + v3CycleDir) * fThrottle);
     }
 
     void ToggleEngine()
     {
+        bEngineStatus = !bEngineStatus;
+        Debug.Log("Engine Status: " + bEngineStatus);
+
         if (bEngineStatus == false)
         {
-            while (fEngineCoefficient < 1.0f)
-            {
-                fEngineCoefficient += 0.0015625f;
-            }
+            while (fThrottle > 0.0f)
+                fThrottle -= PASSIVE_INPUT_STEP;
         }
-        else
+    }
+
+    void ControlThrottle()
+    {
+        // Space for Throttle Up
+        if (Input.GetKey(KeyCode.Space))
         {
-            while (fEngineCoefficient > 0.0f)
+            if (fThrottle < 1.0f)
             {
-                fEngineCoefficient -= 0.0015625f;
+                fThrottle += PASSIVE_INPUT_STEP;
+                Debug.Log("Throttle: " + (fThrottle * 100.0f).ToString("0.00") + "%");
             }
         }
 
-        bEngineStatus = !bEngineStatus;
+        // LCtrl for Throttle Down
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (fThrottle > 0.0f)
+            {
+                fThrottle -= PASSIVE_INPUT_STEP;
+                Debug.Log("Throttle: " + (fThrottle * 100.0f).ToString("0.00") + "%");
+            }
+        }
     }
 
     void ControlCollective()
     {
         fCollective = Input.GetAxis("Vertical");
 
-        rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, rigidBody.transform.up * fCollective, 0.0625f);
+        rigidBody.velocity = Vector3.Lerp(
+            rigidBody.velocity, 
+            rigidBody.transform.up * fCollective, 
+            VELOCITY_LERP_STEP
+        );
     }
 
     void ControlAntiTorque()
     {
         fAntiTorque = Input.GetAxis("Horizontal");
 
-        rigidBody.angularVelocity = Vector3.Lerp(rigidBody.angularVelocity, rigidBody.transform.up * fAntiTorque, 0.0625f);
+        rigidBody.angularVelocity = Vector3.Lerp(
+            rigidBody.angularVelocity, 
+            rigidBody.transform.up * fAntiTorque, 
+            VELOCITY_LERP_STEP
+        );
     }
 
     void ControlCycle()
@@ -80,46 +101,62 @@ public class HelicopterFlightController : MonoBehaviour
         // U for Pitch Down
         if (Input.GetKey(KeyCode.U))
         {
-            if (v3CycleDir.z < 1.0f) v3CycleDir.z += PASSIVE_INPUT_STEP;
+            if (v3CycleDir.z < 1.0f)
+                v3CycleDir.z += PASSIVE_INPUT_STEP;
         }
         else
         {
-            if (v3CycleDir.z > 0.0f) v3CycleDir.z -= PASSIVE_INPUT_STEP;
+            if (v3CycleDir.z > 0.0f)
+                v3CycleDir.z -= PASSIVE_INPUT_STEP;
         }
 
         // J for Pitch Up
         if (Input.GetKey(KeyCode.J))
         {
-            if (v3CycleDir.z > -1.0f) v3CycleDir.z -= PASSIVE_INPUT_STEP;
+            if (v3CycleDir.z > -1.0f)
+                v3CycleDir.z -= PASSIVE_INPUT_STEP;
         }
         else
         {
-            if (v3CycleDir.z < 0.0f) v3CycleDir.z += PASSIVE_INPUT_STEP;
+            if (v3CycleDir.z < 0.0f)
+                v3CycleDir.z += PASSIVE_INPUT_STEP;
         }
 
         // K for Roll Right
         if (Input.GetKey(KeyCode.K))
         {
-            if (v3CycleDir.x < 1.0f) v3CycleDir.x += PASSIVE_INPUT_STEP;
+            if (v3CycleDir.x < 1.0f)
+                v3CycleDir.x += PASSIVE_INPUT_STEP;
         }
         else
         {
-            if (v3CycleDir.x > 0.0f) v3CycleDir.x -= PASSIVE_INPUT_STEP;
+            if (v3CycleDir.x > 0.0f)
+                v3CycleDir.x -= PASSIVE_INPUT_STEP;
         }
 
         // H for Roll Left
         if (Input.GetKey(KeyCode.H))
         {
-            if (v3CycleDir.x > -1.0f) v3CycleDir.x -= PASSIVE_INPUT_STEP;
+            if (v3CycleDir.x > -1.0f)
+                v3CycleDir.x -= PASSIVE_INPUT_STEP;
         }
         else
         {
-            if (v3CycleDir.x < 0.0f) v3CycleDir.x += PASSIVE_INPUT_STEP;
+            if (v3CycleDir.x < 0.0f)
+                v3CycleDir.x += PASSIVE_INPUT_STEP;
         }
 
         // Pitch
-        rigidBody.angularVelocity = Vector3.Lerp(rigidBody.angularVelocity, rigidBody.transform.right * v3CycleDir.z, 0.0625f);
-
-        rigidBody.angularVelocity = Vector3.Lerp(rigidBody.angularVelocity, -rigidBody.transform.forward * v3CycleDir.x, 0.0625f);
+        rigidBody.angularVelocity = Vector3.Lerp(
+            rigidBody.angularVelocity, 
+            rigidBody.transform.right * v3CycleDir.z, 
+            VELOCITY_LERP_STEP
+        );
+        // Roll
+        rigidBody.angularVelocity = Vector3.Lerp(
+            rigidBody.angularVelocity, 
+            -rigidBody.transform.forward * v3CycleDir.x, 
+            VELOCITY_LERP_STEP
+        );
     }
 }
