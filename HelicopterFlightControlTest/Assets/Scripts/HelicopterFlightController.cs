@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class HelicopterFlightController : MonoBehaviour
 {
+    [Header("Helicopter Rotor Controls")]
+    public GameObject objMainRotor;
+    HelicopterRotorController hrcMainRotor;
+    public GameObject objTailRotor;
+    HelicopterRotorController hrcTailRotor;
+
+    [Header("Helicopter Values")]
+    public float fCollectiveVelocity = 1.0f;
+    public float fCycleVelocity = 1.0f;
+
     Rigidbody rigidBody = null;
 
     Vector3 v3UpForce = Vector3.zero;
@@ -21,7 +31,10 @@ public class HelicopterFlightController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         v3UpForce = -Physics.gravity * rigidBody.mass;
-	}
+
+        hrcMainRotor = objMainRotor.GetComponent<HelicopterRotorController>();
+        hrcTailRotor = objTailRotor.GetComponent<HelicopterRotorController>();
+    }
 	
 	void FixedUpdate ()
     {
@@ -36,6 +49,9 @@ public class HelicopterFlightController : MonoBehaviour
             ControlCycle();
         }
 
+        hrcMainRotor.GetThrottlePercent(fThrottle);
+        hrcTailRotor.GetThrottlePercent(fAntiTorque);
+
         rigidBody.AddRelativeForce((v3UpForce + v3CycleDir) * fThrottle);
     }
 
@@ -44,8 +60,16 @@ public class HelicopterFlightController : MonoBehaviour
         bEngineStatus = !bEngineStatus;
         Debug.Log("Engine Status: " + bEngineStatus);
 
-        if (bEngineStatus == false)
+        if (bEngineStatus == true)
         {
+            hrcMainRotor.StartSpinning();
+            hrcTailRotor.StartSpinning();
+        }
+        else
+        {
+            hrcMainRotor.EndSpinning();
+            hrcTailRotor.EndSpinning();
+
             while (fThrottle > 0.0f)
                 fThrottle -= PASSIVE_INPUT_STEP;
         }
@@ -76,7 +100,7 @@ public class HelicopterFlightController : MonoBehaviour
 
     void ControlCollective()
     {
-        fCollective = Input.GetAxis("Vertical");
+        fCollective = Input.GetAxis("Vertical") * fCollectiveVelocity;
 
         rigidBody.velocity = Vector3.Lerp(
             rigidBody.velocity, 
@@ -146,6 +170,8 @@ public class HelicopterFlightController : MonoBehaviour
                 v3CycleDir.x += PASSIVE_INPUT_STEP;
         }
 
+        v3CycleDir *= fCycleVelocity;
+
         // Pitch
         rigidBody.angularVelocity = Vector3.Lerp(
             rigidBody.angularVelocity, 
@@ -159,4 +185,7 @@ public class HelicopterFlightController : MonoBehaviour
             VELOCITY_LERP_STEP
         );
     }
+
+    public Vector3 GetCycleDirection() { return v3CycleDir; }
+    public float  GetCollectiveValue() { return fCollective; }
 }
