@@ -20,12 +20,15 @@ public class HelicopterSFXController : MonoBehaviour
 
     public AudioClip sfxNormalFlight;
     public AudioClip sfxTurbulance;
+    public float fTurbulanceSpeed = 0.0f;
+
+    public AudioClip[] sfxCrashSound;
 
     bool bEngineStart = false;
 
     void Start ()
     {
-        audioSource = new AudioSource[2];
+        audioSource = new AudioSource[3];
         hfc = GetComponent<HelicopterFlightController>();
 
         for (int i = 0; i < audioSource.Length; i++)
@@ -42,6 +45,8 @@ public class HelicopterSFXController : MonoBehaviour
         audioSource[1].loop = true;
         audioSource[1].volume = 0.0f;
         audioSource[1].Play();
+
+        audioSource[2].playOnAwake = false;
     }
 
     void FixedUpdate()
@@ -49,8 +54,8 @@ public class HelicopterSFXController : MonoBehaviour
         if (bEngineStart)
             audioSource[0].pitch = 1.0f + (hfc.fCollective / 10.0f);
 
-        if (hfc.fVelocity > 2.75f)
-            audioSource[1].volume = (hfc.fVelocity - 2.75f) / 5.0f;
+        if (hfc.fVelocity > fTurbulanceSpeed)
+            audioSource[1].volume = (hfc.fVelocity - fTurbulanceSpeed) / 10.0f;
         else
             audioSource[1].volume = 0.0f;
     }
@@ -101,5 +106,22 @@ public class HelicopterSFXController : MonoBehaviour
             audioSource[0].pitch -= 0.03125f;
             yield return new WaitForSeconds(0.03125f * 3);
         }
+    }
+
+    /// <summary>
+    /// 충돌시 헬리콥터의 속도에 맞는 크기로 충돌 효과음을 출력합니다. 
+    /// 보통 헬리콥터가 추락했을 때 사용합니다. 
+    /// 2018. 4. 2 추가됨. 
+    /// </summary>
+    /// <param name="fVelocity">헬리콥터의 현재 속도</param>
+    /// <param name="fSafeVelocity">헬리콥터의 안전 속도</param>
+    public void PlayCrashSound(float fVelocity, float fSafeVelocity)
+    {
+        int num = Random.Range(0, sfxCrashSound.Length);
+        float volume = fVelocity / fSafeVelocity;
+
+        if (volume > 1.0f) volume = 1.0f;
+
+        audioSource[2].PlayOneShot(sfxCrashSound[num], volume);
     }
 }
