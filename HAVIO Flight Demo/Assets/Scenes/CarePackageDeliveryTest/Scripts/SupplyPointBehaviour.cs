@@ -18,6 +18,10 @@ public class SupplyPointBehaviour : MonoBehaviour
     public GameObject objCarePackage;
     public float fLoadTime = 3.0f;
 
+    [Header("Care Package Delivery Test Controller")]
+    public GameObject objGameModeController;
+    CarePackageDeliveryTestController cpdtc;
+
     HelicopterInfoController hic;
 
     bool bIsLoading = false;
@@ -27,6 +31,7 @@ public class SupplyPointBehaviour : MonoBehaviour
 	void Start ()
     {
         objPlayer = GameObject.FindGameObjectWithTag("Player");
+        cpdtc = objGameModeController.GetComponent<CarePackageDeliveryTestController>();
         hic = objPlayer.GetComponent<HelicopterInfoController>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -36,6 +41,10 @@ public class SupplyPointBehaviour : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Body") && hic.objStowage == null && !bIsLoading) 
         {
             StartCoroutine(SupplyCarePackage());
+        }
+        if (other.CompareTag("Player") || other.CompareTag("Body") && cpdtc.bAccomplished)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 

@@ -55,7 +55,7 @@ public class HelicopterFlightController : MonoBehaviour
     const float VELOCITY_LERP_STEP = 0.0625f;
 
     public Rigidbody rigidBody = null;
-    MotionInput motionInput;
+    MotionInput []motionInput;
     HelicopterSFXController sfxController;
     HelicopterMotionController motionController;
 
@@ -65,8 +65,13 @@ public class HelicopterFlightController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
 
-		motionInput = GetComponent<MotionInput> ();
-		motionInput.StartInput ();
+        motionInput = new MotionInput[2];
+		motionInput[0] = GetComponent<MotionInput> ();
+		motionInput[0].StartInput ();
+        motionInput[1] = gameObject.AddComponent<MotionInput>();
+        motionInput[1].UseAutoRotation = false;
+        motionInput[1].UpdateMode = MotionInput.UpdateModeList.UserDirectCall;
+        motionInput[1].StartInput();
 
         sfxController = GetComponent<HelicopterSFXController>();
         motionController = GetComponent<HelicopterMotionController>();
@@ -96,6 +101,10 @@ public class HelicopterFlightController : MonoBehaviour
                 ControlCollective();
                 ControlAntiTorque();
             }
+        }
+        else
+        {
+            motionInput[1].SetInputValues(0, 0, 0, 0, 0, 0);
         }
 
         //rigidBody.AddRelativeForce((v3UpForce + v3CycleDir * fCycleVelocity) * fThrottle);
@@ -192,6 +201,8 @@ public class HelicopterFlightController : MonoBehaviour
         //    VELOCITY_LERP_STEP
         //);
 
+        motionInput[1].LinearValues.Heave = fCollective / 2.0f;
+
         rigidBody.AddForce(rigidBody.transform.up * fCollective * fCollectiveVelocity);
     }
 
@@ -242,6 +253,9 @@ public class HelicopterFlightController : MonoBehaviour
             -rigidBody.transform.forward * v3CycleDir.x * fCycleVelocity, 
             VELOCITY_LERP_STEP
         );
+
+        motionInput[1].RotationValues.Roll = v3CycleDir.x / 2.0f;
+        motionInput[1].RotationValues.Pitch = v3CycleDir.z / 2.0f;
     }
     #endregion
 

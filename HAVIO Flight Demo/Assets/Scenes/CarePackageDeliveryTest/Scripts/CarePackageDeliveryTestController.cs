@@ -39,7 +39,7 @@ public class CarePackageDeliveryTestController : MonoBehaviour
     HelicopterInfoController hic;
 
     public int nDeliveredPoint = 0;
-    bool bAccomplished = false;
+    public bool bAccomplished = false;
 
     void Start ()
     {
@@ -92,6 +92,6 @@ public class CarePackageDeliveryTestController : MonoBehaviour
 	void FixedUpdate ()
     {
         if (nDeliveredPoint == nRandomTargetPosition)
-            UnityEditor.EditorApplication.isPlaying = false;
+            bAccomplished = true;
 	}
 }
