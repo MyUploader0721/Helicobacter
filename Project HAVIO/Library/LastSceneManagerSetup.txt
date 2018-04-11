@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/GameModes/CarePackageDelivery/Island_1/CPD_Island_1.unity
+  isLoaded: 1
+  isActive: 1
