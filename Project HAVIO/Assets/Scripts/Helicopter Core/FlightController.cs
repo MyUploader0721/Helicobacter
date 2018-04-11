@@ -12,6 +12,8 @@ using UnityEngine;
  *    (특정 헬리콥터에 종속적임) 따라서 재사용 가능한 스크립트 작성을 목표로 
  *    재작성하도록 하였습니다. 하...
  *  - InputController의 값으로 헬리콥터의 움직임(비행)을 다루게 됩니다. 
+ *  - 2018-04-11: 향상된(실감나는) 조종감을 위해 입력값에 따른 MotionInput값을
+ *                추가하였습니다. 이제 관성이 느껴질 수 있습니다. 
  */
 
 public class FlightController : MonoBehaviour
@@ -20,6 +22,11 @@ public class FlightController : MonoBehaviour
     HelicopterInfo helicopterInfo;
 
     new Rigidbody rigidbody;
+
+    [Header("Enhanced Helicopter Motion")]
+    [SerializeField]
+    bool bEnhanceHelicopterMotion = false;
+    MotionInput motionInput;
 
     [Header("Helicopter Rotor Blades")]
     [SerializeField] GameObject objMainRotorBlade;
@@ -66,6 +73,10 @@ public class FlightController : MonoBehaviour
         audioSource[(int)SFX_List.TURBULENCE].loop = true;
         audioSource[(int)SFX_List.TURBULENCE].volume = 0.0f;
         audioSource[(int)SFX_List.TURBULENCE].Play();
+
+        motionInput = gameObject.AddComponent<MotionInput>();
+        motionInput.UseAutoRotation = false;
+        motionInput.UpdateMode = MotionInput.UpdateModeList.WaitForFixedUpdate;
     }
 
 	void Update ()
@@ -99,6 +110,13 @@ public class FlightController : MonoBehaviour
             ControlCollective();
             ControlAntiTorque();
             ControlCycle();
+
+            if (bEnhanceHelicopterMotion)
+            {
+                motionInput.RotationValues.Roll = inputController.fCycleRoll;
+                motionInput.RotationValues.Pitch = inputController.fCyclePitch;
+                motionInput.LinearValues.Heave = inputController.fCollective;
+            }
 
             float fUpReverseCosine = 1.0f - Vector3.Dot(Vector3.up, rigidbody.transform.up);
             rigidbody.velocity = Vector3.Lerp(

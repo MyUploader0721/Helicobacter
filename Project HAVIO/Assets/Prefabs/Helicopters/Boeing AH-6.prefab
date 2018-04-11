@@ -505,6 +505,8 @@ GameObject:
   - component: {fileID: 114647657420504436}
   - component: {fileID: 114936178623725786}
   - component: {fileID: 114471144214435912}
+  - component: {fileID: 114468518213720846}
+  - component: {fileID: 114382130608461202}
   m_Layer: 0
   m_Name: Boeing AH-6
   m_TagString: Player
@@ -4268,6 +4270,76 @@ MonoBehaviour:
   objCompassDir: {fileID: 1886063212075134}
   objWindSpeedHand: {fileID: 1858258111107030}
   objVerticalSpeedHand: {fileID: 1334929837271262}
+--- !u!114 &114382130608461202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493883433085920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2127021628, guid: e83cf511fbbbab742bc0edf0dbd6f615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayContext: {fileID: 0}
+  PlayOnAwake: 1
+  UseAutoRotation: 1
+  UseGlobalRotation: 1
+  UpdateMode: 11
+  UpdateInterval: 0
+  RotationValues:
+    Roll: 0
+    Pitch: 0
+    Yaw: 0
+  LinearValues:
+    Heave: 0
+    Sway: 0
+    Surge: 0
+--- !u!114 &114468518213720846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493883433085920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -633999208, guid: e83cf511fbbbab742bc0edf0dbd6f615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeutralOnEnable: 1
+  NeutralOnDisable: 0
+  MasterVolume: 100
+  DeviceIP: 11
+  Description:
+    UseDescription: 1
+    DeviceName: 1
+    DeviceVersion: 1000
+    DeviceIndex: 0
+    DeviceType: 0
+    DeviceDetail: 
+    SupportChannel:
+      DOF_SURGE: 0
+      DOF_SWAY: 0
+      DOF_HEAVE: 0
+      DOF_ROLL: 0
+      DOF_PITCH: 0
+      DOF_YAW: 0
+      DOF_DEFAULT: 0
+    OperationOption:
+      AsyncMode: 1
+      DebugMode: 0
+      EmulationMode: 0
+      FileLog: 0
+      DeviceWeightEst: 0
+      DeviceIncEncoder: 0
+      DeviceZeroInit: 0
+  MasterBufferFormat:
+    SampleRate: 50
+    Format_int: 32784
+    Format: 32784
+    Channel: 3
+    Samples: 2
+    Buffers: 1
 --- !u!114 &114471144214435912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4388,6 +4460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0311ac0e3ce947546b834148359716c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bEnhanceHelicopterMotion: 1
   objMainRotorBlade: {fileID: 1656230495368906}
   objTailRotorBlade: {fileID: 1705484033475862}
   objCollectiveLever: {fileID: 1593231780501362}
