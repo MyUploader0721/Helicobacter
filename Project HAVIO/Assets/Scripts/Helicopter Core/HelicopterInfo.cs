@@ -77,8 +77,7 @@ public class HelicopterInfo : MonoBehaviour
 
         if (objInnerPod != null) objInnerPod.SetActive(bUseInnerPod);
         if (objOuterPod != null) objOuterPod.SetActive(bUseOuterPod);
-
-        objSearchLight.SetActive(bUseSearchLight);
+        if (objSearchLight != null) objSearchLight.SetActive(bUseSearchLight);
     }
 
     void FixedUpdate()

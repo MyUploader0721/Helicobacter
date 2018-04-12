@@ -30,7 +30,9 @@ public class FlightController : MonoBehaviour
 
     [Header("Helicopter Rotor Blades")]
     [SerializeField] GameObject objMainRotorBlade;
+    [SerializeField] bool bReverseMainRotor = false;
     [SerializeField] GameObject objTailRotorBlade;
+    [SerializeField] bool bReverseTailRotor= false;
 
     [Header("Helicopter Controllers")]
     [SerializeField] GameObject objCollectiveLever;
@@ -160,22 +162,24 @@ public class FlightController : MonoBehaviour
     void RotateRotorBlades()
     {
         objMainRotorBlade.transform.Rotate(
-            -Vector3.up, 
+            Vector3.up * (bReverseMainRotor ? 1.0f : -1.0f), 
             inputController.fThrottle * 10.0f + (helicopterInfo.bIsEngineStart ? inputController.fCollective : 0.0f));
         objTailRotorBlade.transform.Rotate(
-            -Vector3.right, 
+            Vector3.right * (bReverseTailRotor ? 1.0f : -1.0f), 
             inputController.fThrottle * 20.0f + (helicopterInfo.bIsEngineStart ? inputController.fAntiTorque : 0.0f));
     }
 
     void RotateControllers()
     {
-        objCollectiveLever.transform.localRotation = Quaternion.Euler(-inputController.fCollective * 10.0f, 180.0f, 0.0f);
+        if (objCollectiveLever != null)
+            objCollectiveLever.transform.localRotation = Quaternion.Euler(-inputController.fCollective * 10.0f, 180.0f, 0.0f);
 
         Vector3 v3Cycle = new Vector3(inputController.fCyclePitch, 18.0f, -inputController.fCycleRoll);
 
-        for (int i = 0; i < objCycleControllers.Length; i++)
-        {
-            objCycleControllers[i].transform.localEulerAngles = v3Cycle * 10.0f;
-        }
+        if (objCycleControllers.Length > 0)
+            for (int i = 0; i < objCycleControllers.Length; i++)
+            {
+                objCycleControllers[i].transform.localEulerAngles = v3Cycle * 10.0f;
+            }
     }
 }

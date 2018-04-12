@@ -26,6 +26,7 @@ public class AH6InstrumentPanelController : MonoBehaviour
 
     [Header("Attitude")]
     [SerializeField] GameObject objAttBall;
+    [SerializeField] float fAdjustXRot = 0.0f;
 
     [Header("Compass")]
     [SerializeField] GameObject objCompassDir;
@@ -53,7 +54,7 @@ public class AH6InstrumentPanelController : MonoBehaviour
         objAltLongHand.transform.localEulerAngles = new Vector3(0.0f, 0.0f, -fAltitude / fAltLongHandAmount * 36.0f);
 
         // Attitude
-        objAttBall.transform.eulerAngles = Vector3.zero;
+        objAttBall.transform.eulerAngles = new Vector3(fAdjustXRot, 0.0f, 0.0f);
 
         // Compass
         objCompassDir.transform.localEulerAngles = new Vector3(0.0f, 0.0f, fCompassDir);
