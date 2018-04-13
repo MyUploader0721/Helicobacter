@@ -19,6 +19,7 @@ public class SupplyDepotBehaviour : MonoBehaviour
     [SerializeField] float fLoadingPackageTime = 5.0f;
     [SerializeField] GameObject objPackage;
     [SerializeField] CarePackageDeliveryController cpdController;
+    [SerializeField] float fBottomAwayFromHelicopter = -1.5f;
 
     AudioSource[] audioSource;
     enum SFX_List { PACKAGE_LOADING = 0 }
@@ -53,11 +54,6 @@ public class SupplyDepotBehaviour : MonoBehaviour
         {
             StartCoroutine(LoadingPackage());
         }
-
-        if (other.CompareTag("Player") && cpdController.bAccomplished)
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
     }
 
     void OnTriggerExit(Collider other)
@@ -75,6 +71,12 @@ public class SupplyDepotBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 헬리콥터에 CarePackage를 싣는 코루틴입니다. 
+    /// 적재장소에서 멀어지면 화물 싣기를 종료합니다. 
+    /// </summary>
+    /// <returns>코루틴 함수입니다. 
+    /// 소리 재생을 위해 초 단위가 아닌 프레임 단위로 반환합니다. </returns>
     IEnumerator LoadingPackage()
     {
         bIsLoading = true;
@@ -97,7 +99,7 @@ public class SupplyDepotBehaviour : MonoBehaviour
         audioSource[(int)SFX_List.PACKAGE_LOADING].Play();
 
         GameObject objInstantPackage = Instantiate(objPackage, objPlayer.transform);
-        objInstantPackage.transform.localPosition = new Vector3(0.0f, -1.5f, 0.0f);
+        objInstantPackage.transform.localPosition = new Vector3(0.0f, fBottomAwayFromHelicopter, 0.0f);
         objInstantPackage.transform.localRotation = Quaternion.identity;
         objPlayer.GetComponent<HelicopterInfo>().objCargo = objInstantPackage;
 

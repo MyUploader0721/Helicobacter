@@ -80,11 +80,6 @@ public class HelicopterInfo : MonoBehaviour
         if (objSearchLight != null) objSearchLight.SetActive(bUseSearchLight);
     }
 
-    void FixedUpdate()
-    {
-        
-    }
-
     void OnCollisionEnter(Collision other)
     {
         float fDeltaVelocity = flightController.fVelocity - fSafeVelocity;
@@ -106,6 +101,9 @@ public class HelicopterInfo : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 효과음을 설정하고 재생하는 메소드입니다. 
+    /// </summary>
     void SFX_HelicopterStatus()
     {
         if (bIsFlyable)

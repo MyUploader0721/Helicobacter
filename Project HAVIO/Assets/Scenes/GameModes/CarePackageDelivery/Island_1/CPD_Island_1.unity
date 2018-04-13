@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 144258914}
   - component: {fileID: 144258913}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,6 +218,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1493883433085920, guid: 1ae6e4527b40f4c4388f546e4038c71c,
     type: 2}
   m_PrefabInternal: {fileID: 1018194364}
+--- !u!114 &364974041 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114471144214435912, guid: 1ae6e4527b40f4c4388f546e4038c71c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1018194364}
+  m_Script: {fileID: 11500000, guid: 4ab2ca4321921c0478152b81a17cb698, type: 3}
 --- !u!1 &388005781
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 2052063543}
 --- !u!1 &483579999
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 1447203297}
 --- !u!1 &545060681
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +433,7 @@ GameObject:
   - component: {fileID: 545060684}
   - component: {fileID: 545060683}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 1638617632}
 --- !u!1 &670183369
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 545060681}
 --- !u!1 &741908781
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +909,7 @@ MonoBehaviour:
   fLoadingPackageTime: 5
   objPackage: {fileID: 1247876668004638, guid: 61f6e09cc6caac643acb845a69cbefd7, type: 2}
   cpdController: {fileID: 1930753642}
+  fBottomAwayFromHelicopter: -1.5
   sfxPackageStartLoading: {fileID: 8300000, guid: d22237acbe219ba46b7580ebbdc0a8e4,
     type: 3}
   sfxPackageLoading: {fileID: 8300000, guid: 1b5adf2e4ad49164a87d9883b38f5b8c, type: 3}
@@ -988,7 +999,7 @@ GameObject:
   - component: {fileID: 808875755}
   - component: {fileID: 808875754}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1146,6 +1157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 1838052493}
 --- !u!1 &909698714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1169,7 @@ GameObject:
   - component: {fileID: 909698717}
   - component: {fileID: 909698716}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1315,6 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 808875752}
 --- !u!1001 &1018194364
 Prefab:
   m_ObjectHideFlags: 0
@@ -1455,6 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 144258911}
 --- !u!1 &1102269159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,7 +1609,7 @@ GameObject:
   - component: {fileID: 1441275887}
   - component: {fileID: 1441275886}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1680,7 @@ GameObject:
   - component: {fileID: 1447203300}
   - component: {fileID: 1447203299}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1737,7 +1751,7 @@ GameObject:
   - component: {fileID: 1638617635}
   - component: {fileID: 1638617634}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1914,7 +1928,7 @@ GameObject:
   - component: {fileID: 1718692686}
   - component: {fileID: 1718692685}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,6 +1999,7 @@ GameObject:
   - component: {fileID: 1825495615}
   - component: {fileID: 1825495614}
   - component: {fileID: 1825495613}
+  - component: {fileID: 1825495617}
   m_Layer: 0
   m_Name: Starting Point
   m_TagString: Terrain
@@ -2058,6 +2073,20 @@ Transform:
   m_Father: {fileID: 1691654383}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825495617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1825495612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0065abebcd8c3104ebff0d1eb7b07b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helicopterInfo: {fileID: 364974041}
+  cpdController: {fileID: 1930753642}
+  fLandingTime: 2.5
 --- !u!1 &1838052493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2098,7 @@ GameObject:
   - component: {fileID: 1838052496}
   - component: {fileID: 1838052495}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2227,6 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 1441275884}
 --- !u!1 &1883814642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,6 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 1718692683}
 --- !u!1 &1930753641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,6 +2577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bPackageDelivered: 0
+  objInducementSign: {fileID: 909698714}
 --- !u!1 &2052063543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2589,7 @@ GameObject:
   - component: {fileID: 2052063546}
   - component: {fileID: 2052063545}
   m_Layer: 0
-  m_Name: Position Noticer
+  m_Name: Inducement Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

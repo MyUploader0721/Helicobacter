@@ -132,10 +132,16 @@ public class FlightController : MonoBehaviour
         RotateControllers();
     }
 
+    /// <summary>
+    /// 컬렉티브 값으로 헬리콥터의 고도를 조정합니다. 
+    /// </summary>
     void ControlCollective()
     {
         rigidbody.AddForce(rigidbody.transform.up * inputController.fCollective * fCollectiveSpeed);
     }
+    /// <summary>
+    /// 안티 토크 값으로 헬리콥터의 수평 회전을 조정합니다. 
+    /// </summary>
     void ControlAntiTorque()
     {
         rigidbody.angularVelocity = Vector3.Lerp(
@@ -144,6 +150,9 @@ public class FlightController : MonoBehaviour
             fVelocityLerpStep
         );
     }
+    /// <summary>
+    /// 사이클 값으로 헬리콥터의 기울기를 조정합니다. 
+    /// </summary>
     void ControlCycle()
     {
         rigidbody.angularVelocity = Vector3.Lerp(
@@ -159,6 +168,9 @@ public class FlightController : MonoBehaviour
         );
     }
 
+    /// <summary>
+    /// 헬리콥터의 회전익을 회전시킵니다. 
+    /// </summary>
     void RotateRotorBlades()
     {
         objMainRotorBlade.transform.Rotate(
@@ -169,6 +181,9 @@ public class FlightController : MonoBehaviour
             inputController.fThrottle * 20.0f + (helicopterInfo.bIsEngineStart ? inputController.fAntiTorque : 0.0f));
     }
 
+    /// <summary>
+    /// 컨트롤러가 실제로 움직이도록 조절합니다. 
+    /// </summary>
     void RotateControllers()
     {
         if (objCollectiveLever != null)

@@ -13,12 +13,18 @@ using UnityEngine;
 
 public class PackageReceiverBehaviour : MonoBehaviour
 {
-    public bool bPackageDelivered = false;
+    [HideInInspector] public bool bPackageDelivered = false;
+    [SerializeField] GameObject objInducementSign;
 
-	void Start ()
+    void Start()
     {
-		
-	}
+
+    }
+
+    void Update()
+    {
+        objInducementSign.GetComponent<Renderer>().enabled = !bPackageDelivered;
+    }
 
     void OnCollisionEnter(Collision other)
     {

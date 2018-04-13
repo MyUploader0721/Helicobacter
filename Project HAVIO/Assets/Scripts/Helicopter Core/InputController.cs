@@ -69,11 +69,9 @@ public class InputController : MonoBehaviour
         }
 	}
 
-    void FixedUpdate()
-    {
-        
-    }
-
+    /// <summary>
+    /// 엔진의 상태를 Toggle합니다. 
+    /// </summary>
     public void ToggleEngine()
     {
         helicopterInfo.bIsEngineStart = !helicopterInfo.bIsEngineStart;
