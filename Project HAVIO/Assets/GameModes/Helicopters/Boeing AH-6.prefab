@@ -4267,6 +4267,7 @@ MonoBehaviour:
   objAltLongHand: {fileID: 1303092886249290}
   fAltLongHandAmount: 1
   objAttBall: {fileID: 1690688543232378}
+  fAdjustXRot: 0
   objCompassDir: {fileID: 1886063212075134}
   objWindSpeedHand: {fileID: 1858258111107030}
   objVerticalSpeedHand: {fileID: 1334929837271262}
@@ -4462,7 +4463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bEnhanceHelicopterMotion: 1
   objMainRotorBlade: {fileID: 1656230495368906}
+  bReverseMainRotor: 0
   objTailRotorBlade: {fileID: 1705484033475862}
+  bReverseTailRotor: 0
   objCollectiveLever: {fileID: 1593231780501362}
   objCycleControllers:
   - {fileID: 1306562198629108}
