@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: 7c2bd71204b25da4d9713ef8f6b51104
+timeCreated: 1523241837
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f0000005000000051000000520000005300000054000000550000005600000057000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 7f5363cbba0884460b3ef093111ea93c
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 1.7657249, y: 12.355629, z: 40.19769}
+      lookAt: {x: 0.31562236, y: 6.050224, z: 16.526611}
+      up: {x: -0.015711475, y: 0.9664246, z: -0.25646982}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Group 19
+    100004: Group 2
+    100006: Group 21
+    100008: Group 24
+    100010: Group 28
+    100012: Group 30
+    100014: Group 33
+    100016: Group 34
+    100018: Group 38
+    100020: Group 4
+    100022: Group 57
+    100024: Group 58
+    100026: Group 62
+    100028: Group 80
+    100030: Group 82
+    100032: Group 84
+    100034: Group 86
+    100036: Group#1
+    100038: Group#1 1
+    100040: Group#6
+    100042: Group#6 1
+    100044: Gruppe#11
+    100046: Gruppe#11 1
+    100048: Gruppe#14
+    100050: Gruppe#14 1
+    100052: Gruppe#15
+    100054: Gruppe#15 1
+    100056: Gruppe#16
+    100058: Gruppe#16 1
+    100060: Gruppe#19
+    100062: Little Bird
+    100064: ske8A
+    100066: ske8A 1
+    100068: ske8A 10
+    100070: ske8A 11
+    100072: ske8A 12
+    100074: ske8A 13
+    100076: ske8A 14
+    100078: ske8A 15
+    100080: ske8A 2
+    100082: ske8A 3
+    100084: ske8A 4
+    100086: ske8A 5
+    100088: ske8A 6
+    100090: ske8A 7
+    100092: ske8A 8
+    100094: ske8A 9
+    400000: //RootNode
+    400002: Group 19
+    400004: Group 2
+    400006: Group 21
+    400008: Group 24
+    400010: Group 28
+    400012: Group 30
+    400014: Group 33
+    400016: Group 34
+    400018: Group 38
+    400020: Group 4
+    400022: Group 57
+    400024: Group 58
+    400026: Group 62
+    400028: Group 80
+    400030: Group 82
+    400032: Group 84
+    400034: Group 86
+    400036: Group#1
+    400038: Group#1 1
+    400040: Group#6
+    400042: Group#6 1
+    400044: Gruppe#11
+    400046: Gruppe#11 1
+    400048: Gruppe#14
+    400050: Gruppe#14 1
+    400052: Gruppe#15
+    400054: Gruppe#15 1
+    400056: Gruppe#16
+    400058: Gruppe#16 1
+    400060: Gruppe#19
+    400062: Little Bird
+    400064: ske8A
+    400066: ske8A 1
+    400068: ske8A 10
+    400070: ske8A 11
+    400072: ske8A 12
+    400074: ske8A 13
+    400076: ske8A 14
+    400078: ske8A 15
+    400080: ske8A 2
+    400082: ske8A 3
+    400084: ske8A 4
+    400086: ske8A 5
+    400088: ske8A 6
+    400090: ske8A 7
+    400092: ske8A 8
+    400094: ske8A 9
+    2100000: color [spec,tran1
+    2100002: oh6_panel_1_c1
+    2100004: oh6_map_04_t1
+    2100006: oh6_map_07_t1
+    2100008: oh6_map_05_t1
+    2100010: oh6_map_06_t1
+    2100012: oh6_panel_3_c1
+    2100014: Matte_ FF05873A1
+    2100016: oh6_panel_2_c1
+    2100018: oh6_vc_panel_1
+    2100020: '[Color_A01]'
+    2100022: _Charcoal_
+    2100024: '[0128_White]'
+    2100026: '[0136_Charcoal]'
+    2100028: oh6_map_08_t1
+    2100030: _LightGray_
+    2100032: _Beige_1
+    2100034: ah6pods [spec]1
+    2100036: oh6_map_08_t [sp1
+    2100038: _1
+    2100040: _Redwood_
+    2100042: _DarkGoldenrod_
+    2100044: _Black_
+    2100046: '[Color_008]'
+    2100048: '[Color_007]'
+    2100050: '[Color_003]'
+    2100052: '[0056_Yellow]'
+    2100054: '[Color_005]'
+    2100056: '[0020_Red]'
+    2100058: oh6_map_04_t [sp1
+    2100060: black
+    2100062: 96,96,96
+    2100064: oh6_map_03_t [sp1
+    2100066: '[Color_000]'
+    2100068: oh6_map_01_t [sp1
+    2100070: oh6_map_02_t [sp1
+    2300000: Group 19
+    2300002: Group 2
+    2300004: Group 24
+    2300006: Group 28
+    2300008: Group 30
+    2300010: Group 34
+    2300012: Group 38
+    2300014: Group 4
+    2300016: Group 58
+    2300018: Group 62
+    2300020: Group 80
+    2300022: Group 82
+    2300024: Group 84
+    2300026: Group 86
+    2300028: Group#1
+    2300030: Group#1 1
+    2300032: Group#6
+    2300034: Group#6 1
+    2300036: Gruppe#14
+    2300038: Gruppe#14 1
+    2300040: Gruppe#15
+    2300042: Gruppe#15 1
+    2300044: Gruppe#16
+    2300046: Gruppe#16 1
+    2300048: ske8A
+    2300050: ske8A 1
+    2300052: ske8A 10
+    2300054: ske8A 11
+    2300056: ske8A 12
+    2300058: ske8A 13
+    2300060: ske8A 14
+    2300062: ske8A 15
+    2300064: ske8A 2
+    2300066: ske8A 3
+    2300068: ske8A 4
+    2300070: ske8A 5
+    2300072: ske8A 6
+    2300074: ske8A 7
+    2300076: ske8A 8
+    2300078: ske8A 9
+    3300000: Group 19
+    3300002: Group 2
+    3300004: Group 24
+    3300006: Group 28
+    3300008: Group 30
+    3300010: Group 34
+    3300012: Group 38
+    3300014: Group 4
+    3300016: Group 58
+    3300018: Group 62
+    3300020: Group 80
+    3300022: Group 82
+    3300024: Group 84
+    3300026: Group 86
+    3300028: Group#1
+    3300030: Group#1 1
+    3300032: Group#6
+    3300034: Group#6 1
+    3300036: Gruppe#14
+    3300038: Gruppe#14 1
+    3300040: Gruppe#15
+    3300042: Gruppe#15 1
+    3300044: Gruppe#16
+    3300046: Gruppe#16 1
+    3300048: ske8A
+    3300050: ske8A 1
+    3300052: ske8A 10
+    3300054: ske8A 11
+    3300056: ske8A 12
+    3300058: ske8A 13
+    3300060: ske8A 14
+    3300062: ske8A 15
+    3300064: ske8A 2
+    3300066: ske8A 3
+    3300068: ske8A 4
+    3300070: ske8A 5
+    3300072: ske8A 6
+    3300074: ske8A 7
+    3300076: ske8A 8
+    3300078: ske8A 9
+    4300000: Mesh Group 2
+    4300002: Mesh Group 4
+    4300004: Mesh Gruppe#14
+    4300006: Mesh Gruppe#16
+    4300008: Mesh Gruppe#15
+    4300010: Mesh Group 19
+    4300012: Mesh Group#6
+    4300014: Mesh Group 24
+    4300016: Mesh Group 30
+    4300018: Mesh Group 34
+    4300020: Mesh Group#1
+    4300022: Mesh Group 38
+    4300024: Mesh ske8A
+    4300026: Mesh Group 80
+    4300028: Mesh Group 82
+    4300030: Mesh Group 84
+    4300032: Mesh Group 86
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 96,96,96
+    second: {fileID: 2100000, guid: a8262eea001a8cc49aeaf4f62005b137, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matte_ FF05873A1
+    second: {fileID: 2100000, guid: adbf27efba055a442b17f3172917ecbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0020_Red]'
+    second: {fileID: 2100000, guid: 8708b447f0348894ba45a70450e1a279, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0056_Yellow]'
+    second: {fileID: 2100000, guid: aee8247861a087442b3f4acb937412c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0128_White]'
+    second: {fileID: 2100000, guid: d7cb170902476ea44862aa977bcc1bf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0136_Charcoal]'
+    second: {fileID: 2100000, guid: 0ee65f3e6e786ad47bc3f83a94a8e48d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_000]'
+    second: {fileID: 2100000, guid: 01d5757ba6430d442b86fdc0bee7fdaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_003]'
+    second: {fileID: 2100000, guid: e5ec6b0b7b699464686beaa119a922b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_005]'
+    second: {fileID: 2100000, guid: 856898644580a514e82b283ac3ce7512, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_007]'
+    second: {fileID: 2100000, guid: d5873a85c84c4e8469a9088265c5240f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_008]'
+    second: {fileID: 2100000, guid: c2b585d12150fa549854423e8df840c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_A01]'
+    second: {fileID: 2100000, guid: eb878009283f62b4aa03509854c55c3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _1
+    second: {fileID: 2100000, guid: c15234149390ca146b47dff9fe32625e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Beige_1
+    second: {fileID: 2100000, guid: c1bc53c3a4374c74fba430902c384cff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Black_
+    second: {fileID: 2100000, guid: 3a66c98584a52524bb91e3fa1efd7b09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Charcoal_
+    second: {fileID: 2100000, guid: d929af9acdc1eac4090936d3b851cd37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _DarkGoldenrod_
+    second: {fileID: 2100000, guid: a0c913b15c6ef06428262c7dfd66dbe8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _LightGray_
+    second: {fileID: 2100000, guid: 101e7138bc0146f4aa4e2098e329156c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Redwood_
+    second: {fileID: 2100000, guid: 7c4d14bedd9b9ac4982f34c3b608d9bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ah6pods [spec]1
+    second: {fileID: 2100000, guid: b2fd9902186c398459977e35aa4f7bb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: 8cf224d4d195263428aeeb47ffa9106c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color [spec,tran1
+    second: {fileID: 2100000, guid: f585a6ff0aa580d458ccf3d2c43a73e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_01_t [sp1
+    second: {fileID: 2100000, guid: 8d416593f060cab49802fe62b2d38bcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_02_t [sp1
+    second: {fileID: 2100000, guid: 02052ffe9281ea04b8bedd8a97a265fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_03_t [sp1
+    second: {fileID: 2100000, guid: 2c6b24d02abded9478e2db8760a13db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_04_t [sp1
+    second: {fileID: 2100000, guid: 2fed5284ee9cc0a4b98353f28a295894, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_04_t1
+    second: {fileID: 2100000, guid: b23a16bc1820ec643a0171f9997ba36e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_05_t1
+    second: {fileID: 2100000, guid: 6bb361e0152df8443b5cd65f824a73cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_06_t1
+    second: {fileID: 2100000, guid: efe508d8675e0384c8df6da7917b93ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_07_t1
+    second: {fileID: 2100000, guid: a231c11530b6ce048ab3c680cff59979, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_08_t [sp1
+    second: {fileID: 2100000, guid: 70a5218dc31c40047b9203b1344e4018, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_map_08_t1
+    second: {fileID: 2100000, guid: 6feca6831f1fc1041b487ee2080defab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_panel_1_c1
+    second: {fileID: 2100000, guid: 997891005661dc64e88200d4119e3740, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_panel_2_c1
+    second: {fileID: 2100000, guid: f9728d6b71f1bcb4fb7dd1f1157d7230, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_panel_3_c1
+    second: {fileID: 2100000, guid: 99ba8a184521be6489389811e3ff1b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oh6_vc_panel_1
+    second: {fileID: 2100000, guid: 1fc08330403e6cf4b97139ca263dcd5d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

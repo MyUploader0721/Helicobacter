@@ -1,0 +1,538 @@
+fileFormatVersion: 2
+guid: 7bc00bb6e34ed9b4291f51ee5da12655
+timeCreated: 1523432983
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000
+  assetHash:
+    serializedVersion: 2
+    Hash: c9a43daaa3af17e79e0c6e62162769fc
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 24.841429, y: 25.2176, z: 15.4976845}
+      lookAt: {x: -33.720516, y: -23.815788, z: -6.510512}
+      up: {x: -0.5774444, y: 0.78706086, z: -0.2170097}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: blades102
+    100002: blades102 1
+    100004: blades102 10
+    100006: blades102 11
+    100008: blades102 12
+    100010: blades102 13
+    100012: blades102 14
+    100014: blades102 15
+    100016: blades102 16
+    100018: blades102 17
+    100020: blades102 18
+    100022: blades102 19
+    100024: blades102 2
+    100026: blades102 20
+    100028: blades102 21
+    100030: blades102 22
+    100032: blades102 23
+    100034: blades102 3
+    100036: blades102 4
+    100038: blades102 5
+    100040: blades102 6
+    100042: blades102 7
+    100044: blades102 8
+    100046: blades102 9
+    100048: blades604
+    100050: blades604 1
+    100052: blades604 2
+    100054: blades604 3
+    100056: door_rf_ok
+    100058: door_rf_ok 1
+    100060: glass
+    100062: Group 1
+    100064: Group 116
+    100066: Group 117
+    100068: Group 13
+    100070: Group 142
+    100072: Group 15
+    100074: Group 17
+    100076: Group 2
+    100078: Group 22
+    100080: Group 24
+    100082: Group 26
+    100084: Group 36
+    100086: Group 37
+    100088: Group 39
+    100090: Group 7
+    100092: Group 8
+    100094: Gruppe#1
+    100096: Gruppe#1 1
+    100098: Gruppe#10
+    100100: Gruppe#10 1
+    100102: Gruppe#10 2
+    100104: Gruppe#10 3
+    100106: Gruppe#12
+    100108: Gruppe#12 1
+    100110: Gruppe#12 2
+    100112: Gruppe#12 3
+    100114: Gruppe#15
+    100116: Gruppe#15 1
+    100118: Gruppe#16
+    100120: Gruppe#16 1
+    100122: Gruppe#20
+    100124: Gruppe#20 1
+    100126: Gruppe#20 10
+    100128: Gruppe#20 11
+    100130: Gruppe#20 2
+    100132: Gruppe#20 3
+    100134: Gruppe#20 4
+    100136: Gruppe#20 5
+    100138: Gruppe#20 6
+    100140: Gruppe#20 7
+    100142: Gruppe#20 8
+    100144: Gruppe#20 9
+    100146: Gruppe#3
+    100148: Gruppe#3 1
+    100150: Gruppe#6
+    100152: Gruppe#6 1
+    100154: Komponente#1
+    100156: Komponente#1 1
+    100158: Komponente#1 2
+    100160: Komponente#1 3
+    100162: Komponente#2
+    100164: Komponente#2 1
+    100166: mgun
+    100168: mgun 1
+    100170: mgun01
+    100172: mgun01 1
+    100174: //RootNode
+    100176: slidedoor_
+    100178: slidedoor_ 1
+    100180: static_rot
+    100182: tail_wing
+    100184: tire_rear
+    100186: tire_right
+    100188: tire_right 1
+    400000: blades102
+    400002: blades102 1
+    400004: blades102 10
+    400006: blades102 11
+    400008: blades102 12
+    400010: blades102 13
+    400012: blades102 14
+    400014: blades102 15
+    400016: blades102 16
+    400018: blades102 17
+    400020: blades102 18
+    400022: blades102 19
+    400024: blades102 2
+    400026: blades102 20
+    400028: blades102 21
+    400030: blades102 22
+    400032: blades102 23
+    400034: blades102 3
+    400036: blades102 4
+    400038: blades102 5
+    400040: blades102 6
+    400042: blades102 7
+    400044: blades102 8
+    400046: blades102 9
+    400048: blades604
+    400050: blades604 1
+    400052: blades604 2
+    400054: blades604 3
+    400056: door_rf_ok
+    400058: door_rf_ok 1
+    400060: glass
+    400062: Group 1
+    400064: Group 116
+    400066: Group 117
+    400068: Group 13
+    400070: Group 142
+    400072: Group 15
+    400074: Group 17
+    400076: Group 2
+    400078: Group 22
+    400080: Group 24
+    400082: Group 26
+    400084: Group 36
+    400086: Group 37
+    400088: Group 39
+    400090: Group 7
+    400092: Group 8
+    400094: Gruppe#1
+    400096: Gruppe#1 1
+    400098: Gruppe#10
+    400100: Gruppe#10 1
+    400102: Gruppe#10 2
+    400104: Gruppe#10 3
+    400106: Gruppe#12
+    400108: Gruppe#12 1
+    400110: Gruppe#12 2
+    400112: Gruppe#12 3
+    400114: Gruppe#15
+    400116: Gruppe#15 1
+    400118: Gruppe#16
+    400120: Gruppe#16 1
+    400122: Gruppe#20
+    400124: Gruppe#20 1
+    400126: Gruppe#20 10
+    400128: Gruppe#20 11
+    400130: Gruppe#20 2
+    400132: Gruppe#20 3
+    400134: Gruppe#20 4
+    400136: Gruppe#20 5
+    400138: Gruppe#20 6
+    400140: Gruppe#20 7
+    400142: Gruppe#20 8
+    400144: Gruppe#20 9
+    400146: Gruppe#3
+    400148: Gruppe#3 1
+    400150: Gruppe#6
+    400152: Gruppe#6 1
+    400154: Komponente#1
+    400156: Komponente#1 1
+    400158: Komponente#1 2
+    400160: Komponente#1 3
+    400162: Komponente#2
+    400164: Komponente#2 1
+    400166: mgun
+    400168: mgun 1
+    400170: mgun01
+    400172: mgun01 1
+    400174: //RootNode
+    400176: slidedoor_
+    400178: slidedoor_ 1
+    400180: static_rot
+    400182: tail_wing
+    400184: tire_rear
+    400186: tire_right
+    400188: tire_right 1
+    2100000: 01
+    2100002: '[Color_004]'
+    2100004: '[Color_D11]'
+    2100006: 07
+    2100008: 02
+    2100010: 03
+    2100012: 04
+    2100014: 05
+    2100016: '[Color_006]'
+    2100018: 06
+    2300000: blades102
+    2300002: blades102 1
+    2300004: blades102 10
+    2300006: blades102 11
+    2300008: blades102 12
+    2300010: blades102 13
+    2300012: blades102 14
+    2300014: blades102 15
+    2300016: blades102 16
+    2300018: blades102 17
+    2300020: blades102 18
+    2300022: blades102 19
+    2300024: blades102 2
+    2300026: blades102 20
+    2300028: blades102 21
+    2300030: blades102 22
+    2300032: blades102 23
+    2300034: blades102 3
+    2300036: blades102 4
+    2300038: blades102 5
+    2300040: blades102 6
+    2300042: blades102 7
+    2300044: blades102 8
+    2300046: blades102 9
+    2300048: blades604
+    2300050: blades604 1
+    2300052: blades604 2
+    2300054: blades604 3
+    2300056: door_rf_ok
+    2300058: door_rf_ok 1
+    2300060: glass
+    2300062: Group 13
+    2300064: Group 15
+    2300066: Group 22
+    2300068: Group 24
+    2300070: Group 26
+    2300072: Group 37
+    2300074: Gruppe#1
+    2300076: Gruppe#1 1
+    2300078: Gruppe#10
+    2300080: Gruppe#10 1
+    2300082: Gruppe#10 2
+    2300084: Gruppe#10 3
+    2300086: Gruppe#12
+    2300088: Gruppe#12 1
+    2300090: Gruppe#12 2
+    2300092: Gruppe#12 3
+    2300094: Gruppe#15
+    2300096: Gruppe#15 1
+    2300098: Gruppe#16
+    2300100: Gruppe#16 1
+    2300102: Gruppe#20
+    2300104: Gruppe#20 1
+    2300106: Gruppe#20 10
+    2300108: Gruppe#20 11
+    2300110: Gruppe#20 2
+    2300112: Gruppe#20 3
+    2300114: Gruppe#20 4
+    2300116: Gruppe#20 5
+    2300118: Gruppe#20 6
+    2300120: Gruppe#20 7
+    2300122: Gruppe#20 8
+    2300124: Gruppe#20 9
+    2300126: Gruppe#3
+    2300128: Gruppe#3 1
+    2300130: Gruppe#6
+    2300132: Gruppe#6 1
+    2300134: mgun
+    2300136: mgun 1
+    2300138: mgun01
+    2300140: mgun01 1
+    2300142: slidedoor_
+    2300144: slidedoor_ 1
+    2300146: static_rot
+    2300148: tail_wing
+    2300150: tire_rear
+    2300152: tire_right
+    2300154: tire_right 1
+    3300000: blades102
+    3300002: blades102 1
+    3300004: blades102 10
+    3300006: blades102 11
+    3300008: blades102 12
+    3300010: blades102 13
+    3300012: blades102 14
+    3300014: blades102 15
+    3300016: blades102 16
+    3300018: blades102 17
+    3300020: blades102 18
+    3300022: blades102 19
+    3300024: blades102 2
+    3300026: blades102 20
+    3300028: blades102 21
+    3300030: blades102 22
+    3300032: blades102 23
+    3300034: blades102 3
+    3300036: blades102 4
+    3300038: blades102 5
+    3300040: blades102 6
+    3300042: blades102 7
+    3300044: blades102 8
+    3300046: blades102 9
+    3300048: blades604
+    3300050: blades604 1
+    3300052: blades604 2
+    3300054: blades604 3
+    3300056: door_rf_ok
+    3300058: door_rf_ok 1
+    3300060: glass
+    3300062: Group 13
+    3300064: Group 15
+    3300066: Group 22
+    3300068: Group 24
+    3300070: Group 26
+    3300072: Group 37
+    3300074: Gruppe#1
+    3300076: Gruppe#1 1
+    3300078: Gruppe#10
+    3300080: Gruppe#10 1
+    3300082: Gruppe#10 2
+    3300084: Gruppe#10 3
+    3300086: Gruppe#12
+    3300088: Gruppe#12 1
+    3300090: Gruppe#12 2
+    3300092: Gruppe#12 3
+    3300094: Gruppe#15
+    3300096: Gruppe#15 1
+    3300098: Gruppe#16
+    3300100: Gruppe#16 1
+    3300102: Gruppe#20
+    3300104: Gruppe#20 1
+    3300106: Gruppe#20 10
+    3300108: Gruppe#20 11
+    3300110: Gruppe#20 2
+    3300112: Gruppe#20 3
+    3300114: Gruppe#20 4
+    3300116: Gruppe#20 5
+    3300118: Gruppe#20 6
+    3300120: Gruppe#20 7
+    3300122: Gruppe#20 8
+    3300124: Gruppe#20 9
+    3300126: Gruppe#3
+    3300128: Gruppe#3 1
+    3300130: Gruppe#6
+    3300132: Gruppe#6 1
+    3300134: mgun
+    3300136: mgun 1
+    3300138: mgun01
+    3300140: mgun01 1
+    3300142: slidedoor_
+    3300144: slidedoor_ 1
+    3300146: static_rot
+    3300148: tail_wing
+    3300150: tire_rear
+    3300152: tire_right
+    3300154: tire_right 1
+    4300000: Mesh Gruppe#1
+    4300002: Mesh Gruppe#3
+    4300004: Mesh Group 13
+    4300006: Mesh Group 15
+    4300008: Mesh Gruppe#6
+    4300010: Mesh Group 22
+    4300012: Mesh Group 24
+    4300014: Mesh Group 26
+    4300016: Mesh Gruppe#15
+    4300018: Mesh Gruppe#16
+    4300020: Mesh Group 37
+    4300022: Mesh Gruppe#10
+    4300024: Mesh blades604
+    4300026: Mesh blades102
+    4300028: Mesh Gruppe#12
+    4300030: Mesh Gruppe#20
+    4300032: Mesh mgun
+    4300034: Mesh mgun01
+    4300036: Mesh slidedoor_
+    4300038: Mesh tail_wing
+    4300040: Mesh tire_rear
+    4300042: Mesh tire_right
+    4300044: Mesh static_rot
+    4300046: Mesh door_rf_ok
+    4300048: Mesh glass
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01
+    second: {fileID: 2100000, guid: 1ae5f0a7d52eea446ba84a4d53b11908, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02
+    second: {fileID: 2100000, guid: 46be6e88530fd324c8373084e7b7fb54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03
+    second: {fileID: 2100000, guid: 3f00052d3db7c724c856eaa1c544ef7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 04
+    second: {fileID: 2100000, guid: c5deb3e00ef76da43bf2774457e3b44e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 05
+    second: {fileID: 2100000, guid: 678b681fa60d8a74db7d25547292f2fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 06
+    second: {fileID: 2100000, guid: 9fe421e1afa9bfa48a03ae7f61ee254d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07
+    second: {fileID: 2100000, guid: 7afeea1cb6ff3be4980a4a96c380e8b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_004]'
+    second: {fileID: 2100000, guid: fa319d8f370ce0349b0cef5a8e4facac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_006]'
+    second: {fileID: 2100000, guid: 8e4fd688875b962428211a9c58e84327, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_D11]'
+    second: {fileID: 2100000, guid: 3ad7ac1835df4184fa8d6f374346a233, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
