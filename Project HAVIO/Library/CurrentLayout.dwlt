@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 11
+  controlID: 131
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 12
+  controlID: 55
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 13
+  controlID: 56
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -434,33 +434,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Library
+    - Assets/Scenes/Test
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Library
+  - Assets/Scenes/Test
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Project\Unity3D\GraduateProject\Temp\Project HAVIO
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 982a0000
-    m_LastClickedID: 10904
-    m_ExpandedIDs: 000000004e280000122900006e290000f2290000f6290000f8290000322a0000062b0000202b00003e2b000000ca9a3bffffff7f
+    m_SelectedIDs: 7a2a0000
+    m_LastClickedID: 10874
+    m_ExpandedIDs: 000000004e280000642800000829000068290000ee290000f02900002a2a0000582a0000982a0000fa2a0000142b0000322b0000fa2e0000fc2e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Materials
+      m_OriginalName: Materials
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10578
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -474,7 +474,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e2800006e290000f6290000062b0000202b00003e2b0000
+    m_ExpandedIDs: 000000004e28000068290000ee290000f02900002a2a0000fa2a0000142b0000322b0000fa2e0000fc2e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,22 +501,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: ce240000bc240000b42600007824000042270000322400002247ffff342400008c250000bc27000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Helicopters
-      m_OriginalName: Helicopters
+      m_Name: AH-6
+      m_OriginalName: AH-6
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10338
+      m_UserData: 11032
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 4
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
@@ -594,7 +594,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 96fbffff00000000
+    m_ExpandedIDs: 24faffffc4faffff00fbffff62fbffff88fbffff92fbffff96fbffff000000009a2b0000d42b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -645,14 +645,14 @@ MonoBehaviour:
     height: 660
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 11932.62321662277
+  lastFramingTime: 2807.7080408654806
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1075.1079, y: 205.74094, z: -1060.7479}
+    m_Target: {x: -1078.1045, y: 193.9703, z: -1045.1057}
     speed: 2
-    m_Value: {x: -1075.1079, y: 205.74094, z: -1060.7479}
+    m_Value: {x: -1078.1045, y: 193.9703, z: -1045.1057}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -676,13 +676,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.3358509, y: 0.09723309, z: -0.034875907, w: -0.93623376}
+    m_Target: {x: -0.08588321, y: 0.3646949, z: -0.03380025, w: -0.92654496}
     speed: 2
-    m_Value: {x: -0.33585086, y: 0.09723309, z: -0.034875907, w: -0.9362337}
+    m_Value: {x: -0.08588294, y: 0.36469376, z: -0.033800147, w: -0.9265421}
   m_Size:
-    m_Target: 2.8578837
+    m_Target: 1.6867502
     speed: 2
-    m_Value: 2.8578837
+    m_Value: 1.6867502
   m_Ortho:
     m_Target: 0
     speed: 2
