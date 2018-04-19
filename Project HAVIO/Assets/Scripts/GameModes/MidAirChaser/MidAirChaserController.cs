@@ -88,6 +88,10 @@ public class MidAirChaserController : MonoBehaviour
             StopCoroutine("MissionTimer");
 	}
 
+    /// <summary>
+    /// 타이머를 코루틴으로 구현합니다. 
+    /// 플레이어는 해당 시간동안 Target을 좇아야 합니다. 
+    /// </summary>
     IEnumerator MissionTimer()
     {
         while (nRemainedTime > 0)
@@ -102,6 +106,9 @@ public class MidAirChaserController : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
+    /// <summary>
+    /// 플레이어와 Target 사이의 거리가 멀어질 때 MA값을 감소시킵니다. 
+    /// </summary>
     IEnumerator DecreaseMissingAlert()
     {
         bMissingAlert = true;

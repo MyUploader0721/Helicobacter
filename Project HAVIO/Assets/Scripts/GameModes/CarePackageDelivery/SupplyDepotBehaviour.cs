@@ -42,11 +42,6 @@ public class SupplyDepotBehaviour : MonoBehaviour
         audioSource[(int)SFX_List.PACKAGE_LOADING].maxDistance = 3.0f;
 
     }
-	
-	void Update ()
-    {
-		
-	}
 
     void OnTriggerEnter(Collider other)
     {

@@ -16,11 +16,6 @@ public class PackageReceiverBehaviour : MonoBehaviour
     [HideInInspector] public bool bPackageDelivered = false;
     [SerializeField] GameObject objInducementSign;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         objInducementSign.GetComponent<Renderer>().enabled = !bPackageDelivered;
