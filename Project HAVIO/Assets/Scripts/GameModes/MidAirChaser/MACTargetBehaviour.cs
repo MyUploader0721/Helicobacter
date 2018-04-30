@@ -11,6 +11,8 @@ using UnityEngine.AI;
  *     DEV LOG: 
  *  - 플레이어 헬리콥터에 쫒기는 오브젝트의 행위를 정의합니다. 
  *  - NavMesh를 사용하여 주어진 위치로 이동합니다. 
+ *  - 04-30: 타겟의 AI를 조금 변형합니다. 일정 범위 밖에서는 랜덤으로 이동하다가
+ *           플레이어가 일정 범위 안으로 이동하면 플레이어와 반대 방향으로 이동하게 됩니다. 
  */
 
 public class MACTargetBehaviour : MonoBehaviour
@@ -22,7 +24,10 @@ public class MACTargetBehaviour : MonoBehaviour
     [SerializeField] MidAirChaserController macController;
     [SerializeField] GameObject objPlayer;
 
+    [SerializeField] float fEscapeDistance = 15.0f;
+
     public float fDistance = 0.0f;
+    public bool bIsEscapingMode = false;
     
 	void Start ()
     {
@@ -33,9 +38,19 @@ public class MACTargetBehaviour : MonoBehaviour
 	
 	void Update ()
     {
-        navMeshAgent.destination = macController.objRandPos[nTargetPos].transform.position;
-
         fDistance = Vector3.Distance(transform.position, objPlayer.transform.position);
+
+        if (fDistance >= fEscapeDistance)
+        {
+            bIsEscapingMode = false;
+            navMeshAgent.destination = macController.objRandPos[nTargetPos].transform.position;
+        }
+        else
+        {
+            bIsEscapingMode = true;
+            Vector3 delta = transform.position - objPlayer.transform.position;
+            navMeshAgent.destination = transform.position + delta * delta.magnitude;
+        }
 	}
 
     /// <summary>

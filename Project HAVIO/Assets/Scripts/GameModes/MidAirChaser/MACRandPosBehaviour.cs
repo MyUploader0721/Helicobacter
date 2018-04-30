@@ -18,7 +18,7 @@ public class MACRandPosBehaviour : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Target") && other.GetComponent<MACTargetBehaviour>().nTargetPos == nNum)
+        if (other.CompareTag("Target") && !other.GetComponent<MACTargetBehaviour>().bIsEscapingMode && other.GetComponent<MACTargetBehaviour>().nTargetPos == nNum)
         {
             other.GetComponent<MACTargetBehaviour>().ChangeDestination();
         }
