@@ -35,7 +35,7 @@ public class MidAirChaserController : MonoBehaviour
     public bool bAccomplished = false;
     public int nMissionTime = 300;
     public int nRemainedTime = 0;
-    [SerializeField] float fMaxDistance = 20.0f;
+    public float fMaxDistance = 20.0f;
     public int nMaxMissingAlert = 50;
     public int nRemainedMissingAlert = 0;
     bool bMissingAlert = false;

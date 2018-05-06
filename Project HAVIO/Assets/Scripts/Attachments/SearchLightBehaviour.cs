@@ -11,11 +11,13 @@ using UnityEngine;
  *  - 새로운 스크립트에 적용되는 탐조등 스크립트입니다. 
  *  - 조종사의 시야에 따라 탐조등이 움직입니다. 다만 완전히 자유롭지는
  *    않고, 하반구 정도로만 움직이도록 고정되어있습니다. 
+ *  - 05-06: 일정 범위에서 MAC모드의 타겟을 고정촬영하는 카메라와 조명을
+ *           추가합니다. 
  */
 
 public class SearchLightBehaviour : MonoBehaviour
 {
-    [SerializeField] new Camera camera;
+    [SerializeField] new GameObject camera;
 
     bool bLightOn = false;
 
@@ -23,13 +25,14 @@ public class SearchLightBehaviour : MonoBehaviour
     HelicopterInfo helicopterInfo;
     AudioSource audioSource;
 
+    GameObject objTFC;
+
     void Start()
     {
-        if (camera == null)
-            camera = Camera.main;
-
         helicopterInfo = GetComponentInParent<HelicopterInfo>();
         audioSource = GetComponent<AudioSource>();
+
+        objTFC = GameObject.Find("Target Finding Camera");
     }
 
     void Update()
@@ -46,7 +49,24 @@ public class SearchLightBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        SetLightOrientation();
+        if (objTFC != null)
+        {
+            if (Vector3.Distance(GameObject.Find("Target").transform.position, objPlayer.transform.position) >= 
+                GameObject.Find("Mid-Air Chaser Game Mode Controller").GetComponent<MidAirChaserController>().fMaxDistance)
+            {
+                SetLightOrientation();
+            }
+            else
+            {
+                transform.LookAt(GameObject.Find("Target").transform);
+                objTFC.transform.LookAt(GameObject.Find("Target").transform);
+            }
+        }
+        else
+        {
+            SetLightOrientation();
+        }
+        
         GetComponent<Light>().enabled = bLightOn;
     }
 
@@ -57,11 +77,16 @@ public class SearchLightBehaviour : MonoBehaviour
     /// </summary>
     void SetLightOrientation()
     {
-        Vector3 v3CameraOrientation = camera.transform.localRotation.eulerAngles;
+        Vector3 v3CameraOrientation = camera.transform.localEulerAngles;
 
         if (v3CameraOrientation.x > 180.0f) v3CameraOrientation.x = 0.0f;
         else if (v3CameraOrientation.x < 0.0f) v3CameraOrientation.x = 180.0f;
 
         transform.localEulerAngles = v3CameraOrientation;
+        
+        if (objTFC != null)
+        {
+            objTFC.transform.localEulerAngles = v3CameraOrientation;
+        }
     }
 }
