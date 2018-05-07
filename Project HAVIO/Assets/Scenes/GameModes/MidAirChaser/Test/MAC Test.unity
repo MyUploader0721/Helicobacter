@@ -4484,7 +4484,7 @@ GameObject:
   - component: {fileID: 1970109186}
   - component: {fileID: 1970109184}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Target Finding Camera Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4496,13 +4496,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1970109182}
-  m_LocalRotation: {x: 0.058847457, y: -0, z: 0.0000000037252903, w: 0.99826705}
-  m_LocalPosition: {x: 0, y: 0.0639, z: 1.3609}
+  m_LocalRotation: {x: 0.032172907, y: -0, z: -0.0000000037252903, w: 0.9994824}
+  m_LocalPosition: {x: -0, y: 0.063, z: 1.368}
   m_LocalScale: {x: 0.2907992, y: 0.18398218, z: 1}
   m_Children: []
   m_Father: {fileID: 1989889864}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 6.747, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.6870003, y: 0, z: 0}
 --- !u!23 &1970109184
 MeshRenderer:
   m_ObjectHideFlags: 0
