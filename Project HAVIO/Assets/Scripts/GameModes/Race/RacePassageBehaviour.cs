@@ -17,19 +17,10 @@ public class RacePassageBehaviour : MonoBehaviour
     [SerializeField] RaceController raceController;
     [Header("Number of this Passage")]
     [SerializeField] int nNumber = -1;
-    
-	void Start ()
-    {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
 
     void OnTriggerEnter(Collider other)
     {
+        // 플레이어가 중간 통과지점에 도달하였을 경우
         if (other.CompareTag("Player") && raceController.nPassedPassages == nNumber)
         {
             raceController.EnterPassage(nNumber);
@@ -38,6 +29,10 @@ public class RacePassageBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 해당 중간 통과지점의 번호를 설정합니다. (초기화)
+    /// </summary>
+    /// <param name="n"></param>
     public void SetNumber(int n)
     {
         if (nNumber == -1)

@@ -59,12 +59,14 @@ public class RaceController : MonoBehaviour
 
     void Update()
     {
+        // 공중에서 시작할 경우
         if (bIsStartInMidAir)
         {
             bIsStartInMidAir = false;
             objPlayer.GetComponent<InputController>().ToggleEngine();
         }
 
+        // 다음 목표 표시(Target Navigation)
         if (nPassedPassages < rpbPassages.Length)
         {
             Vector3 v3PosNav = rpbPassages[nPassedPassages].transform.position;
@@ -79,6 +81,11 @@ public class RaceController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// <code>nNumber</code>번째 중간 통과지점을 통과할 때 호출되는 함수입니다. 
+    /// 통과 지점 개수를 늘리고 시간초를 더합니다. 
+    /// </summary>
+    /// <param name="nNumber">중간 통과지점의 번호입니다. </param>
     public void EnterPassage(int nNumber)
     {
         rpbPassages[nNumber] = null;
@@ -93,6 +100,9 @@ public class RaceController : MonoBehaviour
             
     }
 
+    /// <summary>
+    /// 타이머를 작동합니다. 
+    /// </summary>
     IEnumerator StartTimer()
     {
         while (nTimeRemained > 0)
