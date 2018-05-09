@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /**
  *       TITLE: MidAirChaserController.cs
@@ -10,6 +12,8 @@ using UnityEngine;
  *     DEV LOG: 
  *  - 공중에서 목표를 추격하는 임무를 수행하는 게임모드를 설정합니다. 
  *  - 정해진 매개변수들을 조절하여 난이도를 변경할 수 있습니다. 
+ *  - 05-09: 임무 성공 시 게임 종료를,
+ *           게임 실패 시 재시작을 할 수 있도록 하였습니다. 
  */
 
 public class MidAirChaserController : MonoBehaviour
@@ -39,6 +43,11 @@ public class MidAirChaserController : MonoBehaviour
     public int nMaxMissingAlert = 50;
     public int nRemainedMissingAlert = 0;
     bool bMissingAlert = false;
+
+    [Header("Game Over Setting")]
+    [SerializeField] GameObject objAccomplishedPanel;
+    [SerializeField] GameObject objGameOverPanel;
+    bool bIsGameOver = false;
 
     void Start ()
     {
@@ -85,7 +94,33 @@ public class MidAirChaserController : MonoBehaviour
         }
 
         if (!helicopterInfo.bIsFlyable)
+        {
             StopCoroutine("MissionTimer");
+            GameOver();
+        }
+
+        // DEVLOG 05-09:
+        if (bAccomplished)
+        {
+            // 종료
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+        }
+        if (bIsGameOver)
+        {
+            // 재시작
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            // 종료
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+        }
 	}
 
     /// <summary>
@@ -102,8 +137,7 @@ public class MidAirChaserController : MonoBehaviour
 
         Debug.Log("Mission Accomplished!");
         bAccomplished = true;
-
-        UnityEditor.EditorApplication.isPlaying = false;
+        objAccomplishedPanel.SetActive(true);
     }
 
     /// <summary>
@@ -122,6 +156,20 @@ public class MidAirChaserController : MonoBehaviour
         Debug.Log("Mission Failed!");
         bAccomplished = false;
 
-        UnityEditor.EditorApplication.isPlaying = false;
+        GameOver();
+    }
+
+    /// <summary>
+    /// 미션을 실패하여 게임 오버가 되었을 경우 게임 오버를 화면에 출력하고 다시 시작 또는 종료를 유도합니다. 
+    /// </summary>
+    void GameOver()
+    {
+        if (!bIsGameOver)
+        {
+            objGameOverPanel.SetActive(true);
+
+            bIsGameOver = true;
+
+        }
     }
 }
