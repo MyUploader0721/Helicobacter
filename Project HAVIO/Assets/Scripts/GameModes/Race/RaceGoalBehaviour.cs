@@ -19,9 +19,10 @@ public class RaceGoalBehaviour : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 플레이어가 마지막 통과지점에 도달하였을 경우
-        if (other.CompareTag("Player") && raceController.bCanGoal)
+        if (other.CompareTag("Player") && raceController.bCanGoal && !raceController.bGameOver)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            raceController.bAccomplished = true;
+            raceController.panelAccomplished.SetActive(true);
         }
     }
 }

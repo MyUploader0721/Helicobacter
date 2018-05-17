@@ -44,9 +44,11 @@ public class MidAirChaserController : MonoBehaviour
     public int nRemainedMissingAlert = 0;
     bool bMissingAlert = false;
 
-    [Header("Game Over Setting")]
+    [Header("UI Setting")]
     [SerializeField] GameObject objAccomplishedPanel;
     [SerializeField] GameObject objGameOverPanel;
+    [SerializeField] Text textTime;
+    [SerializeField] Text textMissingAlert;
     bool bIsGameOver = false;
 
     void Start ()
@@ -58,6 +60,7 @@ public class MidAirChaserController : MonoBehaviour
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
         helicopterInfo.bUseInnerPod = bUseInnerPod;
         helicopterInfo.bUseOuterPod = bUseOuterPod;
+        helicopterInfo.bUseSearchLight = bUseSearchLight;
 
         targetBehaviour = objTarget.GetComponent<MACTargetBehaviour>();
 
@@ -103,7 +106,7 @@ public class MidAirChaserController : MonoBehaviour
         if (bAccomplished)
         {
             // 종료
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
@@ -111,12 +114,12 @@ public class MidAirChaserController : MonoBehaviour
         if (bIsGameOver)
         {
             // 재시작
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonB"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             // 종료
-            else if (Input.GetKeyDown(KeyCode.Escape))
+            else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
@@ -132,6 +135,7 @@ public class MidAirChaserController : MonoBehaviour
         while (nRemainedTime > 0)
         {
             nRemainedTime--;
+            textTime.text = "Time: " + nRemainedTime;
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -150,6 +154,7 @@ public class MidAirChaserController : MonoBehaviour
         while (nRemainedMissingAlert > 0)
         {
             nRemainedMissingAlert--;
+            textMissingAlert.text = "MissingAlert: " + nRemainedMissingAlert;
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -169,7 +174,6 @@ public class MidAirChaserController : MonoBehaviour
             objGameOverPanel.SetActive(true);
 
             bIsGameOver = true;
-
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /**
  *       TITLE: RaceController.cs
@@ -10,6 +12,7 @@ using UnityEngine;
  *     DEV LOG: 
  *  - 정해진 지점을 통과하며 시간 내에 목표까지 도착해야 하는 레이싱 모드입니다. 
  *  - 이 모드를 컨트롤하는 스크립트입니다.  
+ *  - 05-17: 임무성공/실패에 해당하는 UI를 출력하도록 합니다. 
  */
 
 public class RaceController : MonoBehaviour
@@ -37,7 +40,13 @@ public class RaceController : MonoBehaviour
     public int nTimeRemained = 60;
     public int nAmountOfTimeAddition = 5;
     public bool bCanGoal = false;
-    public bool bHasGoalIn = false;
+    public bool bGameOver = false;
+    bool bTimerTicking = false;
+
+    [Header("UI Setting")]
+    [SerializeField] GameObject panelGameOver;
+    public GameObject panelAccomplished;
+    [SerializeField] Text textTime;
 
     void Start()
     {
@@ -48,6 +57,7 @@ public class RaceController : MonoBehaviour
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
         helicopterInfo.bUseInnerPod = bUseInnerPod;
         helicopterInfo.bUseOuterPod = bUseOuterPod;
+        helicopterInfo.bUseSearchLight = bUseSearchLight;
 
         for (int i = 0; i < rpbPassages.Length; i++)
         {
@@ -79,6 +89,38 @@ public class RaceController : MonoBehaviour
             v3PosNav.y += 30.0f;
             objTargetNav.transform.position = v3PosNav;
         }
+
+        if (!objPlayer.GetComponent<HelicopterInfo>().bIsFlyable)
+        {
+            bGameOver = true;
+            if (!panelGameOver.activeInHierarchy)
+                panelGameOver.SetActive(true);
+        }
+
+        if (bGameOver)
+        {
+            if (bTimerTicking)
+                StopCoroutine("StartTimer");
+
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonA"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+        if (bAccomplished)
+        {
+            if (bTimerTicking)
+                StopCoroutine("StartTimer");
+
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+        }
     }
 
     /// <summary>
@@ -97,7 +139,6 @@ public class RaceController : MonoBehaviour
         {
             bCanGoal = true;
         }
-            
     }
 
     /// <summary>
@@ -105,10 +146,19 @@ public class RaceController : MonoBehaviour
     /// </summary>
     IEnumerator StartTimer()
     {
+        bTimerTicking = true;
+
         while (nTimeRemained > 0)
         {
             nTimeRemained--;
+            textTime.text = "Time: " + nTimeRemained;
             yield return new WaitForSeconds(1.0f);
+        }
+
+        if (!bAccomplished)
+        {
+            bGameOver = true;
+            panelGameOver.SetActive(true);
         }
     }
 }

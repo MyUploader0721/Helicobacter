@@ -435,7 +435,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 7
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: AntiTorqueHorizontal
@@ -451,7 +451,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 6
+    axis: 5
     joyNum: 0
   - serializedVersion: 3
     m_Name: CycleVertical
@@ -571,6 +571,38 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 4
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 11
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: JoystickButtonA
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 27
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: JoystickButtonB
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

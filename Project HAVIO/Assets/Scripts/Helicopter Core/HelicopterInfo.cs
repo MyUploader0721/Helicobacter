@@ -28,7 +28,7 @@ public class HelicopterInfo : MonoBehaviour
 
     [Header("Available Attachments")]
     [SerializeField] GameObject objSearchLight;
-    [SerializeField] bool bUseSearchLight = false;
+    public bool bUseSearchLight = false;
     [SerializeField] GameObject objInnerPod;
     public bool bUseInnerPod = false;
     [SerializeField] GameObject objOuterPod;
