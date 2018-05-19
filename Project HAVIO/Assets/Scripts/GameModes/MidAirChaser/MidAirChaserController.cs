@@ -49,6 +49,7 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] GameObject objGameOverPanel;
     [SerializeField] Text textTime;
     [SerializeField] Text textMissingAlert;
+    [SerializeField] Text textDistance;
     bool bIsGameOver = false;
 
     void Start ()
@@ -72,6 +73,7 @@ public class MidAirChaserController : MonoBehaviour
 	
 	void Update ()
     {
+        textDistance.text = "Dist.: " + targetBehaviour.fDistance.ToString("0.00") + "m";
         if (bIsStartInMidAir)
         {
             bIsStartInMidAir = false;
@@ -83,6 +85,7 @@ public class MidAirChaserController : MonoBehaviour
             if (!bMissingAlert)
                 StartCoroutine("DecreaseMissingAlert");
 
+            textDistance.color = new Color(0.8046875f, 0.0f, 0.0f);
             Debug.Log("Missing your target!: " + targetBehaviour.fDistance + "m");
         }
         else
@@ -93,6 +96,7 @@ public class MidAirChaserController : MonoBehaviour
                 bMissingAlert = false;
             }
 
+            textDistance.color = new Color(0.1953125f, 0.1953125f, 0.1953125f);
             Debug.Log("Distance is Safe now: " + targetBehaviour.fDistance + "m");
         }
 

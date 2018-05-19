@@ -42,11 +42,13 @@ public class RaceController : MonoBehaviour
     public bool bCanGoal = false;
     public bool bGameOver = false;
     bool bTimerTicking = false;
+    int nNumPassages;
 
     [Header("UI Setting")]
     [SerializeField] GameObject panelGameOver;
     public GameObject panelAccomplished;
     [SerializeField] Text textTime;
+    [SerializeField] Text textGoalLeft;
 
     void Start()
     {
@@ -64,11 +66,15 @@ public class RaceController : MonoBehaviour
             rpbPassages[i].SetNumber(i);
         }
 
+        nNumPassages = rpbPassages.Length;
+
         StartCoroutine("StartTimer");
     }
 
     void Update()
     {
+        textGoalLeft.text = "Goal Left: " + (nNumPassages - nPassedPassages) + "/" + nNumPassages;
+
         // 공중에서 시작할 경우
         if (bIsStartInMidAir)
         {
@@ -90,7 +96,7 @@ public class RaceController : MonoBehaviour
             objTargetNav.transform.position = v3PosNav;
         }
 
-        if (!objPlayer.GetComponent<HelicopterInfo>().bIsFlyable)
+        if (!objPlayer.GetComponent<HelicopterInfo>().bIsFlyable && !bAccomplished)
         {
             bGameOver = true;
             if (!panelGameOver.activeInHierarchy)
