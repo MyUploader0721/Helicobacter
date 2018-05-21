@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43679866, g: 0.47546315, b: 0.516141, a: 1}
+  m_IndirectSpecularColor: {r: 0.43679866, g: 0.4754631, b: 0.516141, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -819,80 +819,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 212328925}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &228987603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 228987604}
-  - component: {fileID: 228987606}
-  - component: {fileID: 228987605}
-  m_Layer: 5
-  m_Name: Text MissingAlert
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &228987604
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228987603}
-  m_LocalRotation: {x: 0.023777828, y: -0.00000001117587, z: 0.0000000024447215, w: 0.9997173}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1542567574}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 2.7250001, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.07, y: 17.4}
-  m_SizeDelta: {x: 33.35, y: 4.5}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &228987605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228987603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 4
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Missing Alert: 000'
---- !u!222 &228987606
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228987603}
 --- !u!1 &286819482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2427,80 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1022340367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1022340368}
+  - component: {fileID: 1022340370}
+  - component: {fileID: 1022340369}
+  m_Layer: 5
+  m_Name: Text Missing Alert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1022340368
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022340367}
+  m_LocalRotation: {x: 0.023777828, y: -0.00000001117587, z: 0.0000000024447215, w: 0.9997173}
+  m_LocalPosition: {x: 0, y: 0, z: -0.81}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1542567574}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 2.7250001, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 4.89}
+  m_SizeDelta: {x: 11, y: 13.33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1022340369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022340367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.97794116, g: 0.08628895, b: 0.08628895, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 8
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 3
+--- !u!222 &1022340370
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022340367}
 --- !u!1 &1026824759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,15 +3238,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4947351329283886, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 252.24
+      value: 234.71
       objectReference: {fileID: 0}
     - target: {fileID: 4947351329283886, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 17.5
+      value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 4947351329283886, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4947351329283886, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3561,13 +3561,11 @@ MonoBehaviour:
   nMissionTime: 150
   nRemainedTime: 0
   fMaxDistance: 20
-  nMaxMissingAlert: 100
-  nRemainedMissingAlert: 0
   objAccomplishedPanel: {fileID: 926473274}
   objGameOverPanel: {fileID: 2003064704}
   textTime: {fileID: 936056996}
-  textMissingAlert: {fileID: 228987605}
   textDistance: {fileID: 2071995478}
+  textMissingAlert: {fileID: 1022340369}
 --- !u!4 &1356457723
 Transform:
   m_ObjectHideFlags: 0
@@ -3841,8 +3839,8 @@ RectTransform:
   - {fileID: 2003064707}
   - {fileID: 926473275}
   - {fileID: 936056995}
-  - {fileID: 228987604}
   - {fileID: 2071995477}
+  - {fileID: 1022340368}
   m_Father: {fileID: 1989889864}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 3.8200002, y: 4.1920004, z: 0}
@@ -5261,7 +5259,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1542567574}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 2.7250001, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

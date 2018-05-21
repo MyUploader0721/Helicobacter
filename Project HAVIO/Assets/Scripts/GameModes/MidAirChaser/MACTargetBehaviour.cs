@@ -18,6 +18,8 @@ using UnityEngine.AI;
  *           또, 메쉬 안에서 바깥 방향으로 추격할 때, 타겟이 경계에 있으면 다음 path를 찾을 수
  *           없어서 멈춰버리는 현상이 발생합니다. 이를 해결하기 위해 다음 path를 계산하지 못하면
  *           그냥 랜덤으로 이동하도록 하였습니다. 
+ *  - 05-21: 여전히 문제가 발생하여 Brackeys의 예제를 참고하였습니다. 
+ *           ref: https://github.com/MyUploader0721/Helicobacter/blob/feature/myuploader0721/Weekly%20Report%20SandBox/Assets/NavMesh/CS_RunAway.cs
  */
 
 public class MACTargetBehaviour : MonoBehaviour
@@ -31,7 +33,7 @@ public class MACTargetBehaviour : MonoBehaviour
 
     [SerializeField] float fEscapeDistance = 15.0f;
 
-    public float fDistance = 0.0f;
+    public float fDistance = 999.0f;
     public bool bIsEscapingMode = false;
     
 	void Start ()
@@ -52,22 +54,10 @@ public class MACTargetBehaviour : MonoBehaviour
         }
         else
         {
-            // EditLog: 05-02, 타겟이 다음 path를 찾느냐에 따라 행동이 달라지게 됨
-            if (navMeshAgent.hasPath)
-            {
-                bIsEscapingMode = true;
-
-                Vector3 delta = transform.position - objPlayer.transform.position;
-                // EditLog: 05-02, 타겟의 종착지의 y값을 0으로 설정하여 지상에서 움직이도록 설정
-                delta.y = 0.0f;
-                navMeshAgent.destination = transform.position + delta * delta.magnitude;
-            }
-            else
-            {
-                bIsEscapingMode = false;
-
-                navMeshAgent.destination = macController.objRandPos[nTargetPos].transform.position;
-            }
+            // EditLog: 05-21, 추적
+            Vector3 mDirToPlayer = transform.position - objPlayer.transform.position;
+            Vector3 mNewPos = transform.position + mDirToPlayer;
+            navMeshAgent.SetDestination(mNewPos);
         }
     }
 

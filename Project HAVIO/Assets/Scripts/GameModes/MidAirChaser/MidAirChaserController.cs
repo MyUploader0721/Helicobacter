@@ -40,16 +40,16 @@ public class MidAirChaserController : MonoBehaviour
     public int nMissionTime = 300;
     public int nRemainedTime = 0;
     public float fMaxDistance = 20.0f;
-    public int nMaxMissingAlert = 50;
-    public int nRemainedMissingAlert = 0;
     bool bMissingAlert = false;
+    bool bChaseStart = false;
+    int nMissingCountdown = 3;
 
     [Header("UI Setting")]
     [SerializeField] GameObject objAccomplishedPanel;
     [SerializeField] GameObject objGameOverPanel;
     [SerializeField] Text textTime;
-    [SerializeField] Text textMissingAlert;
     [SerializeField] Text textDistance;
+    [SerializeField] Text textMissingAlert;
     bool bIsGameOver = false;
 
     void Start ()
@@ -66,7 +66,6 @@ public class MidAirChaserController : MonoBehaviour
         targetBehaviour = objTarget.GetComponent<MACTargetBehaviour>();
 
         nRemainedTime = nMissionTime;
-        nRemainedMissingAlert = nMaxMissingAlert;
 
         StartCoroutine("MissionTimer");
     }
@@ -80,19 +79,20 @@ public class MidAirChaserController : MonoBehaviour
             objPlayer.GetComponent<InputController>().ToggleEngine();
         }
 
-        if (targetBehaviour.fDistance > fMaxDistance)
+        if (bChaseStart && targetBehaviour.fDistance > fMaxDistance)
         {
             if (!bMissingAlert)
-                StartCoroutine("DecreaseMissingAlert");
+                StartCoroutine("MissingCountdown");
 
             textDistance.color = new Color(0.8046875f, 0.0f, 0.0f);
             Debug.Log("Missing your target!: " + targetBehaviour.fDistance + "m");
         }
-        else
+        else if (bChaseStart && targetBehaviour.fDistance <= fMaxDistance)
         {
             if (bMissingAlert)
             {
-                StopCoroutine("DecreaseMissingAlert");
+                StopCoroutine("MissingCountdown");
+                textMissingAlert.gameObject.SetActive(false);
                 bMissingAlert = false;
             }
 
@@ -128,7 +128,13 @@ public class MidAirChaserController : MonoBehaviour
                 UnityEditor.EditorApplication.isPlaying = false;
             }
         }
-	}
+
+        // 05-21: 추격을 시작합니다. 
+        if (!bChaseStart && targetBehaviour.fDistance <= fMaxDistance)
+        {
+            bChaseStart = true;
+        }
+    }
 
     /// <summary>
     /// 타이머를 코루틴으로 구현합니다. 
@@ -148,19 +154,21 @@ public class MidAirChaserController : MonoBehaviour
         objAccomplishedPanel.SetActive(true);
     }
 
-    /// <summary>
-    /// 플레이어와 Target 사이의 거리가 멀어질 때 MA값을 감소시킵니다. 
-    /// </summary>
-    IEnumerator DecreaseMissingAlert()
+    IEnumerator MissingCountdown()
     {
-        bMissingAlert = true;
+        textMissingAlert.gameObject.SetActive(true);
 
-        while (nRemainedMissingAlert > 0)
+        bMissingAlert = true;
+        nMissingCountdown = 3;
+
+        while (nMissingCountdown > 0)
         {
-            nRemainedMissingAlert--;
-            textMissingAlert.text = "MissingAlert: " + nRemainedMissingAlert;
+            textMissingAlert.text = "" + nMissingCountdown;
+            nMissingCountdown--;
             yield return new WaitForSeconds(1.0f);
         }
+
+        textMissingAlert.gameObject.SetActive(false);
 
         Debug.Log("Mission Failed!");
         bAccomplished = false;
