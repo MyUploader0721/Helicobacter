@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Library/OVR/Scenes/Room.unity
+- path: Assets/Scenes/Desert01.unity
   isLoaded: 1
   isActive: 1
