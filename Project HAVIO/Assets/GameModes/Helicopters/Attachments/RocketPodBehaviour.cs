@@ -38,7 +38,7 @@ public class RocketPodBehaviour : MonoBehaviour
 
     bool bTikTok = false;
 
-    HelicopterInfo helicopterInfo;
+    //HelicopterInfo helicopterInfo;
     InputController inputController;
     
     AudioSource []audioSource;
@@ -50,7 +50,7 @@ public class RocketPodBehaviour : MonoBehaviour
 
     void Start ()
     {
-        helicopterInfo = GetComponentInParent<HelicopterInfo>();
+        //helicopterInfo = GetComponentInParent<HelicopterInfo>();
         inputController = GetComponentInParent<InputController>();
 
         audioSource = new AudioSource[2];

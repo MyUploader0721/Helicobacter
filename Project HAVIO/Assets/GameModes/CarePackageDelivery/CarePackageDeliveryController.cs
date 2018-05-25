@@ -39,8 +39,9 @@ public class CarePackageDeliveryController : MonoBehaviour
 
         helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
-        helicopterInfo.bUseInnerPod = bUseInnerPod;
-        helicopterInfo.bUseOuterPod = bUseOuterPod;
+        helicopterInfo.bUseSearchLight    = bUseSearchLight;
+        helicopterInfo.bUseInnerPod       = bUseInnerPod;
+        helicopterInfo.bUseOuterPod       = bUseOuterPod;
 
         // 리시버(배달지)를 랜덤으로 바꿔줍니다. 
         // Fisher-Yates Shuffle 알고리즘을 적용하였습니다. 

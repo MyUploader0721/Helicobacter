@@ -53,6 +53,7 @@ public class CarePackageBehaviour : MonoBehaviour
         {
             audioSource[(int)SFX_List.CAREPACKAGE_DETACH].Play();
             Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
+            rigidbody.useGravity = true;
             helicopterInfo.objCargo = null;
             transform.parent = null;
         }
