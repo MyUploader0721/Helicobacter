@@ -1259,7 +1259,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 6
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: Mission Failed
 --- !u!222 &246186963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8984,7 +8984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: or Press ESC to Quit the Mission
+  m_Text: Press ESC to Quit the Mission
 --- !u!222 &2072805808
 CanvasRenderer:
   m_ObjectHideFlags: 0
