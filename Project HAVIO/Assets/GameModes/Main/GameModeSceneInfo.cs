@@ -15,16 +15,30 @@ using UnityEngine.SceneManagement;
 
 public class GameModeSceneInfo : MonoBehaviour
 {
+    [Header("Mission Info")]
     public string strSceneName;
     public string strGameModeType;
     public string strGameModeDescription;
+    public Texture textureDescription;
     public Object scene;
-    public Vector3 v3Position = Vector3.zero;
     public Texture textureIcon;
+
+    [Header("You don't have to Touch")]
+    public Vector3 v3Position = Vector3.zero;
     public bool bDisplayed = false;
+    public int nNumber;
 
 	void Start ()
     {
 		
 	}
+
+    public void InitInfo(string strSceneName, string strGameModeType, string strGameModeDescription, Texture textureDescription, Object scene)
+    {
+        this.strSceneName           = strSceneName;
+        this.strGameModeType        = strGameModeType;
+        this.strGameModeDescription = strGameModeDescription;
+        this.textureDescription     = textureDescription;
+        this.scene                  = scene;
+    }
 }
