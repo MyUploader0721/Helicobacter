@@ -132,12 +132,7 @@ public class OVROverlay : MonoBehaviour
 
 	protected bool isOverridePending;
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-	internal const int maxInstances = 3;
-#else
 	internal const int maxInstances = 15;
-#endif
-
 	internal static OVROverlay[] instances = new OVROverlay[maxInstances];
 
 #endregion
@@ -145,7 +140,15 @@ public class OVROverlay : MonoBehaviour
 	private static Material tex2DMaterial;
 	private static Material cubeMaterial;
 
-	private OVRPlugin.LayerLayout layout = OVRPlugin.LayerLayout.Mono;
+	private OVRPlugin.LayerLayout layout {
+		get {
+#if UNITY_ANDROID && !UNITY_EDITOR
+			if (textures.Length == 2 && textures[1] != null)
+				return OVRPlugin.LayerLayout.Stereo;
+#endif
+			return OVRPlugin.LayerLayout.Mono;
+		}
+	}
 
 	private struct LayerTexture {
 		public Texture appTexture;
@@ -197,6 +200,7 @@ public class OVROverlay : MonoBehaviour
 			layerDesc.MipLevels != mipLevels ||
 			layerDesc.SampleCount != sampleCount ||
 			layerDesc.Format != etFormat ||
+			layerDesc.Layout != layout ||
 			layerDesc.LayerFlags != flags ||
 			!layerDesc.TextureSize.Equals(size) ||
 			layerDesc.Shape != shape);
@@ -408,8 +412,6 @@ public class OVROverlay : MonoBehaviour
 
 		for (int eyeId = 0; eyeId < texturesPerStage; ++eyeId)
 		{
-			int dstElement = (layout == OVRPlugin.LayerLayout.Array) ? eyeId : 0;
-
 			int stage = frameIndex % stageCount;
 			Texture et = layerTextures[eyeId].swapChain[stage];
 			if (et == null)
@@ -439,7 +441,7 @@ public class OVROverlay : MonoBehaviour
 				tempRTDst.DiscardContents();
 
 				var rt = textures[eyeId] as RenderTexture;
-				bool dataIsLinear = isHdr || QualitySettings.activeColorSpace == ColorSpace.Linear;
+				bool dataIsLinear = isHdr || (rt != null && QualitySettings.activeColorSpace == ColorSpace.Linear);
 
 #if !UNITY_2017_1_OR_NEWER
 				dataIsLinear |= rt != null && rt.sRGB; //HACK: Unity 5.6 and earlier convert to linear on read from sRGB RenderTexture.
@@ -458,7 +460,7 @@ public class OVROverlay : MonoBehaviour
 					tex2DMaterial.SetInt("_premultiply", 1);
 #endif
 					Graphics.Blit(textures[eyeId], tempRTDst, tex2DMaterial);
-					Graphics.CopyTexture(tempRTDst, 0, 0, et, dstElement, mip);
+					Graphics.CopyTexture(tempRTDst, 0, 0, et, 0, mip);
 				}
 #if UNITY_2017_1_OR_NEWER
 				else // Cubemap
@@ -519,11 +521,6 @@ public class OVROverlay : MonoBehaviour
 		// Backward compatibility
 		if (rend != null && textures[0] == null)
 			textures[0] = rend.material.mainTexture;
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-		if (textures.Length == 2 && textures[1] != null)
-			layout = OVRPlugin.LayerLayout.Stereo;
-#endif
 	}
 
 	void OnEnable()
@@ -562,7 +559,13 @@ public class OVROverlay : MonoBehaviour
 			scale[i] /= headCamera.transform.lossyScale[i];
 
 		if (currentOverlayShape == OverlayShape.Cubemap)
+		{
+#if UNITY_ANDROID && !UNITY_EDITOR
+			//HACK: VRAPI cubemaps assume are yawed 180 degrees relative to LibOVR.
+			pose.orientation = pose.orientation * Quaternion.AngleAxis(180, Vector3.up);
+#endif
 			pose.position = headCamera.transform.position;
+		}
 
 		// Pack the offsetCenter directly into pose.position for offcenterCubemap
 		if (currentOverlayShape == OverlayShape.OffcenterCubemap)

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN

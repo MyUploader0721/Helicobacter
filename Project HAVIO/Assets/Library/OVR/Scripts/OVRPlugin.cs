@@ -1,4 +1,4 @@
-﻿/************************************************************************************
+/************************************************************************************
 
 Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
 
@@ -27,7 +27,7 @@ using UnityEngine;
 
 internal static class OVRPlugin
 {
-	public static readonly System.Version wrapperVersion = OVRP_1_24_0.version;
+	public static readonly System.Version wrapperVersion = OVRP_1_25_1.version;
 
 	private static System.Version _version;
 	public static System.Version version
@@ -2737,8 +2737,8 @@ internal static class OVRPlugin
 		public static extern Result ovrp_SetSystemDisplayFrequency(float requestedFrequency);
 	}
 
-	private static class OVRP_1_24_0
+	private static class OVRP_1_25_1
 	{
-		public static readonly System.Version version = new System.Version(1, 24, 0);
+		public static readonly System.Version version = new System.Version(1, 25, 1);
 	}
 }

@@ -1,4 +1,4 @@
-﻿/************************************************************************************
+/************************************************************************************
 
 Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
 
@@ -57,6 +57,11 @@ class OVRPluginUpdater
 	}
 
     static OVRPluginUpdater()
+	{
+		EditorApplication.delayCall += OnDelayCall;
+	}
+
+	static void OnDelayCall()
 	{
 		if (ShouldAttemptPluginUpdate())
 		{
