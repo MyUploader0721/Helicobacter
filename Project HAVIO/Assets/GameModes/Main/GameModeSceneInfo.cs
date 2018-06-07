@@ -19,9 +19,9 @@ public class GameModeSceneInfo : MonoBehaviour
     public string strSceneName;
     public string strGameModeType;
     public string strGameModeDescription;
-    public Texture textureDescription;
+    public Sprite spriteDescription;
     public Object scene;
-    public Texture textureIcon;
+    public Sprite spriteIcon;
 
     [Header("You don't have to Touch")]
     public Vector3 v3Position = Vector3.zero;
@@ -33,12 +33,20 @@ public class GameModeSceneInfo : MonoBehaviour
 		
 	}
 
-    public void InitInfo(string strSceneName, string strGameModeType, string strGameModeDescription, Texture textureDescription, Object scene)
+    /// <summary>
+    /// 게임모드씬 정보를 초기화합니다. 
+    /// </summary>
+    /// <param name="strSceneName">현재 계약(임무)의 이름(타이틀)입니다. </param>
+    /// <param name="strGameModeType">현재 계약(임무)의 종류를 적습니다. </param>
+    /// <param name="strGameModeDescription">현재 계약(임무)의 설명을 적습니다. 시간이나 목표 등의 디테일을 적어주면 좋습니다. </param>
+    /// <param name="spriteDescription">현재 계약(임무)와 관련된 사진을 할당합니다. </param>
+    /// <param name="scene">현재 계약(임무)을 수락할 경우 연결될 씬을 할당합니다. </param>
+    public void InitInfo(string strSceneName, string strGameModeType, string strGameModeDescription, Sprite spriteDescription, Object scene)
     {
         this.strSceneName           = strSceneName;
         this.strGameModeType        = strGameModeType;
         this.strGameModeDescription = strGameModeDescription;
-        this.textureDescription     = textureDescription;
+        this.spriteDescription      = spriteDescription;
         this.scene                  = scene;
     }
 }

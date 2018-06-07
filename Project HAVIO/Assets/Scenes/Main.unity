@@ -746,10 +746,10 @@ MonoBehaviour:
   strSceneName: Desert MAC Mode Test
   strGameModeType: Mid-Air Chaser
   strGameModeDescription: This is a test of MAC Mode. for the test.
-  textureDescription: {fileID: 0}
+  spriteDescription: {fileID: 21300000, guid: 971183d93e872124c931caaff41ad751, type: 3}
   scene: {fileID: 102900000, guid: 55f6c600ce2906848a28b56c68e31065, type: 3}
+  spriteIcon: {fileID: 21300000, guid: 36f782cc4e6380f49bc2e9d9e0e62987, type: 3}
   v3Position: {x: 0, y: 0, z: 0}
-  textureIcon: {fileID: 2800000, guid: 36f782cc4e6380f49bc2e9d9e0e62987, type: 3}
   bDisplayed: 0
   nNumber: 0
 --- !u!4 &726440827

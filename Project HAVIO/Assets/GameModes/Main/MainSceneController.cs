@@ -141,12 +141,12 @@ public class MainSceneController : MonoBehaviour
 
                 GameObject objIcon = Instantiate(iconModeSelector, gmsiList[i].v3Position, Quaternion.identity, uiMissionSelect.transform);
                 objIcon.GetComponent<GameModeSceneInfo>().InitInfo(
-                    gmsiList[i].strSceneName, gmsiList[i].strGameModeType, gmsiList[i].strGameModeDescription, gmsiList[i].textureDescription, gmsiList[i].scene
+                    gmsiList[i].strSceneName, gmsiList[i].strGameModeType, gmsiList[i].strGameModeDescription, gmsiList[i].spriteDescription, gmsiList[i].scene
                 );
                 objIcon.GetComponent<GameModeSceneInfo>().nNumber = gmsiList[i].nNumber;
                 objIcon.transform.SetSiblingIndex(0);
                 objIcon.transform.localPosition = gmsiList[i].v3Position;
-                objIcon.GetComponent<Image>().material.mainTexture = gmsiList[i].textureIcon;
+                objIcon.GetComponent<Image>().sprite = gmsiList[i].spriteIcon;
                 objIcon.GetComponent<Button>().onClick.AddListener(OnContractIconClicked);
 
                 objContractIcon.Add(objIcon);
@@ -173,7 +173,7 @@ public class MainSceneController : MonoBehaviour
         txtTitle.text = gmsiList[nNumLastClickedButton].strSceneName;
         txtGameModeType.text = gmsiList[nNumLastClickedButton].strGameModeType;
         txtDescription.text = gmsiList[nNumLastClickedButton].strGameModeDescription;
-        imgDescription.material.mainTexture = gmsiList[nNumLastClickedButton].textureDescription;
+        imgDescription.sprite = gmsiList[nNumLastClickedButton].spriteDescription;
 
         btnAccept.onClick.AddListener(OnButtonAcceptClicked);
         btnDecline.onClick.AddListener(OnButtonDeclineClicked);
