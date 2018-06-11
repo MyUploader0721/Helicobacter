@@ -49,13 +49,18 @@ public class MainSceneController : MonoBehaviour
 
 	void Start ()
     {
-		// @TODO: 씬 로딩할 때 uiStatus값을 읽어옴
+        if (PlayerPrefs.HasKey("UIStatus"))
+        {
+            uiStatus = (UIStatus)PlayerPrefs.GetInt("UIStatus");
+            PlayerPrefs.DeleteKey("UIStatus");
+        }
 
         switch (uiStatus)
         {
             // 처음 켤 경우 팀 로고를 보여준다
             case UIStatus.None:
                 uiStatus = UIStatus.TeamLogo;
+                PlayerPrefs.SetInt("UIStatus", (int)UIStatus.MissionSelect);
                 StartCoroutine(PlayTeamLogo());
                 break;
 
@@ -66,7 +71,6 @@ public class MainSceneController : MonoBehaviour
         }
 
         gmsiList = GetComponentsInChildren<GameModeSceneInfo>();
-        Debug.Log("Length: " + gmsiList.Length);
         for (int i = 0; i < gmsiList.Length; i++) gmsiList[i].nNumber = i;
 	}
 	

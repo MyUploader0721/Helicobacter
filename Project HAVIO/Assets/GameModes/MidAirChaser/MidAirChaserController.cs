@@ -14,6 +14,7 @@ using UnityEngine.UI;
  *  - 정해진 매개변수들을 조절하여 난이도를 변경할 수 있습니다. 
  *  - 05-09: 임무 성공 시 게임 종료를,
  *           게임 실패 시 재시작을 할 수 있도록 하였습니다. 
+ *  - 06-08: Gaze 컨트롤을 이용하여 게임을 종료/재시작할 수 있도록 하였습니다. 
  */
 
 public class MidAirChaserController : MonoBehaviour
@@ -47,7 +48,10 @@ public class MidAirChaserController : MonoBehaviour
     [Header("UI Setting")]
     [SerializeField] GameObject objCanvas;
     [SerializeField] GameObject objAccomplishedPanel;
+    [SerializeField] Button btnAccomplishedQuit;
     [SerializeField] GameObject objGameOverPanel;
+    [SerializeField] Button btnFailedRestart;
+    [SerializeField] Button btnFailedQuit;
     [SerializeField] Text textTime;
     [SerializeField] Text textDistance;
     [SerializeField] Text textMissingAlert;
@@ -67,6 +71,10 @@ public class MidAirChaserController : MonoBehaviour
         targetBehaviour = objTarget.GetComponent<MACTargetBehaviour>();
 
         objCanvas.transform.SetParent(objPlayer.transform);
+
+        btnAccomplishedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
+        btnFailedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
+        btnFailedRestart.onClick.AddListener(OnButtonFailedRestartClicked);
 
         nRemainedTime = nMissionTime;
         textTime.text = "Time: " + nRemainedTime;
@@ -121,31 +129,6 @@ public class MidAirChaserController : MonoBehaviour
                 textMissingAlert.gameObject.SetActive(false);
             }
             GameOver();
-        }
-
-        // DEVLOG 05-09: 게임오버 UI
-        // 추격이 성공하였을 경우: 
-        if (bAccomplished)
-        {
-            // 종료
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
-        }
-        // 추격을 실패하였을 경우: 
-        if (bIsGameOver)
-        {
-            // 재시작
-            if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonB"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-            // 종료
-            else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
         }
     }
 
@@ -204,5 +187,21 @@ public class MidAirChaserController : MonoBehaviour
             objGameOverPanel.SetActive(true);
             bIsGameOver = true;
         }
+    }
+
+    /// <summary>
+    /// 종료 버튼을 클릭했을 때 메인 화면으로 넘어가도록 합니다. 
+    /// </summary>
+    void OnButtonAnyQuitClicked()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    /// <summary>
+    /// 재시작 버튼을 클릭했을 때 해당 씬을 다시 불러오도록 합니다. 
+    /// </summary>
+    void OnButtonFailedRestartClicked()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
