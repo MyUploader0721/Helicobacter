@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Terrain
   - Package
-  - Random Point
   - Target
   layers:
   - Default

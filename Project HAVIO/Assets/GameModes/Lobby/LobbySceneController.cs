@@ -1,0 +1,194 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+/**
+ *       TITLE: IntroSceneController.cs
+ *      AUTHOR: 곽수환
+ *        DATE: 2018-06-19
+ * DESCRIPTION: 게임의 인트로 씬을 컨트롤하는 스크립트입니다. 
+ *     DEV LOG: 씬의 전환에 페이드인/아웃을 넣어 부드러운 화면 전환을 지원합니다. 
+ *              일정 시간이 지나면 다음 씬으로 넘어갈 수 있도록 합니다. 
+ */
+
+public class LobbySceneController : MonoBehaviour
+{
+    [Header("For UI System")]
+    [SerializeField] GameObject objContractInfoPanel;
+    [SerializeField] Text txtContractTitle;
+    [SerializeField] Text txtContractDescription;
+    [SerializeField] Text txtContractConditions;
+    [SerializeField] Text txtContractorName;
+    [SerializeField] Text txtGameModeType;
+    [SerializeField] Image imgContractImage;
+    [SerializeField] Button btnAcceptContract;
+    [SerializeField] Button btnDeclineContract;
+
+    [Header("Setting for Displaying Contracts")]
+    [SerializeField] GameObject objCanvasBoard;
+    [SerializeField] GameObject objContractIcon;
+    [SerializeField][Range(1.0f, 4.0f)] float fContractDisplayTime = 2.0f;
+
+    [Header("Setting for Fading While Scene Transition")]
+    [SerializeField] Image imgPanelFading;
+    [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
+    [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
+
+    List<ContractInfo> listContracts = new List<ContractInfo>();
+
+    bool bFadingDone = false;
+    bool bDisplayingContracts = false;
+    int nClickedContractNum = -1;
+    bool bReadyToContract = false;
+
+    void Start ()
+    {
+        StartCoroutine(FadeIn());
+
+        ContractInfo[] contractInfos = GetComponentsInChildren<ContractInfo>();
+        foreach(ContractInfo cInfo in contractInfos)
+            listContracts.Add(cInfo);
+
+        btnAcceptContract.onClick.AddListener(OnButtonAcceptContractClicked);
+        btnDeclineContract.onClick.AddListener(OnButtonDeclineContractClicked);
+    }
+	
+	void Update ()
+    {
+		if (!bDisplayingContracts && !objContractInfoPanel.activeInHierarchy)
+            StartCoroutine(ShowContracts());
+
+        if (bFadingDone && bReadyToContract)
+            SceneManager.LoadScene(listContracts[nClickedContractNum].sceneToContinue.name);
+    }
+
+    /// <summary>
+    /// 페이드인, 화면을 서서히 밝혀줍니다. 
+    /// </summary>
+    IEnumerator FadeIn()
+    {
+        bFadingDone = false;
+        while (imgPanelFading.color.a > 0.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
+            yield return new WaitForSeconds(fFadeInTime / 100.0f);
+        }
+        bFadingDone = true;
+    }
+
+    /// <summary>
+    /// 페이드아웃, 화면을 서서히 어둡게 합니다. 
+    /// </summary>
+    IEnumerator FadeOut()
+    {
+        bFadingDone = false;
+        while (imgPanelFading.color.a < 1.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
+            yield return new WaitForSeconds(fFadeOutTime / 100.0f);
+        }
+        bFadingDone = true;
+    }
+
+    IEnumerator ShowContracts()
+    {
+        bDisplayingContracts = true;
+
+        for (int i = 0; i < listContracts.Count; i++)
+        {
+            if (objContractInfoPanel.activeInHierarchy)
+                StopCoroutine(ShowContracts());
+
+            if (listContracts[i].bDisplayed) continue;
+            else
+            {
+                yield return new WaitForSeconds(fContractDisplayTime + Random.Range(-1.0f, 1.0f));
+
+                listContracts[i].strContractorName = "0x" + GetRandomHex(8);
+                // 아이콘의 위치 결정
+                Vector3 v3ContractIconPosition = Vector3.zero;
+                v3ContractIconPosition.x = Random.Range(-29.0f, 29.0f);
+                v3ContractIconPosition.y = Random.Range(-28.0f, 30.0f);
+
+                GameObject objContract = Instantiate(
+                    objContractIcon,
+                    Vector3.zero, objCanvasBoard.transform.rotation,
+                    objCanvasBoard.transform
+                );
+                objContract.transform.localPosition = v3ContractIconPosition;
+                objContract.transform.SetSiblingIndex(0);
+                objContract.transform.name = objContract.transform.GetHashCode().ToString("X");
+
+                objContract.GetComponent<ContractInfo>().SetData(
+                    listContracts[i].strContractTitle,      listContracts[i].strGameModeType,
+                    listContracts[i].spriteGameModeIcon,    listContracts[i].strContractDescription,
+                    listContracts[i].strContractConditions, listContracts[i].spriteContractImage,
+                    listContracts[i].sceneToContinue,       listContracts[i].strContractorName
+                );
+
+                int nCurrValue = i;
+                objContract.GetComponent<Button>().onClick.AddListener(delegate { OnContractIconClicked(nCurrValue); });
+                objContract.GetComponent<Button>().image.sprite = listContracts[i].spriteGameModeIcon;
+
+                listContracts[i].strBtnHashData = objContract.transform.name;
+                listContracts[i].bDisplayed = true;
+            }
+        }
+
+        bDisplayingContracts = false;
+    }
+
+    /// <summary>
+    /// <code>nCount</code>자리의 더미 16진수 문자열을 생성합니다. 
+    /// </summary>
+    /// <param name="nCount">문자열 자리수</param>
+    /// <returns>16진수 더미 문자열</returns>
+    string GetRandomHex(int nCount)
+    {
+        string strResult = "";
+
+        for (int i = 0; i < nCount; i++)
+            strResult += Random.Range(0, 16).ToString("X");
+
+        return strResult;
+    }
+
+    /// <summary>
+    /// 계약 아이콘을 클릭했을 때 정보가 UI에 출력되도록 합니다. 
+    /// </summary>
+    /// <param name="nNum">클릭한 계약의 번호</param>
+    void OnContractIconClicked(int nNum)
+    {
+        nClickedContractNum = nNum;
+        objContractInfoPanel.SetActive(true);
+        
+        txtContractTitle.text = listContracts[nNum].strContractTitle;
+        txtContractDescription.text = listContracts[nNum].strContractDescription;
+        txtContractConditions.text = listContracts[nNum].strContractConditions;
+        txtContractorName.text = "Contractor: " + listContracts[nNum].strContractorName;
+        txtGameModeType.text = "Game Mode: " + listContracts[nNum].strGameModeType;
+        imgContractImage.sprite = listContracts[nNum].spriteContractImage;
+
+        Destroy(GameObject.Find(listContracts[nNum].strBtnHashData));
+        listContracts[nNum].bDisplayed = false;
+    }
+
+    /// <summary>
+    /// 계약 수락 버튼을 클릭했을 때 페이드아웃 후 해당 임무로 이동하도록 합니다. 
+    /// </summary>
+    void OnButtonAcceptContractClicked()
+    {
+        bReadyToContract = true;
+        StartCoroutine(FadeOut());
+    }
+
+    /// <summary>
+    /// 계약 거절 버튼을 클릭했을 때 계약 선택 화면으로 돌아가도록 합니다. 
+    /// </summary>
+    void OnButtonDeclineContractClicked()
+    {
+        objContractInfoPanel.SetActive(false);
+    }
+}
