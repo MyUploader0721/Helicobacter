@@ -15,6 +15,10 @@ using UnityEngine.SceneManagement;
 
 public class IntroSceneController : MonoBehaviour
 {
+    [Header("Background Music")]
+    [SerializeField] AudioClip bgmIntro;
+    AudioSource audioSource;
+
     [Header("Setting for Fading While Scene Transition")]
     [SerializeField] Image imgPanelFading;
     [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
@@ -33,6 +37,11 @@ public class IntroSceneController : MonoBehaviour
 
     void Start ()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = bgmIntro;
+        audioSource.volume = 0.0f;
+        audioSource.Play();
+
         fStartTime = Time.time;
         StartCoroutine(FadeIn());
 	}
@@ -68,6 +77,7 @@ public class IntroSceneController : MonoBehaviour
         while (imgPanelFading.color.a > 0.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
+            audioSource.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeInTime / 100.0f);
         }
         bFadingDone = true;
@@ -82,6 +92,7 @@ public class IntroSceneController : MonoBehaviour
         while (imgPanelFading.color.a < 1.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
+            audioSource.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeOutTime / 100.0f);
         }
         bFadingDone = true;

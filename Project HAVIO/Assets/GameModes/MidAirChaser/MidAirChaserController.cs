@@ -22,6 +22,19 @@ public class MidAirChaserController : MonoBehaviour
 {
     HelicopterInfo helicopterInfo;
 
+    [Header("Background Music")]
+    [SerializeField] AudioClip sfxNotFound;
+    [SerializeField] AudioClip sfxChasing;
+    [SerializeField] AudioClip sfxAccomplished;
+    [SerializeField] AudioClip sfxFailed;
+    AudioSource bgmPlayer;
+
+    [Header("UI SFX")]
+    [SerializeField] AudioClip sfxHover;
+    [SerializeField] AudioClip sfxClick;
+    [SerializeField] AudioClip sfxTargetFound;
+    AudioSource sfxPlayer;
+
     [Header("Player Helicopter")]
     [SerializeField] GameObject objPlayer;
 
@@ -98,6 +111,13 @@ public class MidAirChaserController : MonoBehaviour
         nRemainedTime = nMissionTime;
         textTime.text = "Time: " + nRemainedTime;
 
+        bgmPlayer = gameObject.AddComponent<AudioSource>();
+        bgmPlayer.clip = sfxNotFound;
+        bgmPlayer.volume = 0.0f;
+        bgmPlayer.Play();
+
+        sfxPlayer = gameObject.AddComponent<AudioSource>();
+
         StartCoroutine("FadeIn");
     }
 	
@@ -114,6 +134,13 @@ public class MidAirChaserController : MonoBehaviour
         if (!bChaseStart && Vector3.Distance(targetBehaviour.transform.position, objPlayer.transform.position) <= fMaxDistance)
         {
             bChaseStart = true;
+
+            sfxPlayer.PlayOneShot(sfxTargetFound);
+
+            bgmPlayer.Stop();
+            bgmPlayer.clip = sfxChasing;
+            bgmPlayer.Play();
+
             StartCoroutine("MissionTimer");
         }
 
@@ -155,14 +182,18 @@ public class MidAirChaserController : MonoBehaviour
         // 어떤 키를 눌렀을 때 Pause 창 뜸
         if (bFadingDone && Input.GetKeyDown(KeyCode.P) && !bAccomplished && !bIsGameOver)
         {
+            sfxPlayer.PlayOneShot(sfxClick);
+
             if (!panelPaused.activeInHierarchy)
             {
                 panelPaused.SetActive(true);
+                bgmPlayer.Pause();
                 Time.timeScale = 0;
             }
             else
             {
                 panelPaused.SetActive(false);
+                bgmPlayer.UnPause();
                 Time.timeScale = 1;
             }
         }
@@ -172,6 +203,9 @@ public class MidAirChaserController : MonoBehaviour
             SceneManager.LoadScene(sceneToGo.name);
         if (bFadingDone && bRestartGame)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (!bgmPlayer.isPlaying)
+            bgmPlayer.Play();
     }
 
     /// <summary>
@@ -188,6 +222,10 @@ public class MidAirChaserController : MonoBehaviour
         }
 
         Debug.Log("Mission Accomplished!");
+        bgmPlayer.Stop();
+        bgmPlayer.clip = sfxAccomplished;
+        bgmPlayer.Play();
+
         bAccomplished = true;
         objAccomplishedPanel.SetActive(true);
     }
@@ -226,6 +264,10 @@ public class MidAirChaserController : MonoBehaviour
     {
         if (!bIsGameOver)
         {
+            bgmPlayer.Stop();
+            bgmPlayer.clip = sfxFailed;
+            bgmPlayer.Play();
+
             objGameOverPanel.SetActive(true);
             bIsGameOver = true;
         }
@@ -236,6 +278,7 @@ public class MidAirChaserController : MonoBehaviour
     /// </summary>
     void OnButtonAnyQuitClicked()
     {
+        sfxPlayer.PlayOneShot(sfxClick);
         StartCoroutine("FadeOut");
         bQuitGame = true;
     }
@@ -245,6 +288,7 @@ public class MidAirChaserController : MonoBehaviour
     /// </summary>
     void OnButtonFailedRestartClicked()
     {
+        sfxPlayer.PlayOneShot(sfxClick);
         StartCoroutine("FadeOut");
         bRestartGame = true;
     }
@@ -258,6 +302,7 @@ public class MidAirChaserController : MonoBehaviour
         while (imgPanelFading.color.a > 0.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeInTime / 100.0f);
         }
         bFadingDone = true;
@@ -272,6 +317,7 @@ public class MidAirChaserController : MonoBehaviour
         while (imgPanelFading.color.a < 1.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeOutTime / 100.0f);
         }
         bFadingDone = true;

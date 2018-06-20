@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7fef1bcb23e144eac8e200262705cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmIntro: {fileID: 8300000, guid: 413b60ff44c63554aa7f713b84cdf688, type: 3}
   imgPanelFading: {fileID: 1859522237}
   fFadeInTime: 1.5
   fFadeOutTime: 1.5

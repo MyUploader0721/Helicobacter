@@ -15,6 +15,18 @@ using UnityEngine.SceneManagement;
 
 public class LobbySceneController : MonoBehaviour
 {
+    [Header("Background Music")]
+    [SerializeField] AudioClip sfxIntro;
+    AudioSource bgmPlayer;
+
+    [Header("UI SFX")]
+    [SerializeField] AudioClip sfxHover;
+    [SerializeField] AudioClip sfxClick;
+    [SerializeField] AudioClip sfxAccept;
+    [SerializeField] AudioClip sfxDecline;
+    [SerializeField] AudioClip sfxIconPop;
+    AudioSource sfxPlayer;
+
     [Header("For UI System")]
     [SerializeField] GameObject objContractInfoPanel;
     [SerializeField] Text txtContractTitle;
@@ -45,6 +57,13 @@ public class LobbySceneController : MonoBehaviour
 
     void Start ()
     {
+        bgmPlayer = gameObject.AddComponent<AudioSource>();
+        bgmPlayer.clip = sfxIntro;
+        bgmPlayer.volume = 0.0f;
+        bgmPlayer.Play();
+
+        sfxPlayer = gameObject.AddComponent<AudioSource>();
+
         StartCoroutine(FadeIn());
 
         ContractInfo[] contractInfos = GetComponentsInChildren<ContractInfo>();
@@ -62,6 +81,9 @@ public class LobbySceneController : MonoBehaviour
 
         if (bFadingDone && bReadyToContract)
             SceneManager.LoadScene(listContracts[nClickedContractNum].sceneToContinue.name);
+
+        if (!bgmPlayer.isPlaying)
+            bgmPlayer.Play();
     }
 
     /// <summary>
@@ -73,6 +95,7 @@ public class LobbySceneController : MonoBehaviour
         while (imgPanelFading.color.a > 0.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeInTime / 100.0f);
         }
         bFadingDone = true;
@@ -87,6 +110,7 @@ public class LobbySceneController : MonoBehaviour
         while (imgPanelFading.color.a < 1.0f)
         {
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeOutTime / 100.0f);
         }
         bFadingDone = true;
@@ -112,6 +136,7 @@ public class LobbySceneController : MonoBehaviour
                 v3ContractIconPosition.x = Random.Range(-29.0f, 29.0f);
                 v3ContractIconPosition.y = Random.Range(-28.0f, 30.0f);
 
+                sfxPlayer.PlayOneShot(sfxIconPop);
                 GameObject objContract = Instantiate(
                     objContractIcon,
                     Vector3.zero, objCanvasBoard.transform.rotation,
@@ -161,6 +186,8 @@ public class LobbySceneController : MonoBehaviour
     /// <param name="nNum">클릭한 계약의 번호</param>
     void OnContractIconClicked(int nNum)
     {
+        sfxPlayer.PlayOneShot(sfxClick);
+
         nClickedContractNum = nNum;
         objContractInfoPanel.SetActive(true);
         
@@ -180,6 +207,8 @@ public class LobbySceneController : MonoBehaviour
     /// </summary>
     void OnButtonAcceptContractClicked()
     {
+        sfxPlayer.PlayOneShot(sfxAccept);
+
         bReadyToContract = true;
         StartCoroutine(FadeOut());
     }
@@ -189,6 +218,8 @@ public class LobbySceneController : MonoBehaviour
     /// </summary>
     void OnButtonDeclineContractClicked()
     {
+        sfxPlayer.PlayOneShot(sfxDecline);
+
         objContractInfoPanel.SetActive(false);
     }
 }
