@@ -15,6 +15,7 @@ using UnityEngine.UI;
  *  - 05-09: 임무 성공 시 게임 종료를,
  *           게임 실패 시 재시작을 할 수 있도록 하였습니다. 
  *  - 06-08: Gaze 컨트롤을 이용하여 게임을 종료/재시작할 수 있도록 하였습니다. 
+ *  - 06-20: UI 디자인을 좀 바꿨습니다. 임무 선택으로 이동하고 페이드효과를 추가합니다. 
  */
 
 public class MidAirChaserController : MonoBehaviour
@@ -57,6 +58,22 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] Text textMissingAlert;
     bool bIsGameOver = false;
 
+    [Header("Setting for Paused Function")]
+    [SerializeField] GameObject panelPaused;
+    [SerializeField] Button btnPauseQuit;
+    [SerializeField] Button btnPauseRestart;
+
+    [Header("Setting for Fading While Scene Transition")]
+    [SerializeField] Image imgPanelFading;
+    [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
+    [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
+    bool bFadingDone = false;
+    bool bQuitGame = false;
+    bool bRestartGame = false;
+
+    [Header("Scene when quit")]
+    [SerializeField] Object sceneToGo;
+
     void Start ()
     {
         if (objPlayer == null)
@@ -75,9 +92,13 @@ public class MidAirChaserController : MonoBehaviour
         btnAccomplishedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
         btnFailedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
         btnFailedRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+        btnPauseQuit.onClick.AddListener(OnButtonAnyQuitClicked);
+        btnPauseRestart.onClick.AddListener(OnButtonFailedRestartClicked);
 
         nRemainedTime = nMissionTime;
         textTime.text = "Time: " + nRemainedTime;
+
+        StartCoroutine("FadeIn");
     }
 	
 	void Update ()
@@ -130,6 +151,27 @@ public class MidAirChaserController : MonoBehaviour
             }
             GameOver();
         }
+
+        // 어떤 키를 눌렀을 때 Pause 창 뜸
+        if (bFadingDone && Input.GetKeyDown(KeyCode.P) && !bAccomplished && !bIsGameOver)
+        {
+            if (!panelPaused.activeInHierarchy)
+            {
+                panelPaused.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                panelPaused.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
+
+        // 페이드 아웃이 끝나면 끝
+        if (bFadingDone && bQuitGame)
+            SceneManager.LoadScene(sceneToGo.name);
+        if (bFadingDone && bRestartGame)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     /// <summary>
@@ -194,7 +236,8 @@ public class MidAirChaserController : MonoBehaviour
     /// </summary>
     void OnButtonAnyQuitClicked()
     {
-        SceneManager.LoadScene("Main");
+        StartCoroutine("FadeOut");
+        bQuitGame = true;
     }
 
     /// <summary>
@@ -202,6 +245,35 @@ public class MidAirChaserController : MonoBehaviour
     /// </summary>
     void OnButtonFailedRestartClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine("FadeOut");
+        bRestartGame = true;
+    }
+
+    /// <summary>
+    /// 페이드인, 화면을 서서히 밝혀줍니다. 
+    /// </summary>
+    IEnumerator FadeIn()
+    {
+        bFadingDone = false;
+        while (imgPanelFading.color.a > 0.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
+            yield return new WaitForSeconds(fFadeInTime / 100.0f);
+        }
+        bFadingDone = true;
+    }
+
+    /// <summary>
+    /// 페이드아웃, 화면을 서서히 어둡게 합니다. 
+    /// </summary>
+    IEnumerator FadeOut()
+    {
+        bFadingDone = false;
+        while (imgPanelFading.color.a < 1.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
+            yield return new WaitForSeconds(fFadeOutTime / 100.0f);
+        }
+        bFadingDone = true;
     }
 }
