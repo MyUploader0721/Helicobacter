@@ -64,7 +64,7 @@ public class IntroSceneController : MonoBehaviour
 
         if (bFadingDone && bAvailableTransition)
         {
-            SceneManager.LoadScene(sceneLobby.name);
+			SceneManager.LoadScene("Lobby");
         }
 	}
 

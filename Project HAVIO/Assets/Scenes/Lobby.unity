@@ -539,7 +539,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131583961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -68.68}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 944905622}
@@ -548,7 +548,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &161525540
 GameObject:
@@ -795,15 +795,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d30aee767eb5842bd4980c5b5f122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strContractTitle: TEST DATA
-  strGameModeType: TEST MODE
+  strContractTitle: "\uD0B9\uB458\uAE30\uAC00 \uB0A0\uC544\uB2E4\uB2CC\uB2E4"
+  strGameModeType: "\uD14C\uC2A4\uD2B8 \uBAA8\uB4DC"
   spriteGameModeIcon: {fileID: 21300000, guid: 61f64fdbd018bde458c65026d80c3ec9, type: 3}
   strContractDescription: "  \uC774\uAC83\uC740 \uD14C\uC2A4\uD2B8\uC6A9\uC73C\uB85C
-    \uC9D1\uC5B4\uB123\uC740 \uACC4\uC57D\uC785\uB2C8\uB2E4. \n   \uACC4\uC57D\uC774
-    \uC131\uC0AC\uB418\uBA74 \uC548\uB429\uB2C8\uB2E4!"
-  strContractConditions: "  - \uC2E4\uD589\uD558\uC9C0 \uB9C8\uC2DC\uC624\n  - \uC81C\uBC1C
-    Decline \uD558\uC138\uC694"
-  spriteContractImage: {fileID: 21300000, guid: 971183d93e872124c931caaff41ad751,
+    \uC9D1\uC5B4\uB123\uC740 \uACC4\uC57D\uC785\uB2C8\uB2E4. \n  \uD0B9\uB458\uAE30\uC640
+    \uB9FA\uC740 \uACC4\uC57D\uC740 \uAC70\uC808\uB420 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+    \uC120\uB73B \uAC70\uC808\uC744 \uB204\uB974\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  strContractConditions: "  - \uB354\uBBF8\uB370\uC774\uD130\n  - \uC81C\uBC1C Decline
+    \uD558\uC138\uC694\n  - Accept \uD558\uBA74 Desert01\uB85C \uB118\uC5B4\uAC11\uB2C8\uB2E4"
+  spriteContractImage: {fileID: 21300000, guid: 52dbaaaa251c38444b46d04b1cdf1716,
     type: 3}
   sceneToContinue: {fileID: 102900000, guid: 55f6c600ce2906848a28b56c68e31065, type: 3}
   bDisplayed: 0
@@ -2007,7 +2008,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 852656465}
   m_LocalRotation: {x: 0.23098378, y: 0, z: 0, w: 0.9729576}
-  m_LocalPosition: {x: 0, y: 0, z: -25}
+  m_LocalPosition: {x: 0, y: 0, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 130458325}
@@ -2015,7 +2016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 26.71, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000026077018, y: -18.034962}
+  m_AnchoredPosition: {x: 0, y: -36}
   m_SizeDelta: {x: 100, y: 7.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852656467
@@ -2185,9 +2186,9 @@ Canvas:
   m_GameObject: {fileID: 944905621}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1582180777}
+  m_PlaneDistance: 1.51
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2576,15 +2577,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d30aee767eb5842bd4980c5b5f122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strContractTitle: TEST DATA 2
-  strGameModeType: TEST MODE 2
+  strContractTitle: "\uCE58\uBA85\uC801\uC778 \uD0DC\uC724\uC774"
+  strGameModeType: "\uB354\uBBF8 \uBAA8\uB4DC"
   spriteGameModeIcon: {fileID: 21300000, guid: 61f64fdbd018bde458c65026d80c3ec9, type: 3}
-  strContractDescription: "  \uC774\uAC83\uC740 \uD14C\uC2A4\uD2B8\uC6A9\uC73C\uB85C
-    \uC9D1\uC5B4\uB123\uC740 \uACC4\uC57D 2\uC785\uB2C8\uB2E4. \n  \uACC4\uC57D\uC774
-    \uC131\uC0AC\uB418\uBA74 \uC548\uB429\uB2C8\uB2E4!"
-  strContractConditions: "  - \uC2E4\uD589\uD558\uC9C0 \uB9C8\uC2DC\uC624 2\n  - \uC81C\uBC1C
-    Decline \uD558\uC138\uC694 2"
-  spriteContractImage: {fileID: 21300000, guid: 971183d93e872124c931caaff41ad751,
+  strContractDescription: "  \uD14C\uC2A4\uD2B8\uC6A9\uC73C\uB85C \uB123\uC740 \uC544\uC774\uCF58\uC785\uB2C8\uB2E4.
+    \n  \uD0DC\uC724\uC774\uAC00 \uBC1C\uD45C\uC790\uB8CC\uB97C \uC81C\uC77C \uB2A6\uAC8C
+    \uB118\uACA8\uC8FC\uC5B4 \uD0DC\uC724\uC774\uB97C *\uB9E5\uC774\uAE30 \uC704\uD574
+    \uCD94\uAC00\uD558\uC600\uC2B5\uB2C8\uB2E4. \n  \uD0DC\uC724\uC544 \uB2E4\uC74C\uBD80\uD134
+    \uB2A6\uC9C0 \uB9D0\uC790!"
+  strContractConditions: "  - \uBA39\uC774\uB97C \uC8FC\uC9C0 \uB9C8\uC2DC\uC624\n
+    \ - \uD0DC\uC724\uC774\uC758 \uB208\uC744 \uCCD0\uB2E4\uBCF4\uC9C0 \uB9C8\uC2DC\uC624\n
+    \ - \uC81C\uBC1C Decline \uD558\uC138\uC694"
+  spriteContractImage: {fileID: 21300000, guid: 45082a6c82f4d844db5a7565d13a85ae,
     type: 3}
   sceneToContinue: {fileID: 102900000, guid: 55f6c600ce2906848a28b56c68e31065, type: 3}
   bDisplayed: 0
@@ -5027,6 +5031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1851303878}
   - component: {fileID: 1851303879}
+  - component: {fileID: 1851303880}
   m_Layer: 0
   m_Name: Lobby Scene Controller
   m_TagString: Untagged
@@ -5083,6 +5088,51 @@ MonoBehaviour:
   imgPanelFading: {fileID: 131583962}
   fFadeInTime: 2
   fFadeOutTime: 2
+--- !u!114 &1851303880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851303877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -633999208, guid: e83cf511fbbbab742bc0edf0dbd6f615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeutralOnEnable: 1
+  NeutralOnDisable: 0
+  MasterVolume: 100
+  DeviceIP: 11
+  Description:
+    UseDescription: 0
+    DeviceName: 1
+    DeviceVersion: 1000
+    DeviceIndex: 0
+    DeviceType: 0
+    DeviceDetail: 
+    SupportChannel:
+      DOF_SURGE: 0
+      DOF_SWAY: 0
+      DOF_HEAVE: 0
+      DOF_ROLL: 0
+      DOF_PITCH: 0
+      DOF_YAW: 0
+      DOF_DEFAULT: 0
+    OperationOption:
+      AsyncMode: 1
+      DebugMode: 0
+      EmulationMode: 0
+      FileLog: 0
+      DeviceWeightEst: 0
+      DeviceIncEncoder: 0
+      DeviceZeroInit: 0
+  MasterBufferFormat:
+    SampleRate: 50
+    Format_int: 32784
+    Format: 32784
+    Channel: 3
+    Samples: 2
+    Buffers: 1
 --- !u!1 &1853314073
 GameObject:
   m_ObjectHideFlags: 0

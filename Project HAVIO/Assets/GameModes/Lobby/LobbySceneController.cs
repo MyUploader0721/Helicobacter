@@ -80,10 +80,32 @@ public class LobbySceneController : MonoBehaviour
             StartCoroutine(ShowContracts());
 
         if (bFadingDone && bReadyToContract)
-            SceneManager.LoadScene(listContracts[nClickedContractNum].sceneToContinue.name);
+        {
+            SceneManager.LoadScene("Desert01");
+
+            // 임시방편 - 동적 씬 로딩이 안됨
+            switch (listContracts[nClickedContractNum].sceneToContinue.name)
+            {
+                case "Desert01":
+                    SceneManager.LoadScene("Desert01");
+                    break;
+                default:
+                    SceneManager.LoadScene("Desert01");
+                    break;
+            }
+		}
 
         if (!bgmPlayer.isPlaying)
             bgmPlayer.Play();
+
+		if (Input.GetButtonDown("FaceButtonB"))
+		{
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#else
+			Application.Quit();
+		#endif
+		}
     }
 
     /// <summary>

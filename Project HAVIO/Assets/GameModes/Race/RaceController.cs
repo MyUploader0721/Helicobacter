@@ -110,7 +110,11 @@ public class RaceController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
             {
-                UnityEditor.EditorApplication.isPlaying = false;
+				#if UNITY_EDITOR
+				UnityEditor.EditorApplication.isPlaying = false;
+				#else
+				Application.Quit();
+				#endif
             }
             else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonA"))
             {
@@ -124,7 +128,11 @@ public class RaceController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
             {
-                UnityEditor.EditorApplication.isPlaying = false;
+				#if UNITY_EDITOR
+				UnityEditor.EditorApplication.isPlaying = false;
+				#else
+				Application.Quit();
+				#endif
             }
         }
     }

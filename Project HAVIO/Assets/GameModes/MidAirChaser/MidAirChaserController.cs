@@ -118,7 +118,7 @@ public class MidAirChaserController : MonoBehaviour
 
         sfxPlayer = gameObject.AddComponent<AudioSource>();
 
-        StartCoroutine("FadeIn");
+        StartCoroutine(FadeIn());
     }
 	
 	void Update ()
@@ -180,7 +180,7 @@ public class MidAirChaserController : MonoBehaviour
         }
 
         // 어떤 키를 눌렀을 때 Pause 창 뜸
-        if (bFadingDone && Input.GetKeyDown(KeyCode.P) && !bAccomplished && !bIsGameOver)
+        if (bFadingDone && (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("FaceButtonB")) && !bAccomplished && !bIsGameOver)
         {
             sfxPlayer.PlayOneShot(sfxClick);
 
@@ -188,21 +188,19 @@ public class MidAirChaserController : MonoBehaviour
             {
                 panelPaused.SetActive(true);
                 bgmPlayer.Pause();
-                Time.timeScale = 0;
             }
             else
             {
                 panelPaused.SetActive(false);
                 bgmPlayer.UnPause();
-                Time.timeScale = 1;
             }
         }
 
         // 페이드 아웃이 끝나면 끝
         if (bFadingDone && bQuitGame)
-            SceneManager.LoadScene(sceneToGo.name);
+			SceneManager.LoadScene("Lobby");
         if (bFadingDone && bRestartGame)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         if (!bgmPlayer.isPlaying)
             bgmPlayer.Play();
@@ -218,9 +216,9 @@ public class MidAirChaserController : MonoBehaviour
         {
             nRemainedTime--;
             textTime.text = "Time: " + nRemainedTime;
+
             yield return new WaitForSeconds(1.0f);
         }
-
         Debug.Log("Mission Accomplished!");
         bgmPlayer.Stop();
         bgmPlayer.clip = sfxAccomplished;
@@ -269,6 +267,7 @@ public class MidAirChaserController : MonoBehaviour
             bgmPlayer.Play();
 
             objGameOverPanel.SetActive(true);
+            StopCoroutine("MissionTimer");
             bIsGameOver = true;
         }
     }
@@ -279,7 +278,7 @@ public class MidAirChaserController : MonoBehaviour
     void OnButtonAnyQuitClicked()
     {
         sfxPlayer.PlayOneShot(sfxClick);
-        StartCoroutine("FadeOut");
+        StartCoroutine(FadeOut());
         bQuitGame = true;
     }
 
@@ -289,7 +288,7 @@ public class MidAirChaserController : MonoBehaviour
     void OnButtonFailedRestartClicked()
     {
         sfxPlayer.PlayOneShot(sfxClick);
-        StartCoroutine("FadeOut");
+        StartCoroutine(FadeOut());
         bRestartGame = true;
     }
 

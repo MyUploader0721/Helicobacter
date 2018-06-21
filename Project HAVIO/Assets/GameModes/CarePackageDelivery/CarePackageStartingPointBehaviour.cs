@@ -47,6 +47,10 @@ public class CarePackageStartingPointBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(fLandingTime);
 
-        UnityEditor.EditorApplication.isPlaying = false;
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit();
+		#endif
     }
 }

@@ -438,6 +438,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &737406278 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2037080, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 2}
+  m_PrefabInternal: {fileID: 737406277}
 --- !u!1 &996559467
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +467,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 996559467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e40d7e3adbbd074f97564f12f1a0aee, type: 3}
   m_Name: 
@@ -603,9 +608,9 @@ Canvas:
   m_GameObject: {fileID: 1344748650}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 737406278}
+  m_PlaneDistance: 1.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -873,7 +878,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1961715414
 GameObject:
@@ -884,6 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961715416}
   - component: {fileID: 1961715415}
+  - component: {fileID: 1961715417}
   m_Layer: 0
   m_Name: Introl Scenen Controller
   m_TagString: Untagged
@@ -922,3 +928,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961715417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961715414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -633999208, guid: e83cf511fbbbab742bc0edf0dbd6f615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeutralOnEnable: 1
+  NeutralOnDisable: 0
+  MasterVolume: 100
+  DeviceIP: 11
+  Description:
+    UseDescription: 0
+    DeviceName: 1
+    DeviceVersion: 1000
+    DeviceIndex: 0
+    DeviceType: 0
+    DeviceDetail: 
+    SupportChannel:
+      DOF_SURGE: 0
+      DOF_SWAY: 0
+      DOF_HEAVE: 0
+      DOF_ROLL: 0
+      DOF_PITCH: 0
+      DOF_YAW: 0
+      DOF_DEFAULT: 0
+    OperationOption:
+      AsyncMode: 1
+      DebugMode: 0
+      EmulationMode: 0
+      FileLog: 0
+      DeviceWeightEst: 0
+      DeviceIncEncoder: 0
+      DeviceZeroInit: 0
+  MasterBufferFormat:
+    SampleRate: 50
+    Format_int: 32784
+    Format: 32784
+    Channel: 3
+    Samples: 2
+    Buffers: 1
