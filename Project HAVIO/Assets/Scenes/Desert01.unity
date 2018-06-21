@@ -1942,13 +1942,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7132d64b98f96f042a98b67706fdba97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxNotFound: {fileID: 8300000, guid: da01f4ae18ff24b47921912fa4921512, type: 3}
-  sfxChasing: {fileID: 8300000, guid: 3e9da8010b3eef44b871010b6e2089bb, type: 3}
+  sfxNotFound: {fileID: 8300000, guid: a5be1dbdfd3434e4882db5d8cc5ea569, type: 3}
+  sfxChasing: {fileID: 8300000, guid: e0f16a1caed78904f824c62f6e1a101f, type: 3}
   sfxAccomplished: {fileID: 8300000, guid: b2becabf5a00a764cb8272443de582ac, type: 3}
   sfxFailed: {fileID: 8300000, guid: 84c2715edfa28f2459a4c096427a436a, type: 3}
   sfxHover: {fileID: 8300000, guid: 5afd90cd5dd88df46825ffb824167ce7, type: 3}
   sfxClick: {fileID: 8300000, guid: e58278c9b9cde4141bc2f222967dfd1e, type: 3}
-  sfxTargetFound: {fileID: 8300000, guid: 1b45e49fb4d055a488e0e577532a44bc, type: 3}
+  sfxTargetFound: {fileID: 8300000, guid: a610f04a1e2087941bcfc0a4a2e0b12d, type: 3}
+  sfxMissingAlert: {fileID: 8300000, guid: 38b63ca3cb4c70b488798e558dc39437, type: 3}
   objPlayer: {fileID: 1657632072}
   bIsPlayWithGamePad: 1
   bIsStartInMidAir: 0
@@ -4085,7 +4086,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 60.001, y: 2.4}
   savedColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  savedTextUV0: {x: 0.265625, y: 0.111328125}
+  savedTextUV0: {x: 0.033203125, y: 0}
   savedFill: 0
 --- !u!222 &821780634
 CanvasRenderer:
@@ -11110,7 +11111,7 @@ MonoBehaviour:
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 60.001, y: 2.4}
   savedColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  savedTextUV0: {x: 0, y: 0.15820312}
+  savedTextUV0: {x: 0.03125, y: 0.07714844}
   savedFill: 0
 --- !u!222 &2115430465
 CanvasRenderer:

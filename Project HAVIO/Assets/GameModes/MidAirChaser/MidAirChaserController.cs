@@ -33,6 +33,7 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] AudioClip sfxHover;
     [SerializeField] AudioClip sfxClick;
     [SerializeField] AudioClip sfxTargetFound;
+    [SerializeField] AudioClip sfxMissingAlert;
     AudioSource sfxPlayer;
 
     [Header("Player Helicopter")]
@@ -150,7 +151,10 @@ public class MidAirChaserController : MonoBehaviour
         if (bChaseStart && targetBehaviour.fDistance > fMaxDistance)
         {
             if (!bMissingAlert && !bAccomplished && !bIsGameOver)
+            {
                 StartCoroutine("MissingCountdown");
+                StopCoroutine("MissionTimer");
+            }
 
             textDistance.color = new Color(0.8046875f, 0.0f, 0.0f);
         }
@@ -160,6 +164,7 @@ public class MidAirChaserController : MonoBehaviour
             if (bMissingAlert)
             {
                 StopCoroutine("MissingCountdown");
+                StartCoroutine("MissionTimer");
                 textMissingAlert.gameObject.SetActive(false);
                 bMissingAlert = false;
             }
@@ -241,9 +246,11 @@ public class MidAirChaserController : MonoBehaviour
 
         while (nMissingCountdown > 0)
         {
+            sfxPlayer.PlayOneShot(sfxMissingAlert);
+
             textMissingAlert.text = "" + nMissingCountdown;
             nMissingCountdown--;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
         }
 
         textMissingAlert.gameObject.SetActive(false);

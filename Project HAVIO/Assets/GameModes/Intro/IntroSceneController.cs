@@ -66,6 +66,9 @@ public class IntroSceneController : MonoBehaviour
         {
 			SceneManager.LoadScene("Lobby");
         }
+
+        if (!audioSource.isPlaying)
+            audioSource.Play();
 	}
 
     /// <summary>
