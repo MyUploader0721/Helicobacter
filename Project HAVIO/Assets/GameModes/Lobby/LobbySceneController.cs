@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /**
  *       TITLE: IntroSceneController.cs
@@ -29,11 +30,11 @@ public class LobbySceneController : MonoBehaviour
 
     [Header("For UI System")]
     [SerializeField] GameObject objContractInfoPanel;
-    [SerializeField] Text txtContractTitle;
-    [SerializeField] Text txtContractDescription;
-    [SerializeField] Text txtContractConditions;
-    [SerializeField] Text txtContractorName;
-    [SerializeField] Text txtGameModeType;
+    [SerializeField] GameObject txtContractTitle;
+    [SerializeField] GameObject txtContractDescription;
+    [SerializeField] GameObject txtContractConditions;
+    [SerializeField] GameObject txtContractorName;
+    [SerializeField] GameObject txtGameModeType;
     [SerializeField] Image imgContractImage;
     [SerializeField] Button btnAcceptContract;
     [SerializeField] Button btnDeclineContract;
@@ -213,11 +214,11 @@ public class LobbySceneController : MonoBehaviour
         nClickedContractNum = nNum;
         objContractInfoPanel.SetActive(true);
         
-        txtContractTitle.text = listContracts[nNum].strContractTitle;
-        txtContractDescription.text = listContracts[nNum].strContractDescription;
-        txtContractConditions.text = listContracts[nNum].strContractConditions;
-        txtContractorName.text = "Contractor: " + listContracts[nNum].strContractorName;
-        txtGameModeType.text = "Game Mode: " + listContracts[nNum].strGameModeType;
+        txtContractTitle.GetComponent<TextMeshProUGUI>().text = listContracts[nNum].strContractTitle;
+        txtContractDescription.GetComponent<TextMeshProUGUI>().text = listContracts[nNum].strContractDescription;
+        txtContractConditions.GetComponent<TextMeshProUGUI>().text = listContracts[nNum].strContractConditions;
+        txtContractorName.GetComponent<TextMeshProUGUI>().text = "Contractor: " + listContracts[nNum].strContractorName;
+        txtGameModeType.GetComponent<TextMeshProUGUI>().text = "Game Mode: " + listContracts[nNum].strGameModeType;
         imgContractImage.sprite = listContracts[nNum].spriteContractImage;
 
         Destroy(GameObject.Find(listContracts[nNum].strBtnHashData));
