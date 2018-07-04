@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 /**
  *       TITLE: MidAirChaserController.cs
@@ -16,6 +17,7 @@ using UnityEngine.UI;
  *           게임 실패 시 재시작을 할 수 있도록 하였습니다. 
  *  - 06-08: Gaze 컨트롤을 이용하여 게임을 종료/재시작할 수 있도록 하였습니다. 
  *  - 06-20: UI 디자인을 좀 바꿨습니다. 임무 선택으로 이동하고 페이드효과를 추가합니다. 
+ *  - 07-04: UI 디자인에 따라 임무 성공/실패시 UI를 따로 배치하였습니다. 
  */
 
 public class MidAirChaserController : MonoBehaviour
@@ -61,16 +63,25 @@ public class MidAirChaserController : MonoBehaviour
     int nMissingCountdown = 3;
 
     [Header("UI Setting")]
+    [SerializeField] GameObject objMainCamera;
+    [SerializeField] Transform tfMissionEndPosition;
     [SerializeField] GameObject objCanvas;
-    [SerializeField] GameObject objAccomplishedPanel;
-    [SerializeField] Button btnAccomplishedQuit;
-    [SerializeField] GameObject objGameOverPanel;
-    [SerializeField] Button btnFailedRestart;
-    [SerializeField] Button btnFailedQuit;
     [SerializeField] Text textTime;
     [SerializeField] Text textDistance;
     [SerializeField] Text textMissingAlert;
     bool bIsGameOver = false;
+
+    [Header("UI for Mission End: Accomplished")]
+    [SerializeField] GameObject objPanelAccomplished;
+    [SerializeField] GameObject textAccomplishedMissionTime;
+    [SerializeField] Button btnAccomplishedMissionRestart;
+    [SerializeField] Button btnAccomplishedMissionExit;
+
+    [Header("UI for Mission End: Failed")]
+    [SerializeField] GameObject objPanelFailed;
+    [SerializeField] GameObject textFailedMissionTime;
+    [SerializeField] Button btnFailedMissionRestart;
+    [SerializeField] Button btnFailedMissionExit;
 
     [Header("Setting for Paused Function")]
     [SerializeField] GameObject panelPaused;
@@ -81,9 +92,11 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] Image imgPanelFading;
     [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
     [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
+    [SerializeField] [Range(1.0f, 2.5f)] float fFadeOutAndInTime = 2.5f;
     bool bFadingDone = false;
     bool bQuitGame = false;
     bool bRestartGame = false;
+    bool bFadeOutAndInDone = false;
 
     [Header("Scene when quit")]
     [SerializeField] Object sceneToGo;
@@ -103,11 +116,16 @@ public class MidAirChaserController : MonoBehaviour
 
         objCanvas.transform.SetParent(objPlayer.transform);
 
-        btnAccomplishedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
-        btnFailedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
-        btnFailedRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+        //btnAccomplishedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
+        //btnFailedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
+        //btnFailedRestart.onClick.AddListener(OnButtonFailedRestartClicked);
         btnPauseQuit.onClick.AddListener(OnButtonAnyQuitClicked);
         btnPauseRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+
+        btnAccomplishedMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+        btnAccomplishedMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
+        btnFailedMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+        btnFailedMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
 
         nRemainedTime = nMissionTime;
         textTime.text = "Time: " + nRemainedTime;
@@ -230,7 +248,8 @@ public class MidAirChaserController : MonoBehaviour
         bgmPlayer.Play();
 
         bAccomplished = true;
-        objAccomplishedPanel.SetActive(true);
+
+        StartCoroutine("FadeOutAndIn");
     }
 
     /// <summary>
@@ -273,9 +292,10 @@ public class MidAirChaserController : MonoBehaviour
             bgmPlayer.clip = sfxFailed;
             bgmPlayer.Play();
 
-            objGameOverPanel.SetActive(true);
             StopCoroutine("MissionTimer");
             bIsGameOver = true;
+
+            StartCoroutine("FadeOutAndIn");
         }
     }
 
@@ -325,6 +345,42 @@ public class MidAirChaserController : MonoBehaviour
             imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
             bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
             yield return new WaitForSeconds(fFadeOutTime / 100.0f);
+        }
+        bFadingDone = true;
+    }
+
+    /// <summary>
+    /// 페이드아웃과 인을 진행합니다. 
+    /// </summary>
+    IEnumerator FadeOutAndIn()
+    {
+        bFadingDone = false;
+        while (imgPanelFading.color.a < 1.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutAndInTime * 2.0f / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
+            yield return new WaitForSeconds(fFadeOutAndInTime * 2.0f / 100.0f);
+        }
+
+        objMainCamera.transform.SetParent(tfMissionEndPosition);
+        objMainCamera.transform.localPosition = Vector3.zero;
+        objMainCamera.transform.localRotation = Quaternion.identity;
+
+        if (bAccomplished)
+        {
+            objPanelAccomplished.SetActive(true);
+            textAccomplishedMissionTime.GetComponent<TextMeshProUGUI>().text = ((int)(Time.time / 60.0f)).ToString("00") + ":" + ((int)(Time.time % 60)).ToString("00");
+        }
+        else if (bIsGameOver)
+        {
+            objPanelFailed.SetActive(true);
+            textFailedMissionTime.GetComponent<TextMeshProUGUI>().text = ((int)(Time.time / 60.0f)).ToString("00") + ":" + ((int)(Time.time % 60)).ToString("00");
+        }
+        while (imgPanelFading.color.a > 0.0f)
+        {
+            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeOutAndInTime * 2.0f / 100.0f));
+            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
+            yield return new WaitForSeconds(fFadeOutAndInTime * 2.0f / 100.0f);
         }
         bFadingDone = true;
     }

@@ -11,7 +11,8 @@ using TMPro;
  *        DATE: 2018-06-19
  * DESCRIPTION: 게임의 인트로 씬을 컨트롤하는 스크립트입니다. 
  *     DEV LOG: 씬의 전환에 페이드인/아웃을 넣어 부드러운 화면 전환을 지원합니다. 
- *              일정 시간이 지나면 다음 씬으로 넘어갈 수 있도록 합니다. 
+ *              일정 시간이 지나면 다음 씬으로 넘어갈 수 있도록 합니다. 3
+ *  2018-07-04: GUI 디자인에 따라 로비의 종료 화면을 추가합니다. 
  */
 
 public class LobbySceneController : MonoBehaviour
@@ -28,7 +29,7 @@ public class LobbySceneController : MonoBehaviour
     [SerializeField] AudioClip sfxIconPop;
     AudioSource sfxPlayer;
 
-    [Header("For UI System")]
+    [Header("For UI System: Contract Info Panel")]
     [SerializeField] GameObject objContractInfoPanel;
     [SerializeField] GameObject txtContractTitle;
     [SerializeField] GameObject txtContractDescription;
@@ -38,6 +39,11 @@ public class LobbySceneController : MonoBehaviour
     [SerializeField] Image imgContractImage;
     [SerializeField] Button btnAcceptContract;
     [SerializeField] Button btnDeclineContract;
+
+    [Header("For UI System: Game Exit Panel")]
+    [SerializeField] GameObject objGameExitPanel;
+    [SerializeField] Button btnExitConfirm;
+    [SerializeField] Button btnExitCancel;
 
     [Header("Setting for Displaying Contracts")]
     [SerializeField] GameObject objCanvasBoard;
@@ -55,6 +61,7 @@ public class LobbySceneController : MonoBehaviour
     bool bDisplayingContracts = false;
     int nClickedContractNum = -1;
     bool bReadyToContract = false;
+    bool bReadyToExit = false;
 
     void Start ()
     {
@@ -73,6 +80,9 @@ public class LobbySceneController : MonoBehaviour
 
         btnAcceptContract.onClick.AddListener(OnButtonAcceptContractClicked);
         btnDeclineContract.onClick.AddListener(OnButtonDeclineContractClicked);
+
+        btnExitConfirm.onClick.AddListener(OnButtonExitConfirmClicked);
+        btnExitCancel.onClick.AddListener(OnButtonExitCancelClicked);
     }
 	
 	void Update ()
@@ -80,32 +90,56 @@ public class LobbySceneController : MonoBehaviour
 		if (!bDisplayingContracts && !objContractInfoPanel.activeInHierarchy)
             StartCoroutine(ShowContracts());
 
-        if (bFadingDone && bReadyToContract)
+        if (bFadingDone)
         {
-            SceneManager.LoadScene("Desert01");
-
-            // 임시방편 - 동적 씬 로딩이 안됨
-            switch (listContracts[nClickedContractNum].sceneToContinue.name)
+            if (bReadyToContract)
             {
-                case "Desert01":
-                    SceneManager.LoadScene("Desert01");
-                    break;
-                default:
-                    SceneManager.LoadScene("Desert01");
-                    break;
+                SceneManager.LoadScene("Desert01");
+
+                // 임시방편 - 동적 씬 로딩이 안됨
+                switch (listContracts[nClickedContractNum].sceneToContinue.name)
+                {
+                    case "Desert01":
+                        SceneManager.LoadScene("Desert01");
+                        break;
+                    default:
+                        SceneManager.LoadScene("Desert01");
+                        break;
+                }
             }
-		}
+            else if (bReadyToExit)
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+		        Application.Quit();
+#endif
+            }
+        }
 
         if (!bgmPlayer.isPlaying)
             bgmPlayer.Play();
 
-		if (Input.GetButtonDown("FaceButtonB"))
+		if (Input.GetButtonDown("FaceButtonB") || Input.GetKeyDown(KeyCode.Escape))
 		{
-		#if UNITY_EDITOR
-			UnityEditor.EditorApplication.isPlaying = false;
-		#else
-			Application.Quit();
-		#endif
+            if (objContractInfoPanel.activeInHierarchy)
+            {
+                sfxPlayer.PlayOneShot(sfxDecline);
+                objContractInfoPanel.SetActive(false);
+            }
+            else
+            {
+                // 종료창을 열음
+                if (!objGameExitPanel.activeInHierarchy)
+                {
+                    objGameExitPanel.SetActive(true);
+                }
+                // 종료창을 닫음
+                else
+                {
+                    objGameExitPanel.SetActive(false);
+                }
+            }
 		}
     }
 
@@ -235,7 +269,6 @@ public class LobbySceneController : MonoBehaviour
         bReadyToContract = true;
         StartCoroutine(FadeOut());
     }
-
     /// <summary>
     /// 계약 거절 버튼을 클릭했을 때 계약 선택 화면으로 돌아가도록 합니다. 
     /// </summary>
@@ -244,5 +277,21 @@ public class LobbySceneController : MonoBehaviour
         sfxPlayer.PlayOneShot(sfxDecline);
 
         objContractInfoPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// 게임 종료창의 네 버튼을 클릭할 경우 게임이 페이드아웃 된 후 종료되도록 합니다. 
+    /// </summary>
+    void OnButtonExitConfirmClicked()
+    {
+        bReadyToExit = true;
+        StartCoroutine(FadeOut());
+    }
+    /// <summary>
+    /// 게임 종료창의 아니오 버튼을 클릭할 경우 게임으로 돌아가도록 합니다. 
+    /// </summary>
+    void OnButtonExitCancelClicked()
+    {
+        objGameExitPanel.SetActive(false);
     }
 }
