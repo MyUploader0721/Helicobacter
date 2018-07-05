@@ -83,10 +83,11 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] Button btnFailedMissionRestart;
     [SerializeField] Button btnFailedMissionExit;
 
-    [Header("Setting for Paused Function")]
-    [SerializeField] GameObject panelPaused;
-    [SerializeField] Button btnPauseQuit;
-    [SerializeField] Button btnPauseRestart;
+    [Header("UI for Mission Summary")]
+    [SerializeField] GameObject objPanelSummary;
+    [SerializeField] GameObject textMissionTime;
+    [SerializeField] Button btnSummaryMissionExit;
+    [SerializeField] Button btnSummaryMissionRestart;
 
     [Header("Setting for Fading While Scene Transition")]
     [SerializeField] Image imgPanelFading;
@@ -116,11 +117,8 @@ public class MidAirChaserController : MonoBehaviour
 
         objCanvas.transform.SetParent(objPlayer.transform);
 
-        //btnAccomplishedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
-        //btnFailedQuit.onClick.AddListener(OnButtonAnyQuitClicked);
-        //btnFailedRestart.onClick.AddListener(OnButtonFailedRestartClicked);
-        btnPauseQuit.onClick.AddListener(OnButtonAnyQuitClicked);
-        btnPauseRestart.onClick.AddListener(OnButtonFailedRestartClicked);
+        btnSummaryMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
+        btnSummaryMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
 
         btnAccomplishedMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
         btnAccomplishedMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
@@ -142,6 +140,11 @@ public class MidAirChaserController : MonoBehaviour
 	
 	void Update ()
     {
+        if (objPanelSummary.activeInHierarchy)
+        {
+            textMissionTime.GetComponent<TextMeshProUGUI>().text = ((int)(Time.time / 60.0f)).ToString("00") + ":" + ((int)(Time.time % 60)).ToString("00");
+        }
+
         // 플레이어가 공중에서 시작할 경우
         if (bIsStartInMidAir)
         {
@@ -202,19 +205,19 @@ public class MidAirChaserController : MonoBehaviour
             GameOver();
         }
 
-        // 어떤 키를 눌렀을 때 Pause 창 뜸
-        if (bFadingDone && (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("FaceButtonB")) && !bAccomplished && !bIsGameOver)
+        // 임무 요약창
+        if (bFadingDone && (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("FaceButtonB")) && !bAccomplished && !bIsGameOver)
         {
             sfxPlayer.PlayOneShot(sfxClick);
 
-            if (!panelPaused.activeInHierarchy)
+            if (!objPanelSummary.activeInHierarchy)
             {
-                panelPaused.SetActive(true);
+                objPanelSummary.SetActive(true);
                 bgmPlayer.Pause();
             }
             else
             {
-                panelPaused.SetActive(false);
+                objPanelSummary.SetActive(false);
                 bgmPlayer.UnPause();
             }
         }
