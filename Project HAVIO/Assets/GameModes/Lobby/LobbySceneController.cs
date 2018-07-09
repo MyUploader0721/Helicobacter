@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /**
@@ -12,7 +13,8 @@ using TMPro;
  * DESCRIPTION: 게임의 인트로 씬을 컨트롤하는 스크립트입니다. 
  *     DEV LOG: 씬의 전환에 페이드인/아웃을 넣어 부드러운 화면 전환을 지원합니다. 
  *              일정 시간이 지나면 다음 씬으로 넘어갈 수 있도록 합니다. 3
- *  2018-07-04: GUI 디자인에 따라 로비의 종료 화면을 추가합니다. 
+ *       07-04: GUI 디자인에 따라 로비의 종료 화면을 추가합니다. 
+ *       07-09: 오른쪽 게임 메뉴를 구현합니다. 
  */
 
 public class LobbySceneController : MonoBehaviour
@@ -44,6 +46,15 @@ public class LobbySceneController : MonoBehaviour
     [SerializeField] GameObject objGameExitPanel;
     [SerializeField] Button btnExitConfirm;
     [SerializeField] Button btnExitCancel;
+
+    [Header("For UI System: Right Game Menu")]
+    [SerializeField] Button btnMenuTutorial;
+    [SerializeField] Button btnMenuFlightInstruction;
+    [SerializeField] Button btnMenuGameExit;
+
+    [Header("For UI System: Flight Instruction Panel")]
+    [SerializeField] GameObject objFlightInstructionPanel;
+    [SerializeField] Button btnFlightInstructionPanelConfirm;
 
     [Header("Setting for Displaying Contracts")]
     [SerializeField] GameObject objCanvasBoard;
@@ -83,6 +94,11 @@ public class LobbySceneController : MonoBehaviour
 
         btnExitConfirm.onClick.AddListener(OnButtonExitConfirmClicked);
         btnExitCancel.onClick.AddListener(OnButtonExitCancelClicked);
+
+        btnMenuTutorial.onClick.AddListener(OnButtonMenuTutorialClicked);
+        btnMenuFlightInstruction.onClick.AddListener(OnButtonMenuFlightInstructionClicked);
+        btnMenuGameExit.onClick.AddListener(OnButtonMenuGameExit);
+        btnFlightInstructionPanelConfirm.onClick.AddListener(OnButtonFlightInstructionPanelConfirmedClicked);
     }
 	
 	void Update ()
@@ -127,16 +143,23 @@ public class LobbySceneController : MonoBehaviour
                 sfxPlayer.PlayOneShot(sfxDecline);
                 objContractInfoPanel.SetActive(false);
             }
+            else if (objFlightInstructionPanel.activeInHierarchy)
+            {
+                sfxPlayer.PlayOneShot(sfxDecline);
+                objFlightInstructionPanel.SetActive(false);
+            }
             else
             {
                 // 종료창을 열음
                 if (!objGameExitPanel.activeInHierarchy)
                 {
+                    sfxPlayer.PlayOneShot(sfxClick);
                     objGameExitPanel.SetActive(true);
                 }
                 // 종료창을 닫음
                 else
                 {
+                    sfxPlayer.PlayOneShot(sfxDecline);
                     objGameExitPanel.SetActive(false);
                 }
             }
@@ -265,7 +288,6 @@ public class LobbySceneController : MonoBehaviour
     void OnButtonAcceptContractClicked()
     {
         sfxPlayer.PlayOneShot(sfxAccept);
-
         bReadyToContract = true;
         StartCoroutine(FadeOut());
     }
@@ -275,7 +297,6 @@ public class LobbySceneController : MonoBehaviour
     void OnButtonDeclineContractClicked()
     {
         sfxPlayer.PlayOneShot(sfxDecline);
-
         objContractInfoPanel.SetActive(false);
     }
 
@@ -284,6 +305,7 @@ public class LobbySceneController : MonoBehaviour
     /// </summary>
     void OnButtonExitConfirmClicked()
     {
+        sfxPlayer.PlayOneShot(sfxAccept);
         bReadyToExit = true;
         StartCoroutine(FadeOut());
     }
@@ -292,6 +314,34 @@ public class LobbySceneController : MonoBehaviour
     /// </summary>
     void OnButtonExitCancelClicked()
     {
+        sfxPlayer.PlayOneShot(sfxDecline);
         objGameExitPanel.SetActive(false);
+    }
+
+    void OnButtonMenuTutorialClicked()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        sfxPlayer.PlayOneShot(sfxClick);
+        /* Not Implemented Yet */
+    }
+
+    void OnButtonMenuFlightInstructionClicked()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        sfxPlayer.PlayOneShot(sfxClick);
+        objFlightInstructionPanel.SetActive(!objFlightInstructionPanel.activeInHierarchy);
+    }
+
+    void OnButtonMenuGameExit()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        sfxPlayer.PlayOneShot(sfxClick);
+        objGameExitPanel.SetActive(!objGameExitPanel.activeInHierarchy);
+    }
+
+    void OnButtonFlightInstructionPanelConfirmedClicked()
+    {
+        sfxPlayer.PlayOneShot(sfxAccept);
+        objFlightInstructionPanel.SetActive(false);
     }
 }
