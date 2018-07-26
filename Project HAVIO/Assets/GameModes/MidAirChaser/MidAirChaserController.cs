@@ -115,7 +115,7 @@ public class MidAirChaserController : MonoBehaviour
 
         targetBehaviour = objTarget.GetComponent<MACTargetBehaviour>();
 
-        objCanvas.transform.SetParent(objPlayer.transform);
+        objCanvas.transform.SetParent(objMainCamera.transform);
 
         btnSummaryMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
         btnSummaryMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
@@ -253,6 +253,7 @@ public class MidAirChaserController : MonoBehaviour
         bAccomplished = true;
 
         StartCoroutine("FadeOutAndIn");
+        objCanvas.SetActive(false);
     }
 
     /// <summary>
@@ -299,6 +300,7 @@ public class MidAirChaserController : MonoBehaviour
             bIsGameOver = true;
 
             StartCoroutine("FadeOutAndIn");
+            objCanvas.SetActive(false);
         }
     }
 

@@ -223,7 +223,7 @@ public class LobbySceneController : MonoBehaviour
                     objCanvasBoard.transform
                 );
                 objContract.transform.localPosition = v3ContractIconPosition;
-                objContract.transform.SetSiblingIndex(0);
+                objContract.transform.SetSiblingIndex(1);
                 objContract.transform.name = objContract.transform.GetHashCode().ToString("X");
 
                 objContract.GetComponent<ContractInfo>().SetData(
