@@ -24,8 +24,8 @@ public class FlightController : MonoBehaviour
     new Rigidbody rigidbody;
 
     [Header("Enhanced Helicopter Motion")]
-    [SerializeField]
-    bool bEnhanceHelicopterMotion = false;
+    [SerializeField] bool bEnhanceHelicopterMotion = false;
+    [SerializeField] float fEnhancedHelicopterMotionValue = 0.05f;
     MotionInput motionInput;
 
     [Header("Helicopter Rotor Blades")]
@@ -42,6 +42,7 @@ public class FlightController : MonoBehaviour
     [SerializeField] float fCollectiveSpeed = 5.0f;
     [SerializeField] float fAntiTorqueSpeed = 1.5f;
     [SerializeField] float fCycleSpeed      = 2.0f;
+    [SerializeField] float fVibrationHeight = 0.75f;
 
     [HideInInspector] public float fVelocity = 0.0f;
 
@@ -115,9 +116,9 @@ public class FlightController : MonoBehaviour
 
             if (bEnhanceHelicopterMotion)
             {
-                motionInput.RotationValues.Roll = inputController.fCycleRoll;
-                motionInput.RotationValues.Pitch = inputController.fCyclePitch;
-                motionInput.LinearValues.Heave = inputController.fCollective;
+                motionInput.RotationValues.Roll = inputController.fCycleRoll * fEnhancedHelicopterMotionValue;
+                motionInput.RotationValues.Pitch = inputController.fCyclePitch * fEnhancedHelicopterMotionValue;
+                motionInput.LinearValues.Heave = inputController.fCollective * fEnhancedHelicopterMotionValue + Mathf.Sin(16.0f * Time.time * Mathf.PI) * fVibrationHeight;
             }
 
             float fUpReverseCosine = 1.0f - Vector3.Dot(Vector3.up, rigidbody.transform.up);

@@ -13,6 +13,7 @@ using UnityEngine.UI;
  *  - 정해진 지점을 통과하며 시간 내에 목표까지 도착해야 하는 레이싱 모드입니다. 
  *  - 이 모드를 컨트롤하는 스크립트입니다.  
  *  - 05-17: 임무성공/실패에 해당하는 UI를 출력하도록 합니다. 
+ *  - 08-23: UI를 개선합니다. 
  */
 
 public class RaceController : MonoBehaviour
@@ -21,6 +22,9 @@ public class RaceController : MonoBehaviour
 
     [Header("Player Helicopter")]
     [SerializeField] GameObject objPlayer;
+    [SerializeField] GameObject objCamera;
+    [Space]
+    [SerializeField] Transform trsEndMissionCamPos;
 
     [Header("Helicopter Setting")]
     [SerializeField] bool bIsPlayWithGamePad = false;
@@ -47,8 +51,15 @@ public class RaceController : MonoBehaviour
     [Header("UI Setting")]
     [SerializeField] GameObject panelGameOver;
     public GameObject panelAccomplished;
+    [Space]
+    [SerializeField] GameObject objCanvasScreenSpaced;
     [SerializeField] Text textTime;
     [SerializeField] Text textGoalLeft;
+    [Space] 
+    [SerializeField] Image imgFader;
+
+    bool bIsFadingIn = false;
+    bool bIsFadingOut = false;
 
     void Start()
     {
@@ -68,6 +79,9 @@ public class RaceController : MonoBehaviour
 
         nNumPassages = rpbPassages.Length;
 
+        imgFader.gameObject.SetActive(true);
+
+        StartCoroutine("FadeIn");
         StartCoroutine("StartTimer");
     }
 
@@ -86,13 +100,11 @@ public class RaceController : MonoBehaviour
         if (nPassedPassages < rpbPassages.Length)
         {
             Vector3 v3PosNav = rpbPassages[nPassedPassages].transform.position;
-            v3PosNav.y += 30.0f;
             objTargetNav.transform.position = v3PosNav;
         }
         else
         {
             Vector3 v3PosNav = objGoal.transform.position;
-            v3PosNav.y += 30.0f;
             objTargetNav.transform.position = v3PosNav;
         }
 
@@ -103,36 +115,50 @@ public class RaceController : MonoBehaviour
                 panelGameOver.SetActive(true);
         }
 
-        if (bGameOver)
+        if (bGameOver || bAccomplished)
         {
-            if (bTimerTicking)
-                StopCoroutine("StartTimer");
+            if (objCamera.transform.parent != null)
+            {
+                objCamera.transform.SetParent(null);
 
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
-            {
-				#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
-				#else
-				Application.Quit();
-				#endif
-            }
-            else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonA"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-        }
-        if (bAccomplished)
-        {
-            if (bTimerTicking)
-                StopCoroutine("StartTimer");
+                objCanvasScreenSpaced.SetActive(false);
 
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
+                StartCoroutine("FadeOutAndIn");
+            }
+
+            // 임무 실패
+            if (bGameOver)
             {
-				#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
-				#else
-				Application.Quit();
-				#endif
+                if (bTimerTicking)
+                    StopCoroutine("StartTimer");
+
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
+                {
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                #else
+				    Application.Quit();
+                #endif
+                }
+                else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonA"))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+            }
+            // 임무 성공
+            if (bAccomplished)
+            {
+                if (bTimerTicking)
+                    StopCoroutine("StartTimer");
+
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
+                {
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                #else
+                    Application.Quit();
+                #endif
+                }
             }
         }
     }
@@ -173,6 +199,60 @@ public class RaceController : MonoBehaviour
         {
             bGameOver = true;
             panelGameOver.SetActive(true);
+        }
+    }
+
+    IEnumerator FadeIn()
+    {
+        bIsFadingIn = true;
+        Color colorFade = imgFader.color;
+
+        while (colorFade.a > 0.0f)
+        {
+            colorFade.a -= 0.75f * Time.deltaTime;
+            imgFader.color = colorFade;
+
+            yield return new WaitForEndOfFrame();
+        }
+        bIsFadingIn = false;
+    }
+
+    IEnumerator FadeOut()
+    {
+        bIsFadingOut = true;
+        Color colorFade = imgFader.color;
+
+        while (colorFade.a < 1.0f)
+        {
+            colorFade.a += 0.75f * Time.deltaTime;
+            imgFader.color = colorFade;
+
+            yield return new WaitForEndOfFrame();
+        }
+        bIsFadingOut = false;
+    }
+
+    IEnumerator FadeOutAndIn()
+    {
+        Color colorFade = imgFader.color;
+
+        while (colorFade.a < 1.0f)
+        {
+            colorFade.a += 0.75f * Time.deltaTime;
+            imgFader.color = colorFade;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        objCamera.transform.position = trsEndMissionCamPos.position;
+        objCamera.transform.rotation = trsEndMissionCamPos.rotation;
+
+        while (colorFade.a > 0.0f)
+        {
+            colorFade.a -= 0.75f * Time.deltaTime;
+            imgFader.color = colorFade;
+
+            yield return new WaitForEndOfFrame();
         }
     }
 }

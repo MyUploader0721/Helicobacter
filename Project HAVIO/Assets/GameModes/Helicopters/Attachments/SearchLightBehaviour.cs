@@ -51,15 +51,18 @@ public class SearchLightBehaviour : MonoBehaviour
     {
         if (objTFC != null)
         {
-            if (Vector3.Distance(GameObject.Find("Target").transform.position, objPlayer.transform.position) >= 
+            if (GameObject.Find("Target") != null)
+            {
+                if (Vector3.Distance(GameObject.Find("Target").transform.position, objPlayer.transform.position) >=
                 GameObject.Find("Mid-Air Chaser Game Mode Controller").GetComponent<MidAirChaserController>().fMaxDistance)
-            {
-                SetLightOrientation();
-            }
-            else
-            {
-                transform.LookAt(GameObject.Find("Target").transform);
-                objTFC.transform.LookAt(GameObject.Find("Target").transform);
+                {
+                    SetLightOrientation();
+                }
+                else
+                {
+                    transform.LookAt(GameObject.Find("Target").transform);
+                    objTFC.transform.LookAt(GameObject.Find("Target").transform);
+                }
             }
         }
         else

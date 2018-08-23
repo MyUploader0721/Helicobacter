@@ -40,8 +40,6 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         private bool m_Immobilized = false;   // used for making the plane uncontrollable, i.e. if it has been hit or crashed.
         private float m_BankedTurnAmount;
         private Rigidbody m_Rigidbody;
-	    WheelCollider[] m_WheelColliders;
-
 
         private void Start()
         {
@@ -49,14 +47,6 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             // Store original drag settings, these are modified during flight.
             m_OriginalDrag = m_Rigidbody.drag;
             m_OriginalAngularDrag = m_Rigidbody.angularDrag;
-
-			for (int i = 0; i < transform.childCount; i++ )
-			{
-				foreach (var componentsInChild in transform.GetChild(i).GetComponentsInChildren<WheelCollider>())
-				{
-					componentsInChild.motorTorque = 0.18f;
-				}
-			}
         }
 
 
