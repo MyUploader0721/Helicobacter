@@ -62,13 +62,10 @@ public class LobbySceneController : MonoBehaviour
     [SerializeField][Range(1.0f, 4.0f)] float fContractDisplayTime = 2.0f;
 
     [Header("Setting for Fading While Scene Transition")]
-    [SerializeField] Image imgPanelFading;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
+    [SerializeField] SceneFadingController sceneFadingController;
 
     List<ContractInfo> listContracts = new List<ContractInfo>();
 
-    bool bFadingDone = false;
     bool bDisplayingContracts = false;
     int nClickedContractNum = -1;
     bool bReadyToContract = false;
@@ -83,7 +80,7 @@ public class LobbySceneController : MonoBehaviour
 
         sfxPlayer = gameObject.AddComponent<AudioSource>();
 
-        StartCoroutine(FadeIn());
+        sceneFadingController.FadeIn();
 
         ContractInfo[] contractInfos = GetComponentsInChildren<ContractInfo>();
         foreach(ContractInfo cInfo in contractInfos)
@@ -105,33 +102,6 @@ public class LobbySceneController : MonoBehaviour
     {
 		if (!bDisplayingContracts && !objContractInfoPanel.activeInHierarchy)
             StartCoroutine(ShowContracts());
-
-        if (bFadingDone)
-        {
-            if (bReadyToContract)
-            {
-                SceneManager.LoadScene("Desert01");
-
-                // 임시방편 - 동적 씬 로딩이 안됨
-                switch (listContracts[nClickedContractNum].sceneToContinue.name)
-                {
-                    case "Desert01":
-                        SceneManager.LoadScene("Desert01");
-                        break;
-                    default:
-                        SceneManager.LoadScene("Desert01");
-                        break;
-                }
-            }
-            else if (bReadyToExit)
-            {
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-		        Application.Quit();
-#endif
-            }
-        }
 
         if (!bgmPlayer.isPlaying)
             bgmPlayer.Play();
@@ -164,36 +134,6 @@ public class LobbySceneController : MonoBehaviour
                 }
             }
 		}
-    }
-
-    /// <summary>
-    /// 페이드인, 화면을 서서히 밝혀줍니다. 
-    /// </summary>
-    IEnumerator FadeIn()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a > 0.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeInTime / 100.0f);
-        }
-        bFadingDone = true;
-    }
-
-    /// <summary>
-    /// 페이드아웃, 화면을 서서히 어둡게 합니다. 
-    /// </summary>
-    IEnumerator FadeOut()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a < 1.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeOutTime / 100.0f);
-        }
-        bFadingDone = true;
     }
 
     IEnumerator ShowContracts()
@@ -289,7 +229,7 @@ public class LobbySceneController : MonoBehaviour
     {
         sfxPlayer.PlayOneShot(sfxAccept);
         bReadyToContract = true;
-        StartCoroutine(FadeOut());
+        sceneFadingController.FadeOutForLoad(listContracts[nClickedContractNum].sceneToContinue.name);
     }
     /// <summary>
     /// 계약 거절 버튼을 클릭했을 때 계약 선택 화면으로 돌아가도록 합니다. 
@@ -307,7 +247,7 @@ public class LobbySceneController : MonoBehaviour
     {
         sfxPlayer.PlayOneShot(sfxAccept);
         bReadyToExit = true;
-        StartCoroutine(FadeOut());
+        sceneFadingController.FadeOutForExit();
     }
     /// <summary>
     /// 게임 종료창의 아니오 버튼을 클릭할 경우 게임으로 돌아가도록 합니다. 

@@ -21,15 +21,11 @@ public class IntroSceneController : MonoBehaviour
 
     [Header("Setting for Fading While Scene Transition")]
     [SerializeField] Image imgPanelFading;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
+    [SerializeField] SceneFadingController sceneFadingController;
 
     [Header("Setting for UI Information")]
     [SerializeField] GameObject objPressAnyKey;
     [SerializeField][Range(1.0f, 15.0f)] float fTimeToTransition = 5.0f;
-
-    [Header("Lobby Scene")]
-    [SerializeField] Object sceneLobby;
 
     float fStartTime = 0.0f;
     bool bFadingDone = false;
@@ -43,8 +39,9 @@ public class IntroSceneController : MonoBehaviour
         audioSource.Play();
 
         fStartTime = Time.time;
-        StartCoroutine(FadeIn());
-	}
+
+        sceneFadingController.FadeIn();
+    }
 	
 	void Update ()
     {
@@ -57,47 +54,12 @@ public class IntroSceneController : MonoBehaviour
         {
             if (Input.anyKeyDown || Input.GetButtonDown("FaceButtonA"))
             {
-                StartCoroutine(FadeOut());
+                sceneFadingController.FadeOut(false);
                 bAvailableTransition = true;
             }
-        }
-
-        if (bFadingDone && bAvailableTransition)
-        {
-			SceneManager.LoadScene("Lobby");
         }
 
         if (!audioSource.isPlaying)
             audioSource.Play();
 	}
-
-    /// <summary>
-    /// 페이드인, 화면을 서서히 밝혀줍니다. 
-    /// </summary>
-    IEnumerator FadeIn()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a > 0.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
-            audioSource.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeInTime / 100.0f);
-        }
-        bFadingDone = true;
-    }
-
-    /// <summary>
-    /// 페이드아웃, 화면을 서서히 어둡게 합니다. 
-    /// </summary>
-    IEnumerator FadeOut()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a < 1.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
-            audioSource.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeOutTime / 100.0f);
-        }
-        bFadingDone = true;
-    }
 }

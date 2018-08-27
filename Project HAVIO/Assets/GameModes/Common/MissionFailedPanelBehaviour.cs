@@ -14,6 +14,9 @@ public class MissionFailedPanelBehaviour : MonoBehaviour
     [Space]
     [Header("Texts")]
     [SerializeField] TextMeshProUGUI txtMissionTime;
+    [Space]
+    [Header("Fader")]
+    [SerializeField] SceneFadingController sceneFadingController;
 
     void Start()
     {
@@ -30,11 +33,11 @@ public class MissionFailedPanelBehaviour : MonoBehaviour
 
     void OnButtonRestartClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        sceneFadingController.FadeOut(true);
     }
 
     void OnButtonQuitClicked()
     {
-        SceneManager.LoadScene("Lobby");
+        sceneFadingController.FadeOut(false);
     }
 }

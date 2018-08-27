@@ -9,6 +9,9 @@ public class MissionAccomplishedPanelBehaviour : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] Button btnRestart;
     [SerializeField] Button btnQuit;
+    [Space]
+    [Header("Fader")]
+    [SerializeField] SceneFadingController sceneFadingController;
     
 	void Start ()
     {
@@ -23,11 +26,11 @@ public class MissionAccomplishedPanelBehaviour : MonoBehaviour
 
     void OnButtonRestartClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        sceneFadingController.FadeOut(true);
     }
 
     void OnButtonQuitClicked()
     {
-        SceneManager.LoadScene("Lobby");
+        sceneFadingController.FadeOut(false);
     }
 }

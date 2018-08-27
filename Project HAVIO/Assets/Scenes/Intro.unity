@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 1859522239}
   - component: {fileID: 1859522238}
   - component: {fileID: 1859522237}
+  - component: {fileID: 1859522240}
   m_Layer: 5
   m_Name: Panel Fading
   m_TagString: Untagged
@@ -880,6 +881,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1859522240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859522236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46173f1efe1ca0445bdf04acfda1f666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fFadingSpeed: 1
+  imgPanel: {fileID: 1859522237}
 --- !u!1 &1961715414
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,11 +924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmIntro: {fileID: 8300000, guid: b6bde82a3289ed14a84dafc7d01f3653, type: 3}
   imgPanelFading: {fileID: 1859522237}
-  fFadeInTime: 1.5
-  fFadeOutTime: 1.5
+  sceneFadingController: {fileID: 1859522240}
   objPressAnyKey: {fileID: 591717265}
   fTimeToTransition: 5
-  sceneLobby: {fileID: 102900000, guid: b2ae9f932c7b0e3429d9f31ae14a9f71, type: 3}
 --- !u!4 &1961715416
 Transform:
   m_ObjectHideFlags: 0

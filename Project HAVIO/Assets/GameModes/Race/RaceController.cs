@@ -56,7 +56,7 @@ public class RaceController : MonoBehaviour
     [SerializeField] Text textTime;
     [SerializeField] Text textGoalLeft;
     [Space] 
-    [SerializeField] Image imgFader;
+    [SerializeField] SceneFadingController sceneFadingController;
 
     bool bIsFadingIn = false;
     bool bIsFadingOut = false;
@@ -79,9 +79,7 @@ public class RaceController : MonoBehaviour
 
         nNumPassages = rpbPassages.Length;
 
-        imgFader.gameObject.SetActive(true);
-
-        StartCoroutine("FadeIn");
+        sceneFadingController.FadeIn();
         StartCoroutine("StartTimer");
     }
 
@@ -123,7 +121,10 @@ public class RaceController : MonoBehaviour
 
                 objCanvasScreenSpaced.SetActive(false);
 
-                StartCoroutine("FadeOutAndIn");
+                sceneFadingController.FadeOutAndIn(delegate {
+                    objCamera.transform.position = trsEndMissionCamPos.position;
+                    objCamera.transform.rotation = trsEndMissionCamPos.rotation;
+                });
             }
 
             // 임무 실패
@@ -199,60 +200,6 @@ public class RaceController : MonoBehaviour
         {
             bGameOver = true;
             panelGameOver.SetActive(true);
-        }
-    }
-
-    IEnumerator FadeIn()
-    {
-        bIsFadingIn = true;
-        Color colorFade = imgFader.color;
-
-        while (colorFade.a > 0.0f)
-        {
-            colorFade.a -= 0.75f * Time.deltaTime;
-            imgFader.color = colorFade;
-
-            yield return new WaitForEndOfFrame();
-        }
-        bIsFadingIn = false;
-    }
-
-    IEnumerator FadeOut()
-    {
-        bIsFadingOut = true;
-        Color colorFade = imgFader.color;
-
-        while (colorFade.a < 1.0f)
-        {
-            colorFade.a += 0.75f * Time.deltaTime;
-            imgFader.color = colorFade;
-
-            yield return new WaitForEndOfFrame();
-        }
-        bIsFadingOut = false;
-    }
-
-    IEnumerator FadeOutAndIn()
-    {
-        Color colorFade = imgFader.color;
-
-        while (colorFade.a < 1.0f)
-        {
-            colorFade.a += 0.75f * Time.deltaTime;
-            imgFader.color = colorFade;
-
-            yield return new WaitForEndOfFrame();
-        }
-
-        objCamera.transform.position = trsEndMissionCamPos.position;
-        objCamera.transform.rotation = trsEndMissionCamPos.rotation;
-
-        while (colorFade.a > 0.0f)
-        {
-            colorFade.a -= 0.75f * Time.deltaTime;
-            imgFader.color = colorFade;
-
-            yield return new WaitForEndOfFrame();
         }
     }
 }

@@ -80,8 +80,6 @@ public class MidAirChaserController : MonoBehaviour
     [Header("UI for Mission End: Failed")]
     [SerializeField] GameObject objPanelFailed;
     [SerializeField] GameObject textFailedMissionTime;
-    [SerializeField] Button btnFailedMissionRestart;
-    [SerializeField] Button btnFailedMissionExit;
 
     [Header("UI for Mission Summary")]
     [SerializeField] GameObject objPanelSummary;
@@ -90,17 +88,7 @@ public class MidAirChaserController : MonoBehaviour
     [SerializeField] Button btnSummaryMissionRestart;
 
     [Header("Setting for Fading While Scene Transition")]
-    [SerializeField] Image imgPanelFading;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeInTime = 1.5f;
-    [SerializeField][Range(1.0f, 2.5f)] float fFadeOutTime = 1.5f;
-    [SerializeField] [Range(1.0f, 2.5f)] float fFadeOutAndInTime = 2.5f;
-    bool bFadingDone = false;
-    bool bQuitGame = false;
-    bool bRestartGame = false;
-    bool bFadeOutAndInDone = false;
-
-    [Header("Scene when quit")]
-    [SerializeField] Object sceneToGo;
+    [SerializeField] SceneFadingController SceneFadingController;
 
     void Start ()
     {
@@ -117,14 +105,6 @@ public class MidAirChaserController : MonoBehaviour
 
         objCanvas.transform.SetParent(objMainCamera.transform);
 
-        btnSummaryMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
-        btnSummaryMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
-
-        btnAccomplishedMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
-        btnAccomplishedMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
-        btnFailedMissionRestart.onClick.AddListener(OnButtonFailedRestartClicked);
-        btnFailedMissionExit.onClick.AddListener(OnButtonAnyQuitClicked);
-
         nRemainedTime = nMissionTime;
         textTime.text = "Time: " + nRemainedTime;
 
@@ -135,7 +115,7 @@ public class MidAirChaserController : MonoBehaviour
 
         sfxPlayer = gameObject.AddComponent<AudioSource>();
 
-        StartCoroutine(FadeIn());
+        SceneFadingController.FadeIn();
     }
 	
 	void Update ()
@@ -205,31 +185,14 @@ public class MidAirChaserController : MonoBehaviour
             GameOver();
         }
 
-        // 임무 요약창
-        if (bFadingDone && (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("FaceButtonB")) && !bAccomplished && !bIsGameOver)
-        {
-            sfxPlayer.PlayOneShot(sfxClick);
-
-            if (!objPanelSummary.activeInHierarchy)
-            {
-                objPanelSummary.SetActive(true);
-                bgmPlayer.Pause();
-            }
-            else
-            {
-                objPanelSummary.SetActive(false);
-                bgmPlayer.UnPause();
-            }
-        }
-
-        // 페이드 아웃이 끝나면 끝
-        if (bFadingDone && bQuitGame)
-			SceneManager.LoadScene("Lobby");
-        if (bFadingDone && bRestartGame)
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         if (!bgmPlayer.isPlaying)
             bgmPlayer.Play();
+
+        // 임무 성공시
+        if (bAccomplished)
+            objPanelAccomplished.SetActive(true);
+        else if (bIsGameOver)
+            objPanelFailed.SetActive(true);
     }
 
     /// <summary>
@@ -252,7 +215,11 @@ public class MidAirChaserController : MonoBehaviour
 
         bAccomplished = true;
 
-        StartCoroutine("FadeOutAndIn");
+        SceneFadingController.FadeOutAndIn(delegate {
+            objMainCamera.transform.SetParent(tfMissionEndPosition);
+            objMainCamera.transform.localPosition = Vector3.zero;
+            objMainCamera.transform.localRotation = Quaternion.identity;
+        });
         objCanvas.SetActive(false);
     }
 
@@ -299,94 +266,12 @@ public class MidAirChaserController : MonoBehaviour
             StopCoroutine("MissionTimer");
             bIsGameOver = true;
 
-            StartCoroutine("FadeOutAndIn");
+            SceneFadingController.FadeOutAndIn(delegate {
+                objMainCamera.transform.SetParent(tfMissionEndPosition);
+                objMainCamera.transform.localPosition = Vector3.zero;
+                objMainCamera.transform.localRotation = Quaternion.identity;
+            });
             objCanvas.SetActive(false);
         }
-    }
-
-    /// <summary>
-    /// 종료 버튼을 클릭했을 때 메인 화면으로 넘어가도록 합니다. 
-    /// </summary>
-    void OnButtonAnyQuitClicked()
-    {
-        sfxPlayer.PlayOneShot(sfxClick);
-        StartCoroutine(FadeOut());
-        bQuitGame = true;
-    }
-
-    /// <summary>
-    /// 재시작 버튼을 클릭했을 때 해당 씬을 다시 불러오도록 합니다. 
-    /// </summary>
-    void OnButtonFailedRestartClicked()
-    {
-        sfxPlayer.PlayOneShot(sfxClick);
-        StartCoroutine(FadeOut());
-        bRestartGame = true;
-    }
-
-    /// <summary>
-    /// 페이드인, 화면을 서서히 밝혀줍니다. 
-    /// </summary>
-    IEnumerator FadeIn()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a > 0.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeInTime / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeInTime / 100.0f);
-        }
-        bFadingDone = true;
-    }
-
-    /// <summary>
-    /// 페이드아웃, 화면을 서서히 어둡게 합니다. 
-    /// </summary>
-    IEnumerator FadeOut()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a < 1.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutTime / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeOutTime / 100.0f);
-        }
-        bFadingDone = true;
-    }
-
-    /// <summary>
-    /// 페이드아웃과 인을 진행합니다. 
-    /// </summary>
-    IEnumerator FadeOutAndIn()
-    {
-        bFadingDone = false;
-        while (imgPanelFading.color.a < 1.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a + (fFadeOutAndInTime * 2.0f / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeOutAndInTime * 2.0f / 100.0f);
-        }
-
-        objMainCamera.transform.SetParent(tfMissionEndPosition);
-        objMainCamera.transform.localPosition = Vector3.zero;
-        objMainCamera.transform.localRotation = Quaternion.identity;
-
-        if (bAccomplished)
-        {
-            objPanelAccomplished.SetActive(true);
-            textAccomplishedMissionTime.GetComponent<TextMeshProUGUI>().text = ((int)(Time.time / 60.0f)).ToString("00") + ":" + ((int)(Time.time % 60)).ToString("00");
-        }
-        else if (bIsGameOver)
-        {
-            objPanelFailed.SetActive(true);
-            textFailedMissionTime.GetComponent<TextMeshProUGUI>().text = ((int)(Time.time / 60.0f)).ToString("00") + ":" + ((int)(Time.time % 60)).ToString("00");
-        }
-        while (imgPanelFading.color.a > 0.0f)
-        {
-            imgPanelFading.color = new Color(0.0f, 0.0f, 0.0f, imgPanelFading.color.a - (fFadeOutAndInTime * 2.0f / 100.0f));
-            bgmPlayer.volume = 1.0f - imgPanelFading.color.a;
-            yield return new WaitForSeconds(fFadeOutAndInTime * 2.0f / 100.0f);
-        }
-        bFadingDone = true;
     }
 }
