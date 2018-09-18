@@ -2090,7 +2090,7 @@ MonoBehaviour:
   savedUp: {x: -0.000000043152106, y: 1, z: -0.000000007590005}
   savedRectSize: {x: 44.885, y: 2.594}
   savedColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  savedTextUV0: {x: 0.025390625, y: 0}
+  savedTextUV0: {x: 0.47070312, y: 0}
   savedFill: 0
 --- !u!222 &268104981
 CanvasRenderer:
@@ -2694,8 +2694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7132d64b98f96f042a98b67706fdba97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxNotFound: {fileID: 8300000, guid: a5be1dbdfd3434e4882db5d8cc5ea569, type: 3}
-  sfxChasing: {fileID: 8300000, guid: e0f16a1caed78904f824c62f6e1a101f, type: 3}
+  sfxNotFound: {fileID: 8300000, guid: 86fe9563227cee748a9e2bb37e870880, type: 3}
+  sfxChasing: {fileID: 8300000, guid: 9ea747695cdd19c44ba2d7e3d35b5a5a, type: 3}
   sfxAccomplished: {fileID: 8300000, guid: b2becabf5a00a764cb8272443de582ac, type: 3}
   sfxFailed: {fileID: 8300000, guid: 84c2715edfa28f2459a4c096427a436a, type: 3}
   sfxHover: {fileID: 8300000, guid: 5afd90cd5dd88df46825ffb824167ce7, type: 3}
@@ -7660,7 +7660,7 @@ MonoBehaviour:
   savedUp: {x: -0.000000043152106, y: 1, z: -0.000000007590005}
   savedRectSize: {x: 44.885, y: 2.594}
   savedColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  savedTextUV0: {x: 0.11328125, y: 0.22265625}
+  savedTextUV0: {x: 0.47070312, y: 0.28710938}
   savedFill: 0
 --- !u!222 &1302337163
 CanvasRenderer:
@@ -9084,7 +9084,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnRestart: {fileID: 1639428127}
   btnQuit: {fileID: 437262503}
+  txtMissionTime: {fileID: 0}
   sceneFadingController: {fileID: 932537372}
+  audioSource: {fileID: 0}
 --- !u!1 &1452977475
 GameObject:
   m_ObjectHideFlags: 0
@@ -14283,6 +14285,7 @@ MonoBehaviour:
   btnQuit: {fileID: 166698508}
   txtMissionTime: {fileID: 26610310}
   sceneFadingController: {fileID: 932537372}
+  audioSource: {fileID: 0}
 --- !u!1 &2115430462
 GameObject:
   m_ObjectHideFlags: 0

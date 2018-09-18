@@ -17,6 +17,8 @@ public class MissionFailedPanelBehaviour : MonoBehaviour
     [Space]
     [Header("Fader")]
     [SerializeField] SceneFadingController sceneFadingController;
+    [Header("SFX")]
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -33,11 +35,13 @@ public class MissionFailedPanelBehaviour : MonoBehaviour
 
     void OnButtonRestartClicked()
     {
+        audioSource.Play();
         sceneFadingController.FadeOut(true);
     }
 
     void OnButtonQuitClicked()
     {
+        audioSource.Play();
         sceneFadingController.FadeOut(false);
     }
 }

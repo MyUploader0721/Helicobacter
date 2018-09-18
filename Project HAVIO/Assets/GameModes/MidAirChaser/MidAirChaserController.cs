@@ -110,7 +110,6 @@ public class MidAirChaserController : MonoBehaviour
 
         bgmPlayer = gameObject.AddComponent<AudioSource>();
         bgmPlayer.clip = sfxNotFound;
-        bgmPlayer.volume = 0.0f;
         bgmPlayer.Play();
 
         sfxPlayer = gameObject.AddComponent<AudioSource>();

@@ -15,6 +15,7 @@ public class RacePassageBehaviour : MonoBehaviour
 {
     [Header("Race Controller")]
     [SerializeField] RaceController raceController;
+    [Space]
     [Header("Number of this Passage")]
     [SerializeField] int nNumber = -1;
 
@@ -24,8 +25,9 @@ public class RacePassageBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && raceController.nPassedPassages == nNumber)
         {
             raceController.EnterPassage(nNumber);
+            GetComponent<AudioSource>().Play();
 
-            Destroy(transform.gameObject);
+            Destroy(transform.gameObject, 2.0f);
         }
     }
 

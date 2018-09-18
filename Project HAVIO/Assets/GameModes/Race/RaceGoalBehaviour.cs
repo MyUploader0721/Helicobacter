@@ -22,7 +22,11 @@ public class RaceGoalBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && raceController.bCanGoal && !raceController.bGameOver)
         {
             raceController.bAccomplished = true;
-            raceController.panelAccomplished.SetActive(true);
+        }
+
+        if (other.CompareTag("Enemy") && !raceController.bAccomplished)
+        {
+            raceController.bGameOver = true;
         }
     }
 }

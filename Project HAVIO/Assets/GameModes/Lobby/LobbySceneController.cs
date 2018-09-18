@@ -75,8 +75,6 @@ public class LobbySceneController : MonoBehaviour
     {
         bgmPlayer = gameObject.AddComponent<AudioSource>();
         bgmPlayer.clip = sfxIntro;
-        bgmPlayer.volume = 0.0f;
-        bgmPlayer.Play();
 
         sfxPlayer = gameObject.AddComponent<AudioSource>();
 

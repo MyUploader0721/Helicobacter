@@ -124,7 +124,8 @@ public class HelicopterInfo : MonoBehaviour
         }
         else
         {
-            audioSource[(int)SFX_List.HELICOPTER_STATUS].clip = sfxCrashedSound;
+            if (nCurrentDurability <= 0)
+                audioSource[(int)SFX_List.HELICOPTER_STATUS].clip = sfxCrashedSound;
         }
 
         if (

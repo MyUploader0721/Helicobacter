@@ -14,27 +14,28 @@ using UnityEngine.UI;
  *  - 이 모드를 컨트롤하는 스크립트입니다.  
  *  - 05-17: 임무성공/실패에 해당하는 UI를 출력하도록 합니다. 
  *  - 08-23: UI를 개선합니다. 
+ *  - 09-15: BGM
  */
 
 public class RaceController : MonoBehaviour
 {
     HelicopterInfo helicopterInfo;
+    MotionInput motionInput;
 
     [Header("Player Helicopter")]
     [SerializeField] GameObject objPlayer;
     [SerializeField] GameObject objCamera;
     [Space]
     [SerializeField] Transform trsEndMissionCamPos;
-
+    [Space]
     [Header("Helicopter Setting")]
     [SerializeField] bool bIsPlayWithGamePad = false;
-    [SerializeField] bool bIsStartInMidAir = false;
-
+    [Space]
     [Header("Helicopter Armament Setting(Recommends default)")]
     [SerializeField] bool bUseSearchLight = true;
     [SerializeField] bool bUseInnerPod = false;
     [SerializeField] bool bUseOuterPod = false;
-
+    [Space]
     [Header("Game Mode Setting")]
     [SerializeField] GameObject objTargetNav;
     public bool bAccomplished = false;
@@ -47,30 +48,58 @@ public class RaceController : MonoBehaviour
     public bool bGameOver = false;
     bool bTimerTicking = false;
     int nNumPassages;
-
+    [Space]
+    [Header("AI Setting")]
+    [SerializeField] RaceAIHelicopterController[] raceAIHeliController;
+    [Space]
     [Header("UI Setting")]
     [SerializeField] GameObject panelGameOver;
-    public GameObject panelAccomplished;
+    [SerializeField] GameObject panelAccomplished;
     [Space]
     [SerializeField] GameObject objCanvasScreenSpaced;
     [SerializeField] Text textTime;
     [SerializeField] Text textGoalLeft;
+    [SerializeField] Text textHP;
+    [Space]
+    [SerializeField] Text textCountdown;
     [Space] 
     [SerializeField] SceneFadingController sceneFadingController;
+    [Space]
+    [Header("SFX")]
+    [SerializeField] AudioClip sfxBGM;
+    [Space]
+    [SerializeField] AudioClip sfxAccomplished;
+    [SerializeField] AudioClip sfxFailed;
+    [Space]
+    [SerializeField] AudioClip sfxCountdown;
+    [SerializeField] AudioClip sfxGo;
 
-    bool bIsFadingIn = false;
-    bool bIsFadingOut = false;
+    AudioSource audioSourceBGM = new AudioSource();
+    AudioSource audioSourceSFX = new AudioSource();
+
+    bool bIsOnCountdown = true;
 
     void Start()
     {
         if (objPlayer == null)
             objPlayer = GameObject.FindGameObjectWithTag("Player");
 
+        audioSourceBGM = gameObject.AddComponent<AudioSource>();
+        audioSourceBGM.clip = sfxBGM;
+        audioSourceBGM.loop = true;
+        audioSourceBGM.Play();
+
+        audioSourceSFX = gameObject.AddComponent<AudioSource>();
+        audioSourceSFX.volume = 0.75f;
+
         helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
         helicopterInfo.bUseInnerPod = bUseInnerPod;
         helicopterInfo.bUseOuterPod = bUseOuterPod;
         helicopterInfo.bUseSearchLight = bUseSearchLight;
+        helicopterInfo.bIsFlyable = false;
+
+        motionInput = objPlayer.GetComponent<MotionInput>();
 
         for (int i = 0; i < rpbPassages.Length; i++)
         {
@@ -80,19 +109,14 @@ public class RaceController : MonoBehaviour
         nNumPassages = rpbPassages.Length;
 
         sceneFadingController.FadeIn();
-        StartCoroutine("StartTimer");
+
+        StartCoroutine("StartCountdown");
     }
 
     void Update()
     {
         textGoalLeft.text = "Goal Left: " + (nNumPassages - nPassedPassages) + "/" + nNumPassages;
-
-        // 공중에서 시작할 경우
-        if (bIsStartInMidAir)
-        {
-            bIsStartInMidAir = false;
-            objPlayer.GetComponent<InputController>().ToggleEngine();
-        }
+        textHP.text = "HP: " + helicopterInfo.nCurrentDurability + " / " + helicopterInfo.nMaxDurability;
 
         // 다음 목표 표시(Target Navigation)
         if (nPassedPassages < rpbPassages.Length)
@@ -106,7 +130,7 @@ public class RaceController : MonoBehaviour
             objTargetNav.transform.position = v3PosNav;
         }
 
-        if (!objPlayer.GetComponent<HelicopterInfo>().bIsFlyable && !bAccomplished)
+        if (!bIsOnCountdown && !objPlayer.GetComponent<HelicopterInfo>().bIsFlyable && !bAccomplished)
         {
             bGameOver = true;
             if (!panelGameOver.activeInHierarchy)
@@ -115,6 +139,8 @@ public class RaceController : MonoBehaviour
 
         if (bGameOver || bAccomplished)
         {
+            audioSourceBGM.Stop();
+
             if (objCamera.transform.parent != null)
             {
                 objCamera.transform.SetParent(null);
@@ -127,9 +153,21 @@ public class RaceController : MonoBehaviour
                 });
             }
 
+            if (motionInput.UseAutoRotation)
+            {
+                motionInput.UseAutoRotation = false;
+                motionInput.SetInputValues(0.0f);
+            }
+
             // 임무 실패
             if (bGameOver)
             {
+                if (!audioSourceSFX.isPlaying)
+                    audioSourceSFX.PlayOneShot(sfxFailed);
+
+                if (!panelGameOver.activeInHierarchy)
+                    panelGameOver.SetActive(true);
+
                 if (bTimerTicking)
                     StopCoroutine("StartTimer");
 
@@ -149,6 +187,12 @@ public class RaceController : MonoBehaviour
             // 임무 성공
             if (bAccomplished)
             {
+                if (!audioSourceSFX.isPlaying)
+                    audioSourceSFX.PlayOneShot(sfxAccomplished);
+
+                if (!panelAccomplished.activeInHierarchy)
+                    panelAccomplished.SetActive(true);
+
                 if (bTimerTicking)
                     StopCoroutine("StartTimer");
 
@@ -201,5 +245,38 @@ public class RaceController : MonoBehaviour
             bGameOver = true;
             panelGameOver.SetActive(true);
         }
+    }
+
+    IEnumerator StartCountdown()
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+
+        textCountdown.gameObject.SetActive(true);
+
+        for (int i = 0; i < 3; i++)
+        {
+            audioSourceSFX.PlayOneShot(sfxCountdown);
+            textCountdown.text = (3 - i).ToString();
+            switch (i)
+            {
+                case 0: textCountdown.color = Color.green; break;
+                case 1: textCountdown.color = Color.yellow; break;
+                case 2: textCountdown.color = Color.red; break;
+            }
+            yield return new WaitForSecondsRealtime(1.0f);
+        }
+
+        audioSourceSFX.PlayOneShot(sfxGo);
+        foreach (RaceAIHelicopterController c in raceAIHeliController)
+        {
+            c.bActiveAI = true;
+            helicopterInfo.bIsFlyable = true;
+            bIsOnCountdown = false;
+        }
+
+        textCountdown.text = "GO!";
+        StartCoroutine("StartTimer");
+        yield return new WaitForSecondsRealtime(1.0f);
+        textCountdown.gameObject.SetActive(false);
     }
 }
