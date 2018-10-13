@@ -26,6 +26,8 @@ public class InputController : MonoBehaviour
     [HideInInspector] public bool bActivateInnerPod;
     [HideInInspector] public bool bActivateOuterPod;
 
+    [HideInInspector] public bool bControllable = true;
+
     HelicopterInfo helicopterInfo;
 
     bool bIsPlayingEngineCoroutine = false;
@@ -44,7 +46,7 @@ public class InputController : MonoBehaviour
     {
 		if (helicopterInfo.bIsPlayWithGamePad)
         {
-            if (Input.GetButtonDown("EngineToggle") && helicopterInfo.bIsFlyable) ToggleEngine();
+            if (bControllable && Input.GetButtonDown("EngineToggle") && helicopterInfo.bIsFlyable) ToggleEngine();
 
             // Control Flight
             fCollective = Input.GetAxis("CollectiveVertical");
@@ -56,13 +58,23 @@ public class InputController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && helicopterInfo.bIsFlyable) ToggleEngine();
+            if (bControllable && Input.GetKeyDown(KeyCode.LeftShift) && helicopterInfo.bIsFlyable) ToggleEngine();
 
             // Control Flight
-            fCollective = Input.GetAxis("Vertical");
-            fAntiTorque = Input.GetAxis("Horizontal");
-            fCycleRoll  = Input.GetAxis("KeyboardCycleHorizontal");
-            fCyclePitch = Input.GetAxis("KeyboardCycleVertical");
+            if (bControllable)
+            {
+                fCollective = Input.GetAxis("Vertical");
+                fAntiTorque = Input.GetAxis("Horizontal");
+                fCycleRoll = Input.GetAxis("KeyboardCycleHorizontal");
+                fCyclePitch = Input.GetAxis("KeyboardCycleVertical");
+            }
+            else
+            {
+                fCollective = 0.0f;
+                fAntiTorque = 0.0f;
+                fCycleRoll = 0.0f;
+                fCyclePitch = 0.0f;
+            }
 
             bActivateInnerPod = Input.GetKey(KeyCode.Space);
             bActivateOuterPod = Input.GetKey(KeyCode.LeftControl);

@@ -9,6 +9,7 @@ TagManager:
   - Target
   - Flag
   - Enemy
+  - Narr Block
   layers:
   - Default
   - TransparentFX

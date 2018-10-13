@@ -19,7 +19,8 @@ public class SearchLightBehaviour : MonoBehaviour
 {
     [SerializeField] new GameObject camera;
 
-    bool bLightOn = false;
+    public bool bLightOn = false;
+    float fMaxDistance = 10.0f; 
 
     [SerializeField] GameObject objPlayer;
     HelicopterInfo helicopterInfo;
@@ -33,6 +34,8 @@ public class SearchLightBehaviour : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         objTFC = GameObject.Find("Target Finding Camera");
+        if (GameObject.Find("Mid-Air Chaser Game Mode Controller"))
+            fMaxDistance = GameObject.Find("Mid-Air Chaser Game Mode Controller").GetComponent<MidAirChaserController>().fMaxDistance;
     }
 
     void Update()
@@ -49,25 +52,18 @@ public class SearchLightBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (objTFC != null)
+        if (GameObject.Find("Target") != null)
         {
-            if (GameObject.Find("Target") != null)
+            if (Vector3.Distance(GameObject.Find("Target").transform.position, objPlayer.transform.position) >= fMaxDistance)
             {
-                if (Vector3.Distance(GameObject.Find("Target").transform.position, objPlayer.transform.position) >=
-                GameObject.Find("Mid-Air Chaser Game Mode Controller").GetComponent<MidAirChaserController>().fMaxDistance)
-                {
-                    SetLightOrientation();
-                }
-                else
-                {
-                    transform.LookAt(GameObject.Find("Target").transform);
-                    objTFC.transform.LookAt(GameObject.Find("Target").transform);
-                }
+                SetLightOrientation();
             }
-        }
-        else
-        {
-            SetLightOrientation();
+            else
+            {
+                transform.LookAt(GameObject.Find("Target").transform);
+                if (objTFC)
+                    objTFC.transform.LookAt(GameObject.Find("Target").transform);
+            }
         }
         
         GetComponent<Light>().enabled = bLightOn;

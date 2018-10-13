@@ -260,7 +260,7 @@ public class LobbySceneController : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         sfxPlayer.PlayOneShot(sfxClick);
-        /* Not Implemented Yet */
+        sceneFadingController.FadeOutForLoad("Tutorial");
     }
 
     void OnButtonMenuFlightInstructionClicked()
