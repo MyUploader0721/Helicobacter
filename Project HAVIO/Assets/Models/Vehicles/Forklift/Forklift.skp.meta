@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: e19f995370645674996503b43210d308
+timeCreated: 1539698789
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 01210bc08abca7d0fe6aa76513e34c5b
+  longitude: 7.165468964725836
+  latitude: 4.709441913737469
+  northCorrection: 359.8490636860933
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -7.213653, y: 5.8204103, z: 10.088751}
+      lookAt: {x: 9.671225, y: -14.53859, z: -36.46233}
+      up: {x: 0.11252352, y: 0.92472893, z: -0.3636137}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: _defaultMat
+    2100002: '[Color_005]'
+    2100004: '[Color_007]1'
+    2100006: '[0044_DarkGoldenrod]'
+    2100008: '[Color_006]'
+    2100010: '[Color_004]'
+    2100012: '[0045_Goldenrod]'
+    2100014: '[Color_008]'
+    2100016: '[0134_DimGray]'
+    2100018: LIGHT ORANGE1
+    2100020: LIGHT RED1
+    2100022: Pneumatico
+    2100024: '[0136_Charcoal]'
+    2100026: '[Color_002]1'
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Mesh forklift
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIGHT ORANGE1
+    second: {fileID: 2100000, guid: 8803286ff23092448b63184502d1805c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIGHT RED1
+    second: {fileID: 2100000, guid: d48235c7b80607641a9cbcdb160e82a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pneumatico
+    second: {fileID: 2100000, guid: b532cb4fdb41c3340ad78703d7a9be84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0044_DarkGoldenrod]'
+    second: {fileID: 2100000, guid: fbd1980ef59015444baca52a9bb31d95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0045_Goldenrod]'
+    second: {fileID: 2100000, guid: 34b611b9cb37d6b40802bc4a7bba8444, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0134_DimGray]'
+    second: {fileID: 2100000, guid: 30c0b015ccd27d042b6b9f9f065a086c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0136_Charcoal]'
+    second: {fileID: 2100000, guid: f06c72859be24a146a379fe1f5d03403, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_002]1'
+    second: {fileID: 2100000, guid: c7926d58af129f34ba45ff5ce86175e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_004]'
+    second: {fileID: 2100000, guid: 5a6ddee07fcf12642bd4b46e5e71bc12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_005]'
+    second: {fileID: 2100000, guid: a4cc3f42d48e1024a9cd5b8cbef240ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_006]'
+    second: {fileID: 2100000, guid: 228a7b285fda3d24ba989d603fb0dad2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_007]1'
+    second: {fileID: 2100000, guid: ef15539090a7b1d44905e404a8a5afe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_008]'
+    second: {fileID: 2100000, guid: e7c9b35d07a1c7f439ca7980b847eb72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 78b6f58d9528e2244bab7ce190eb20fe, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Catarifrangente
+    second: {fileID: 2800000, guid: 111ba90825a202148b373d7088f4f89f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Catarifrangente_rosso
+    second: {fileID: 2800000, guid: 497c13f6453771141a9661daaa9c8886, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Lakerem4
+    second: {fileID: 2800000, guid: 343853d677bf1ad4683f10588ee88341, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: giallo muletto
+    second: {fileID: 2800000, guid: 1dd4070439111d649892df58bc2906e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pneumatico
+    second: {fileID: 2800000, guid: 0af79ce24cbdd1240974c1f17432ac9e, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.022
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
