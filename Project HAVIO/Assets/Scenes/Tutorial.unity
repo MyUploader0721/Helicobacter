@@ -586,9 +586,9 @@ MonoBehaviour:
   inputController: {fileID: 1178784923}
   helicopterInfo: {fileID: 1178784921}
   audioSource: {fileID: 4815825}
-  sfxTutNarr2_1: {fileID: 8300000, guid: 3e54b41c5dbd0f5409b7eb7d37a8e498, type: 3}
-  sfxTutNarr2_2: {fileID: 8300000, guid: c623b373607066642b7d73fc5024ee8b, type: 3}
-  sfxTutNarr2_3: {fileID: 8300000, guid: cd160733e3810244fb7681d14b2abecd, type: 3}
+  sfxTutNarr2_1: {fileID: 8300000, guid: 28e04d3c7b6f2e4448d5d72b860c1bb1, type: 3}
+  sfxTutNarr2_2: {fileID: 8300000, guid: 046361187f1c2794bb238ea174e6ff66, type: 3}
+  sfxTutNarr2_3: {fileID: 8300000, guid: 7d5e4df3617a50249a3778000006103d, type: 3}
 --- !u!1001 &5178011
 Prefab:
   m_ObjectHideFlags: 0
@@ -8742,10 +8742,10 @@ MonoBehaviour:
   objSuccessPanel: {fileID: 1839579316}
   objFailedPanel: {fileID: 1503162184}
   sfc: {fileID: 1667902989}
-  sfxTutNarr1_1: {fileID: 8300000, guid: fbbd5b1a2ff8c4a4d850900acd082d4b, type: 3}
-  sfxTutNarr1_2: {fileID: 8300000, guid: 58fe1e7e5e9f650438008543fd82dcda, type: 3}
-  sfxTutNarr1_3: {fileID: 8300000, guid: 1fdaf7907254daf43b2b72713fb38ca2, type: 3}
-  sfxTutNarr1_4: {fileID: 8300000, guid: 6ef2267148c49bd4d921969352be6568, type: 3}
+  sfxTutNarr1_1: {fileID: 8300000, guid: fe87a730ff6d3af4799512ccdb42b530, type: 3}
+  sfxTutNarr1_2: {fileID: 8300000, guid: 68cbcfa12db8e58469625b0709dfe700, type: 3}
+  sfxTutNarr1_3: {fileID: 8300000, guid: b865c917f3bbce54483c80b31d35e388, type: 3}
+  sfxTutNarr1_4: {fileID: 8300000, guid: 75a92f988ff276249b3ac6571aef95ef, type: 3}
   sfxMissionSuccess: {fileID: 8300000, guid: b2becabf5a00a764cb8272443de582ac, type: 3}
   sfxMissionFailed: {fileID: 8300000, guid: 84c2715edfa28f2459a4c096427a436a, type: 3}
   lightLZ:
@@ -14817,6 +14817,18 @@ Prefab:
         type: 2}
       propertyPath: bUseInnerPod
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219264761551726, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.043619405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219264761551726, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219264761551726, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ae6e4527b40f4c4388f546e4038c71c, type: 2}
@@ -23616,7 +23628,7 @@ MonoBehaviour:
   inputController: {fileID: 1178784923}
   helicopterInfo: {fileID: 1178784921}
   audioSource: {fileID: 533978775}
-  sfxTutNarr3_1: {fileID: 8300000, guid: f75d55a3b8a14e746b9bd2a471dbb485, type: 3}
+  sfxTutNarr3_1: {fileID: 8300000, guid: 78b4ddb328e8f6e4aa3446a39446e6bc, type: 3}
 --- !u!1 &536584149
 GameObject:
   m_ObjectHideFlags: 0
@@ -69522,7 +69534,7 @@ MonoBehaviour:
   inputController: {fileID: 1178784923}
   helicopterInfo: {fileID: 1178784921}
   audioSource: {fileID: 1647091244}
-  sfxTutNarr6_1: {fileID: 8300000, guid: 1df4fff84097ea348bc089c284d6c373, type: 3}
+  sfxTutNarr6_1: {fileID: 8300000, guid: d699609027fb2854d825abfbc5296335, type: 3}
 --- !u!1 &1647623544
 GameObject:
   m_ObjectHideFlags: 0
@@ -85364,7 +85376,7 @@ MonoBehaviour:
   inputController: {fileID: 1178784923}
   helicopterInfo: {fileID: 1178784921}
   audioSource: {fileID: 1943902988}
-  sfxTutNarr5_1: {fileID: 8300000, guid: fccf60aa94383b24bbfc59987c559274, type: 3}
+  sfxTutNarr5_1: {fileID: 8300000, guid: 1a5ca20af5a378a4d8a5a5517d32eee7, type: 3}
 --- !u!1 &1945930414
 GameObject:
   m_ObjectHideFlags: 0
