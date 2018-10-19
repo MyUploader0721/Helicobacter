@@ -10,6 +10,7 @@ TagManager:
   - Flag
   - Enemy
   - Narr Block
+  - Explosion Radius
   layers:
   - Default
   - TransparentFX

@@ -68,8 +68,6 @@ public class LobbySceneController : MonoBehaviour
 
     bool bDisplayingContracts = false;
     int nClickedContractNum = -1;
-    bool bReadyToContract = false;
-    bool bReadyToExit = false;
 
     void Start ()
     {
@@ -226,7 +224,6 @@ public class LobbySceneController : MonoBehaviour
     void OnButtonAcceptContractClicked()
     {
         sfxPlayer.PlayOneShot(sfxAccept);
-        bReadyToContract = true;
         sceneFadingController.FadeOutForLoad(listContracts[nClickedContractNum].sceneToContinue.name);
     }
     /// <summary>
@@ -244,7 +241,6 @@ public class LobbySceneController : MonoBehaviour
     void OnButtonExitConfirmClicked()
     {
         sfxPlayer.PlayOneShot(sfxAccept);
-        bReadyToExit = true;
         sceneFadingController.FadeOutForExit();
     }
     /// <summary>

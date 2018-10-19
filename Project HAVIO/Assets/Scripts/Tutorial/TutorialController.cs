@@ -60,6 +60,9 @@ public class TutorialController : MonoBehaviour
 
             if (!bFadeOutAndInCalled)
             {
+                if (audioSource.isPlaying)
+                    audioSource.Stop();
+
                 if (bTutorialFailed)
                     audioSource.PlayOneShot(sfxMissionFailed);
                 else if (bTutorialSuccess)

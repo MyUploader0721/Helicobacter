@@ -28,8 +28,6 @@ public class IntroSceneController : MonoBehaviour
     [SerializeField][Range(1.0f, 15.0f)] float fTimeToTransition = 5.0f;
 
     float fStartTime = 0.0f;
-    bool bFadingDone = false;
-    bool bAvailableTransition = false;
 
     void Start ()
     {
@@ -55,7 +53,6 @@ public class IntroSceneController : MonoBehaviour
             if (Input.anyKeyDown || Input.GetButtonDown("FaceButtonA"))
             {
                 sceneFadingController.FadeOut(false);
-                bAvailableTransition = true;
             }
         }
 

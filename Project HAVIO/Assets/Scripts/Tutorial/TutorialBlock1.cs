@@ -24,7 +24,12 @@ public class TutorialBlock1 : MonoBehaviour
 	
 	void Update ()
     {
-        if (!helicopterInfo.bIsFlyable) StopCoroutine(DoNarration());
+        if (!helicopterInfo.bIsFlyable)
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            StopCoroutine(DoNarration());
+        }
     }
 
     void OnTriggerEnter(Collider other)

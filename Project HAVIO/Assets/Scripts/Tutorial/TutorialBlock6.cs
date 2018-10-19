@@ -30,6 +30,13 @@ public class TutorialBlock6 : MonoBehaviour
             GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(DoNarration());
         }
+
+        if (!helicopterInfo.bIsFlyable)
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            StopCoroutine(DoNarration());
+        }
     }
 
     void OnTriggerEnter(Collider other)
