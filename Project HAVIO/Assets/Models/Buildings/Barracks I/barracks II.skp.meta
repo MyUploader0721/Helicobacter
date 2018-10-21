@@ -1,0 +1,555 @@
+fileFormatVersion: 2
+guid: 565425c4c301ce946ba6c04c56fbcb5c
+timeCreated: 1540046602
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 790dc056a5f0ebde1ec7c62a6de32142
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -13.852875, y: 10.92508, z: 33.213028}
+      lookAt: {x: 1.0019338, y: 3.1465302, z: 8.367452}
+      up: {x: 0.13316782, y: 0.96574175, z: -0.22273132}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: AC
+    100002: AC 1
+    100004: //RootNode
+    100006: Component#19
+    100008: Component#20
+    100010: Level#2
+    100012: Level#4
+    100014: Support Collumn
+    100016: Support Collumn 1
+    100018: Support Collumn 10
+    100020: Support Collumn 11
+    100022: Support Collumn 12
+    100024: Support Collumn 13
+    100026: Support Collumn 14
+    100028: Support Collumn 15
+    100030: Support Collumn 16
+    100032: Support Collumn 17
+    100034: Support Collumn 18
+    100036: Support Collumn 19
+    100038: Support Collumn 2
+    100040: Support Collumn 20
+    100042: Support Collumn 21
+    100044: Support Collumn 22
+    100046: Support Collumn 23
+    100048: Support Collumn 24
+    100050: Support Collumn 25
+    100052: Support Collumn 26
+    100054: Support Collumn 27
+    100056: Support Collumn 28
+    100058: Support Collumn 29
+    100060: Support Collumn 3
+    100062: Support Collumn 30
+    100064: Support Collumn 4
+    100066: Support Collumn 5
+    100068: Support Collumn 6
+    100070: Support Collumn 7
+    100072: Support Collumn 8
+    100074: Support Collumn 9
+    100076: Wall 1
+    100078: Wall 1 1
+    100080: Wall 1 10
+    100082: Wall 1 11
+    100084: Wall 1 12
+    100086: Wall 1 13
+    100088: Wall 1 14
+    100090: Wall 1 15
+    100092: Wall 1 16
+    100094: Wall 1 17
+    100096: Wall 1 18
+    100098: Wall 1 19
+    100100: Wall 1 2
+    100102: Wall 1 3
+    100104: Wall 1 4
+    100106: Wall 1 5
+    100108: Wall 1 6
+    100110: Wall 1 7
+    100112: Wall 1 8
+    100114: Wall 1 9
+    100116: Wall 1#1
+    100118: Wall 1#1 1
+    100120: Wall 1#5
+    100122: Wall 1#7
+    100124: Wall 1#7 1
+    100126: Wall 1#7 2
+    100128: Wall 1#7 3
+    100130: Wall 1#7 4
+    100132: Wall 1#7 5
+    100134: Wall 1#8
+    100136: Wall 1#8 1
+    100138: Window, Long
+    100140: Window, Long 1
+    100142: Window, Long 10
+    100144: Window, Long 11
+    100146: Window, Long 12
+    100148: Window, Long 13
+    100150: Window, Long 14
+    100152: Window, Long 15
+    100154: Window, Long 16
+    100156: Window, Long 17
+    100158: Window, Long 18
+    100160: Window, Long 19
+    100162: Window, Long 2
+    100164: Window, Long 20
+    100166: Window, Long 21
+    100168: Window, Long 3
+    100170: Window, Long 4
+    100172: Window, Long 5
+    100174: Window, Long 6
+    100176: Window, Long 7
+    100178: Window, Long 8
+    100180: Window, Long 9
+    400000: AC
+    400002: AC 1
+    400004: //RootNode
+    400006: Component#19
+    400008: Component#20
+    400010: Level#2
+    400012: Level#4
+    400014: Support Collumn
+    400016: Support Collumn 1
+    400018: Support Collumn 10
+    400020: Support Collumn 11
+    400022: Support Collumn 12
+    400024: Support Collumn 13
+    400026: Support Collumn 14
+    400028: Support Collumn 15
+    400030: Support Collumn 16
+    400032: Support Collumn 17
+    400034: Support Collumn 18
+    400036: Support Collumn 19
+    400038: Support Collumn 2
+    400040: Support Collumn 20
+    400042: Support Collumn 21
+    400044: Support Collumn 22
+    400046: Support Collumn 23
+    400048: Support Collumn 24
+    400050: Support Collumn 25
+    400052: Support Collumn 26
+    400054: Support Collumn 27
+    400056: Support Collumn 28
+    400058: Support Collumn 29
+    400060: Support Collumn 3
+    400062: Support Collumn 30
+    400064: Support Collumn 4
+    400066: Support Collumn 5
+    400068: Support Collumn 6
+    400070: Support Collumn 7
+    400072: Support Collumn 8
+    400074: Support Collumn 9
+    400076: Wall 1
+    400078: Wall 1 1
+    400080: Wall 1 10
+    400082: Wall 1 11
+    400084: Wall 1 12
+    400086: Wall 1 13
+    400088: Wall 1 14
+    400090: Wall 1 15
+    400092: Wall 1 16
+    400094: Wall 1 17
+    400096: Wall 1 18
+    400098: Wall 1 19
+    400100: Wall 1 2
+    400102: Wall 1 3
+    400104: Wall 1 4
+    400106: Wall 1 5
+    400108: Wall 1 6
+    400110: Wall 1 7
+    400112: Wall 1 8
+    400114: Wall 1 9
+    400116: Wall 1#1
+    400118: Wall 1#1 1
+    400120: Wall 1#5
+    400122: Wall 1#7
+    400124: Wall 1#7 1
+    400126: Wall 1#7 2
+    400128: Wall 1#7 3
+    400130: Wall 1#7 4
+    400132: Wall 1#7 5
+    400134: Wall 1#8
+    400136: Wall 1#8 1
+    400138: Window, Long
+    400140: Window, Long 1
+    400142: Window, Long 10
+    400144: Window, Long 11
+    400146: Window, Long 12
+    400148: Window, Long 13
+    400150: Window, Long 14
+    400152: Window, Long 15
+    400154: Window, Long 16
+    400156: Window, Long 17
+    400158: Window, Long 18
+    400160: Window, Long 19
+    400162: Window, Long 2
+    400164: Window, Long 20
+    400166: Window, Long 21
+    400168: Window, Long 3
+    400170: Window, Long 4
+    400172: Window, Long 5
+    400174: Window, Long 6
+    400176: Window, Long 7
+    400178: Window, Long 8
+    400180: Window, Long 9
+    2100000: _defaultMat
+    2100002: '[Granite Light Gray]'
+    2100004: '[Cinder Block]'
+    2100006: _Gray Glass_1
+    2100008: '[Metal Rough]'
+    2100010: '[Aluminum]'
+    2100012: '[Translucent_Glass_Safety]'
+    2100014: '[Color_007]'
+    2300000: AC
+    2300002: AC 1
+    2300004: Component#19
+    2300006: Component#20
+    2300008: Level#2
+    2300010: Level#4
+    2300012: Support Collumn
+    2300014: Support Collumn 1
+    2300016: Support Collumn 10
+    2300018: Support Collumn 11
+    2300020: Support Collumn 12
+    2300022: Support Collumn 13
+    2300024: Support Collumn 14
+    2300026: Support Collumn 15
+    2300028: Support Collumn 16
+    2300030: Support Collumn 17
+    2300032: Support Collumn 18
+    2300034: Support Collumn 19
+    2300036: Support Collumn 2
+    2300038: Support Collumn 20
+    2300040: Support Collumn 21
+    2300042: Support Collumn 22
+    2300044: Support Collumn 23
+    2300046: Support Collumn 24
+    2300048: Support Collumn 25
+    2300050: Support Collumn 26
+    2300052: Support Collumn 27
+    2300054: Support Collumn 28
+    2300056: Support Collumn 29
+    2300058: Support Collumn 3
+    2300060: Support Collumn 30
+    2300062: Support Collumn 4
+    2300064: Support Collumn 5
+    2300066: Support Collumn 6
+    2300068: Support Collumn 7
+    2300070: Support Collumn 8
+    2300072: Support Collumn 9
+    2300074: Wall 1
+    2300076: Wall 1 1
+    2300078: Wall 1 10
+    2300080: Wall 1 11
+    2300082: Wall 1 12
+    2300084: Wall 1 13
+    2300086: Wall 1 14
+    2300088: Wall 1 15
+    2300090: Wall 1 16
+    2300092: Wall 1 17
+    2300094: Wall 1 18
+    2300096: Wall 1 19
+    2300098: Wall 1 2
+    2300100: Wall 1 3
+    2300102: Wall 1 4
+    2300104: Wall 1 5
+    2300106: Wall 1 6
+    2300108: Wall 1 7
+    2300110: Wall 1 8
+    2300112: Wall 1 9
+    2300114: Wall 1#1
+    2300116: Wall 1#1 1
+    2300118: Wall 1#5
+    2300120: Wall 1#7
+    2300122: Wall 1#7 1
+    2300124: Wall 1#7 2
+    2300126: Wall 1#7 3
+    2300128: Wall 1#7 4
+    2300130: Wall 1#7 5
+    2300132: Wall 1#8
+    2300134: Wall 1#8 1
+    2300136: Window, Long
+    2300138: Window, Long 1
+    2300140: Window, Long 10
+    2300142: Window, Long 11
+    2300144: Window, Long 12
+    2300146: Window, Long 13
+    2300148: Window, Long 14
+    2300150: Window, Long 15
+    2300152: Window, Long 16
+    2300154: Window, Long 17
+    2300156: Window, Long 18
+    2300158: Window, Long 19
+    2300160: Window, Long 2
+    2300162: Window, Long 20
+    2300164: Window, Long 21
+    2300166: Window, Long 3
+    2300168: Window, Long 4
+    2300170: Window, Long 5
+    2300172: Window, Long 6
+    2300174: Window, Long 7
+    2300176: Window, Long 8
+    2300178: Window, Long 9
+    3300000: AC
+    3300002: AC 1
+    3300004: Component#19
+    3300006: Component#20
+    3300008: Level#2
+    3300010: Level#4
+    3300012: Support Collumn
+    3300014: Support Collumn 1
+    3300016: Support Collumn 10
+    3300018: Support Collumn 11
+    3300020: Support Collumn 12
+    3300022: Support Collumn 13
+    3300024: Support Collumn 14
+    3300026: Support Collumn 15
+    3300028: Support Collumn 16
+    3300030: Support Collumn 17
+    3300032: Support Collumn 18
+    3300034: Support Collumn 19
+    3300036: Support Collumn 2
+    3300038: Support Collumn 20
+    3300040: Support Collumn 21
+    3300042: Support Collumn 22
+    3300044: Support Collumn 23
+    3300046: Support Collumn 24
+    3300048: Support Collumn 25
+    3300050: Support Collumn 26
+    3300052: Support Collumn 27
+    3300054: Support Collumn 28
+    3300056: Support Collumn 29
+    3300058: Support Collumn 3
+    3300060: Support Collumn 30
+    3300062: Support Collumn 4
+    3300064: Support Collumn 5
+    3300066: Support Collumn 6
+    3300068: Support Collumn 7
+    3300070: Support Collumn 8
+    3300072: Support Collumn 9
+    3300074: Wall 1
+    3300076: Wall 1 1
+    3300078: Wall 1 10
+    3300080: Wall 1 11
+    3300082: Wall 1 12
+    3300084: Wall 1 13
+    3300086: Wall 1 14
+    3300088: Wall 1 15
+    3300090: Wall 1 16
+    3300092: Wall 1 17
+    3300094: Wall 1 18
+    3300096: Wall 1 19
+    3300098: Wall 1 2
+    3300100: Wall 1 3
+    3300102: Wall 1 4
+    3300104: Wall 1 5
+    3300106: Wall 1 6
+    3300108: Wall 1 7
+    3300110: Wall 1 8
+    3300112: Wall 1 9
+    3300114: Wall 1#1
+    3300116: Wall 1#1 1
+    3300118: Wall 1#5
+    3300120: Wall 1#7
+    3300122: Wall 1#7 1
+    3300124: Wall 1#7 2
+    3300126: Wall 1#7 3
+    3300128: Wall 1#7 4
+    3300130: Wall 1#7 5
+    3300132: Wall 1#8
+    3300134: Wall 1#8 1
+    3300136: Window, Long
+    3300138: Window, Long 1
+    3300140: Window, Long 10
+    3300142: Window, Long 11
+    3300144: Window, Long 12
+    3300146: Window, Long 13
+    3300148: Window, Long 14
+    3300150: Window, Long 15
+    3300152: Window, Long 16
+    3300154: Window, Long 17
+    3300156: Window, Long 18
+    3300158: Window, Long 19
+    3300160: Window, Long 2
+    3300162: Window, Long 20
+    3300164: Window, Long 21
+    3300166: Window, Long 3
+    3300168: Window, Long 4
+    3300170: Window, Long 5
+    3300172: Window, Long 6
+    3300174: Window, Long 7
+    3300176: Window, Long 8
+    3300178: Window, Long 9
+    4300000: Mesh Support Collumn
+    4300002: Mesh Wall 1#7
+    4300004: Mesh Wall 1
+    4300006: Mesh Window, Long
+    4300008: Mesh Wall 1#5
+    4300010: Mesh Wall 1#8
+    4300012: Mesh Component#19
+    4300014: Mesh Level#4
+    4300016: Mesh Component#20
+    4300018: Mesh Wall 1#1
+    4300020: Mesh Window, Long
+    4300022: Mesh Level#2
+    4300024: Mesh AC
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Aluminum]'
+    second: {fileID: 2100000, guid: 8de0f296818e030439acf810300ef41e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Cinder Block]'
+    second: {fileID: 2100000, guid: acd773658f957c649bb14ccb20a3467b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_007]'
+    second: {fileID: 2100000, guid: b8d4b38e15ff37840b1cb39ed48172ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Granite Light Gray]'
+    second: {fileID: 2100000, guid: 854c3169fdd57074c8b87e3248c6f2c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal Rough]'
+    second: {fileID: 2100000, guid: ccf62b020b37a1a43b8d33a9e5095a45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Translucent_Glass_Safety]'
+    second: {fileID: 2100000, guid: a6ccc28f304ab4545907795ee6d410e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Gray Glass_1
+    second: {fileID: 2100000, guid: 4f5f9364ad4734546a869ad4997d949a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 8d7f8d86767e8bc4480e901c5d1394ec, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Aluminum
+    second: {fileID: 2800000, guid: 1aee6a75043f49b43bf4b60ef61455b7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cinder Block
+    second: {fileID: 2800000, guid: 6fe72b8ddb6daab46be4e82870fd31e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Granite 02
+    second: {fileID: 2800000, guid: 98a21d59e20197146b4b2202493029e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Rough
+    second: {fileID: 2800000, guid: 17cbe08d17cae21459d264fcf80e8f37, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Translucent_Glass_Saftey
+    second: {fileID: 2800000, guid: 25d153d344f4e3047ae854d60f92e501, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.03
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

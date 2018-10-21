@@ -47,8 +47,6 @@ public class MidAirChaserController : MonoBehaviour
 
     [Header("Helicopter Armament Setting(Recommends default)")]
     [SerializeField] bool bUseSearchLight = true;
-    [SerializeField] bool bUseInnerPod = false;
-    [SerializeField] bool bUseOuterPod = false;
 
     [Header("Game Mode Setting")]
     [SerializeField] GameObject objTarget;
@@ -97,8 +95,6 @@ public class MidAirChaserController : MonoBehaviour
 
         helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
-        helicopterInfo.bUseInnerPod       = bUseInnerPod;
-        helicopterInfo.bUseOuterPod       = bUseOuterPod;
         helicopterInfo.bUseSearchLight    = bUseSearchLight;
 
         targetBehaviour = objTarget.GetComponent<MACTargetBehaviour>();

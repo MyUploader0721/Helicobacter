@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 4aa8696a9d9a9cb4aa4f57977532e0ae
+timeCreated: 1540047881
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 00000000010000000200000003000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 511d4c1fbed8b4378f3e8a89e855756e
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -9.113002, y: 8.341984, z: -7.705964}
+      lookAt: {x: 10.910826, y: -0.4968427, z: 11.293126}
+      up: {x: 0.22122608, y: 0.95236504, z: 0.20990463}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: stack
+    400000: //RootNode
+    400002: stack
+    2100000: _defaultMat
+    2100002: '[Metal Seamed]'
+    2100004: '[Metal Steel Textured White]'
+    2100006: '[Metal Rough]'
+    2100008: '[Metal Corrugated Shiny]'
+    2100010: '[Steel Brushed Stainless]'
+    2100012: '[Aluminum]'
+    2100014: _Gray Glass_1
+    2100016: '[Color_007]'
+    2100018: '[Polished Concrete New]'
+    2100020: '[Blinds Roman Hobbled Blue]'
+    2300000: //RootNode
+    2300002: stack
+    3300000: //RootNode
+    3300002: stack
+    4300000: Mesh Cabin
+    4300002: Mesh stack
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Aluminum]'
+    second: {fileID: 2100000, guid: fd3816eb2e94c774f9266720d40231a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Blinds Roman Hobbled Blue]'
+    second: {fileID: 2100000, guid: 5e076caf302e89f40bc8dfed85a767f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_007]'
+    second: {fileID: 2100000, guid: a27a98a4927f9b343abfab3b15ea545e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal Corrugated Shiny]'
+    second: {fileID: 2100000, guid: 2467457d460a155439f702e667a2a1d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal Rough]'
+    second: {fileID: 2100000, guid: b32975fcd576ddd44901ebf8b09dcb1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal Seamed]'
+    second: {fileID: 2100000, guid: 3489981cf015118478187f2578cdda9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal Steel Textured White]'
+    second: {fileID: 2100000, guid: 038b36b2c58ee8f49a452f7b610cbf2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Polished Concrete New]'
+    second: {fileID: 2100000, guid: 40e46b8b80fc45244a62efdf68c00a00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Steel Brushed Stainless]'
+    second: {fileID: 2100000, guid: 72e13b119d10ce8458fe50093eae686a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Gray Glass_1
+    second: {fileID: 2100000, guid: b2e0af1e42b36f348b7744a60744aeee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 976f68b1277227343ad8d7901a2a28fd, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Aluminum
+    second: {fileID: 2800000, guid: c344859a506af98408f86016bf738f28, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Blinds_Roman_Hobbled_Blue
+    second: {fileID: 2800000, guid: d42ad4888d764d1409ab2ef49f48a28a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Shiny
+    second: {fileID: 2800000, guid: 0e8b61341c73ef341b9363c21e30dcec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Rough
+    second: {fileID: 2800000, guid: 4f85306d5757f374ba721efd621936db, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Seamed
+    second: {fileID: 2800000, guid: 4c21b51367faddf4599b2ec2b67c7cf7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Steel_Textured_White
+    second: {fileID: 2800000, guid: cd3c76b48d179b2408490d1faf88a305, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Polished Concrete New
+    second: {fileID: 2800000, guid: 8f5ac985e48b2c849b47433e6c2ad0ad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steel Brushed Stainless
+    second: {fileID: 2800000, guid: 6d88ad0d00eec024884910d31969da7c, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.03
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

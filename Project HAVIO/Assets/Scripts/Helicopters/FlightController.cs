@@ -68,7 +68,7 @@ public class FlightController : MonoBehaviour
         audioSource[(int)SFX_List.HELICOPTER_FLIGHT].clip = sfxHelicopterFlight;
         audioSource[(int)SFX_List.HELICOPTER_FLIGHT].loop = true;
         audioSource[(int)SFX_List.HELICOPTER_FLIGHT].pitch = 0.0f;
-        audioSource[(int)SFX_List.HELICOPTER_FLIGHT].volume = 0.5f;
+        audioSource[(int)SFX_List.HELICOPTER_FLIGHT].volume = 0.25f;
         audioSource[(int)SFX_List.HELICOPTER_FLIGHT].Play();
 
         audioSource[(int)SFX_List.TURBULENCE] = gameObject.AddComponent<AudioSource>();

@@ -16,7 +16,14 @@ public class RocketFireController : MonoBehaviour
     [SerializeField] float fReloadingTime;
     [Space]
     [Header("Settings")]
+    [SerializeField] HelicopterInfo helicopterInfo;
+    [Space]
     [SerializeField] Transform trsMainCamera;
+    [SerializeField] Transform trsLaser;
+    [Space]
+    [SerializeField] float fHorizontalLimitAngle = 70.0f;
+    [SerializeField] float fVerticalLimitAngle = 45.0f;
+    [SerializeField] float fVerticalBaseAngle = 30.0f;
     [Space]
     [Header("SFX")]
     [SerializeField] AudioClip sfxReloading;
@@ -64,28 +71,37 @@ public class RocketFireController : MonoBehaviour
             lineRenderer.enabled = !lineRenderer.enabled;
         }
 
+        bFireAvailable = helicopterInfo.bIsFlyable;
+
         Vector3 v3HorTrs = new Vector3(transform.forward.x, 0.0f, transform.forward.z),
                 v3HorCam = new Vector3(trsMainCamera.forward.x, 0.0f, trsMainCamera.forward.z),
                 v3VerTrs = new Vector3(0.0f, transform.forward.y, transform.forward.z),
                 v3VerCam = new Vector3(0.0f, trsMainCamera.forward.y, trsMainCamera.forward.z);
-        v3VerTrs = Quaternion.Euler(30.0f, 0.0f, 0.0f) * v3VerTrs;
-        if ((Mathf.Abs(Mathf.Acos(Vector3.Dot(v3HorTrs.normalized, v3HorCam.normalized)) * Mathf.Rad2Deg) < 70.0f &&
-             Mathf.Abs(Mathf.Acos(Vector3.Dot(v3VerTrs.normalized, v3VerCam.normalized)) * Mathf.Rad2Deg) < 45.0f))
+        v3VerTrs = Quaternion.Euler(fVerticalBaseAngle, 0.0f, 0.0f) * v3VerTrs;
+        if ((Mathf.Abs(Mathf.Acos(Vector3.Dot(v3HorTrs.normalized, v3HorCam.normalized)) * Mathf.Rad2Deg) < fHorizontalLimitAngle &&
+             Mathf.Abs(Mathf.Acos(Vector3.Dot(v3VerTrs.normalized, v3VerCam.normalized)) * Mathf.Rad2Deg) < fVerticalLimitAngle))
         {
             v3FireDirection = trsMainCamera.forward;
 
             RaycastHit hit;
+            Physics.Raycast(trsMainCamera.position, v3FireDirection, out hit, Mathf.Infinity);
+
+            v3FireDestination = hit.point;
+            lineRenderer.SetPosition(0, trsLaser.position);
+            lineRenderer.SetPosition(1, v3FireDestination);
+
+            /*
             if (Physics.Raycast(trsMainCamera.position, v3FireDirection, out hit, Mathf.Infinity))
             {
                 v3FireDestination = hit.point;
-                lineRenderer.SetPosition(0, trsMainCamera.position + new Vector3(0.0f, 0.2f, 0.0f));
+                lineRenderer.SetPosition(0, trsLaser.position);
                 lineRenderer.SetPosition(1, v3FireDestination);
             }
             else
             {
-                lineRenderer.SetPosition(0, trsMainCamera.position + new Vector3(0.0f, 0.2f, 0.0f));
+                lineRenderer.SetPosition(0, trsLaser.position);
                 lineRenderer.SetPosition(1, lineRenderer.GetPosition(0) + v3FireDirection * 50.0f);
-            }
+            }*/
         }
     }
 
@@ -97,7 +113,7 @@ public class RocketFireController : MonoBehaviour
             if (nCurrentRightRocket > 0)
             {
                 Instantiate(objRocketPref, trsRightPod.position, Quaternion.LookRotation(v3FireDirection, transform.up), null);
-                audioSource.PlayOneShot(sfxPodShot[Random.Range(0, sfxPodShot.Length)]);
+                trsRightPod.GetComponent<AudioSource>().PlayOneShot(sfxPodShot[Random.Range(0, sfxPodShot.Length)]);
                 nCurrentRightRocket--;
                 yield return new WaitForSeconds(fInterval);
             }
@@ -108,7 +124,7 @@ public class RocketFireController : MonoBehaviour
             if (nCurrentLeftRocket > 0)
             {
                 Instantiate(objRocketPref, trsLeftPod.position, Quaternion.LookRotation(v3FireDirection, transform.up), null);
-                audioSource.PlayOneShot(sfxPodShot[Random.Range(0, sfxPodShot.Length)]);
+                trsLeftPod.GetComponent<AudioSource>().PlayOneShot(sfxPodShot[Random.Range(0, sfxPodShot.Length)]);
                 nCurrentLeftRocket--;
                 yield return new WaitForSeconds(fInterval);
             }
@@ -125,10 +141,12 @@ public class RocketFireController : MonoBehaviour
     IEnumerator Reloading()
     {
         bIsReloading = true;
-        audioSource.PlayOneShot(sfxReloading);
+        trsLeftPod.GetComponent<AudioSource>().PlayOneShot(sfxReloading);
+        trsRightPod.GetComponent<AudioSource>().PlayOneShot(sfxReloading);
 
         yield return new WaitForSeconds(fReloadingTime);
-        audioSource.PlayOneShot(sfxReloaded);
+        trsLeftPod.GetComponent<AudioSource>().PlayOneShot(sfxReloaded);
+        trsRightPod.GetComponent<AudioSource>().PlayOneShot(sfxReloaded);
         nCurrentLeftRocket = nMaxLeftRocket;
         nCurrentRightRocket = nMaxRightRocket;
 

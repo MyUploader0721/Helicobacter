@@ -29,13 +29,6 @@ public class HelicopterInfo : MonoBehaviour
     [Header("Available Attachments")]
     [SerializeField] GameObject objSearchLight;
     public bool bUseSearchLight = false;
-    [SerializeField] GameObject objInnerPod;
-    public bool bUseInnerPod = false;
-    [SerializeField] GameObject objOuterPod;
-    public bool bUseOuterPod = false;
-    // enum Armament { NONE, ROCKET_POD, MACHINEGUN_POD }
-    // [SerializeField] Armament armInnerPod = Armament.NONE;
-    // [SerializeField] Armament armOuterPod = Armament.NONE;
     public GameObject objCargo;
 
     AudioSource[] audioSource;
@@ -75,8 +68,6 @@ public class HelicopterInfo : MonoBehaviour
 
         SFX_HelicopterStatus();
 
-        if (objInnerPod != null) objInnerPod.SetActive(bUseInnerPod);
-        if (objOuterPod != null) objOuterPod.SetActive(bUseOuterPod);
         if (objSearchLight != null) objSearchLight.SetActive(bUseSearchLight);
     }
 
@@ -95,7 +86,7 @@ public class HelicopterInfo : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Terrain"))
+        if (!collider.CompareTag("Bullet"))
         {
             nCurrentDurability = 0;
         }
@@ -132,5 +123,10 @@ public class HelicopterInfo : MonoBehaviour
             audioSource[(int)SFX_List.HELICOPTER_STATUS].clip != null &&
             !audioSource[(int)SFX_List.HELICOPTER_STATUS].isPlaying
            ) audioSource[(int)SFX_List.HELICOPTER_STATUS].Play();
+    }
+
+    public void Damage(int nDamage)
+    {
+        nCurrentDurability -= nDamage;
     }
 }

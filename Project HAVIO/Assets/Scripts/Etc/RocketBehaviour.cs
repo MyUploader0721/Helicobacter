@@ -59,14 +59,14 @@ public class RocketBehaviour : MonoBehaviour
             bExploded = true;
             transform.GetChild(0).gameObject.SetActive(false);
 
-            Destroy(Instantiate(objExplosion, transform.position, Quaternion.identity, null), 10.0f);
+            Instantiate(objExplosion, transform.position, Quaternion.identity, null);
 
             if (collision.CompareTag("Enemy"))
             {
                 //Explosion!
             }
 
-            GameObject objExpRad = Instantiate(objExpRadPref, collision.transform.position, Quaternion.identity, null);
+            GameObject objExpRad = Instantiate(objExpRadPref, transform.position, Quaternion.identity, null);
             objExpRad.GetComponent<ExplosionRadius>().Init(nDamage, fExpRadius);
             Destroy(objExpRad, 0.1f);
 

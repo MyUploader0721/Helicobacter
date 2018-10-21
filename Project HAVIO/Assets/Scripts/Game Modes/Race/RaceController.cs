@@ -33,8 +33,6 @@ public class RaceController : MonoBehaviour
     [Space]
     [Header("Helicopter Armament Setting(Recommends default)")]
     [SerializeField] bool bUseSearchLight = true;
-    [SerializeField] bool bUseInnerPod = false;
-    [SerializeField] bool bUseOuterPod = false;
     [Space]
     [Header("Game Mode Setting")]
     [SerializeField] GameObject objTargetNav;
@@ -94,8 +92,6 @@ public class RaceController : MonoBehaviour
 
         helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
-        helicopterInfo.bUseInnerPod = bUseInnerPod;
-        helicopterInfo.bUseOuterPod = bUseOuterPod;
         helicopterInfo.bUseSearchLight = bUseSearchLight;
         helicopterInfo.bIsFlyable = false;
 
