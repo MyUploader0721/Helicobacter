@@ -12,6 +12,7 @@ TagManager:
   - Narr Block
   - Explosion Radius
   - Bullet
+  - Ignorable
   layers:
   - Default
   - TransparentFX

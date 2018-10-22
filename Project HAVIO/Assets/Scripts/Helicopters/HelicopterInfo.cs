@@ -86,7 +86,11 @@ public class HelicopterInfo : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!collider.CompareTag("Bullet"))
+        if (collider.CompareTag("Bullet")) return;
+        else if (collider.CompareTag("Narr Block")) return;
+        else if (collider.CompareTag("Ignorable")) return;
+        else if (collider.CompareTag("Explosion Radius")) return;
+        else
         {
             nCurrentDurability = 0;
         }

@@ -37,6 +37,9 @@ public class HAVIODurability : MonoBehaviour
                 bIsExploded = true;
                 StartCoroutine(KillAfterSFXDone());
             }
+
+            foreach (Collider co in GetComponentsInChildren<Collider>())
+                co.enabled = false;
         }
             
 

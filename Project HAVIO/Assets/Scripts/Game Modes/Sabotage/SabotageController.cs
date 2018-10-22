@@ -21,8 +21,12 @@ public class SabotageController : MonoBehaviour
     [Header("SFX")]
     [SerializeField] AudioClip sfxAccomplished;
     [SerializeField] AudioClip sfxFailed;
+    [Space]
+    [SerializeField] AudioClip[] sfxMissionBrief;
 
     AudioSource audioSource;
+    MotionInput motionInput;
+    InputController inputController;
 
     [HideInInspector] public bool bMissionEnd = false;
     bool bMissionAccomplished = false;
@@ -31,8 +35,14 @@ public class SabotageController : MonoBehaviour
 	void Start ()
     {
         audioSource = GetComponent<AudioSource>();
+        motionInput = trsPlayer.GetComponent<MotionInput>();
+        inputController = trsPlayer.GetComponent<InputController>();
+
+        inputController.bControllable = false;
 
         sfc.FadeIn();
+
+        StartCoroutine(MissionStartBrief());
     }
 	
 	void Update ()
@@ -59,9 +69,27 @@ public class SabotageController : MonoBehaviour
 
             sfc.FadeOutAndIn(delegate {
                 trsCamera.parent = null;
+                motionInput.UseAutoRotation = false;
+                motionInput.SetInputValues();
                 trsCamera.position = objMissionEndCameraPos.position;
                 trsCamera.rotation = objMissionEndCameraPos.rotation;
             });
         }
 	}
+
+    IEnumerator MissionStartBrief()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        audioSource.PlayOneShot(sfxMissionBrief[0]);
+        yield return new WaitForSeconds(sfxMissionBrief[0].length + 0.5f);
+
+        audioSource.PlayOneShot(sfxMissionBrief[1]);
+        yield return new WaitForSeconds(sfxMissionBrief[1].length + 0.5f);
+
+        audioSource.PlayOneShot(sfxMissionBrief[2]);
+        yield return new WaitForSeconds(sfxMissionBrief[2].length);
+
+        inputController.bControllable = true;
+    }
 }
