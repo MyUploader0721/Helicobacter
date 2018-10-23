@@ -59,9 +59,7 @@ GameObject:
   - component: {fileID: 23730020559322598}
   - component: {fileID: 114511305633140684}
   - component: {fileID: 82268323335405266}
-  - component: {fileID: 114163528601591352}
   - component: {fileID: 65235570406195592}
-  - component: {fileID: 114572580936276440}
   m_Layer: 0
   m_Name: biohazard storage
   m_TagString: Enemy
@@ -101,8 +99,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908797689169950}
-  m_LocalRotation: {x: -0, y: 0.690515, z: -0, w: 0.7233181}
-  m_LocalPosition: {x: 354, y: 175.00458, z: 444.4}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.49, y: -0.56, z: -2.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4649019681450574}
@@ -353,25 +351,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114163528601591352
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908797689169950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10c7d8b4bd9af9499182787615b4d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nMaxDurability: 200
-  nCurrDurability: 0
-  objExplosion: {fileID: 100006, guid: 4575df893a6e3f64a8283dee38413a34, type: 2}
-  sfxExplosion:
-  - {fileID: 8300000, guid: 044e3d10cef8160419ade2efdcc6f798, type: 3}
-  - {fileID: 8300000, guid: ae65d78d1a46ba1469bad8f1cf5fac01, type: 3}
-  - {fileID: 8300000, guid: a1065a3b90551b248a15e987896ae011, type: 3}
-  - {fileID: 8300000, guid: ec722fa20e940d245958cefa91c2702e, type: 3}
 --- !u!114 &114511305633140684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,24 +364,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nMaxDurability: 150
   nCurrDurability: 0
-  objExplosion: {fileID: 100006, guid: 4575df893a6e3f64a8283dee38413a34, type: 2}
+  objExplosion: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 2}
   sfxExplosion:
   - {fileID: 8300000, guid: 044e3d10cef8160419ade2efdcc6f798, type: 3}
   - {fileID: 8300000, guid: ae65d78d1a46ba1469bad8f1cf5fac01, type: 3}
   - {fileID: 8300000, guid: a1065a3b90551b248a15e987896ae011, type: 3}
   - {fileID: 8300000, guid: ec722fa20e940d245958cefa91c2702e, type: 3}
---- !u!114 &114572580936276440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908797689169950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10c7d8b4bd9af9499182787615b4d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nMaxDurability: 200
-  nCurrDurability: 0
-  objExplosion: {fileID: 0}
-  sfxExplosion: []

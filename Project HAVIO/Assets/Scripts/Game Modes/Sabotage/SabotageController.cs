@@ -36,6 +36,7 @@ public class SabotageController : MonoBehaviour
     [HideInInspector] public bool bMissionEnd = false;
     bool bMissionAccomplished = false;
     bool bMissionFailed = false;
+    bool bRepairing = false;
 
 	void Start ()
     {
@@ -55,6 +56,12 @@ public class SabotageController : MonoBehaviour
 		if (!helicopterInfo.bIsFlyable)
         {
             bMissionFailed = true;
+        }
+
+        if (!bRepairing && helicopterInfo.bIsFlyable && !helicopterInfo.bIsEngineStart)
+        {
+            bRepairing = true;
+            StartCoroutine(Repair());
         }
         
         if ((bMissionAccomplished || bMissionFailed) && !bMissionEnd)
@@ -97,5 +104,26 @@ public class SabotageController : MonoBehaviour
         yield return new WaitForSeconds(sfxMissionBrief[2].length);
 
         inputController.bControllable = true;
+    }
+
+    IEnumerator Repair()
+    {
+        while (true)
+        {
+            if (helicopterInfo.nCurrentDurability == helicopterInfo.nMaxDurability) break;
+
+            helicopterInfo.nCurrentDurability++;
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        bRepairing = false;
+    }
+
+    public void SetMissionVariable(bool bIsSuccess)
+    {
+        if (bIsSuccess)
+            bMissionAccomplished = true;
+        else
+            bMissionFailed = true;
     }
 }

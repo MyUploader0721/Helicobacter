@@ -45,6 +45,7 @@ public class HelicopterInfo : MonoBehaviour
     [Header("UI Setting")]
     [SerializeField] Text txtAltitude;
     [SerializeField] Text txtVelocity;
+    [SerializeField] Text txtDurability;
 
     FlightController flightController;
 
@@ -78,6 +79,7 @@ public class HelicopterInfo : MonoBehaviour
         // UI
         if (txtAltitude) txtAltitude.text = "ALT: " + flightController.transform.position.y.ToString("0.00") + "m";
         if (txtVelocity) txtVelocity.text = "VEL: " + flightController.fVelocity.ToString("0.00") + "m/s";
+        if (txtDurability) txtDurability.text = "HP: " + nCurrentDurability + "/" + nMaxDurability;
     }
 
     void OnCollisionEnter(Collision other)

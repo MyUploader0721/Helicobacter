@@ -17,6 +17,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField] GameObject objSuccessPanel;
     [SerializeField] GameObject objFailedPanel;
     [Space]
+    [SerializeField] GameObject objCanvasInfo;
+    [Space]
     [Header("Fader")]
     [SerializeField] SceneFadingController sfc;
     [Space]
@@ -57,6 +59,7 @@ public class TutorialController : MonoBehaviour
         if (bTutorialEnd && (bTutorialFailed || bTutorialSuccess))
         {
             inputController.bControllable = false;
+            objCanvasInfo.SetActive(false);
 
             if (!bFadeOutAndInCalled)
             {

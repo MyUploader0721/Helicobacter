@@ -11,11 +11,13 @@ public class HAVIODurability : MonoBehaviour
     [Header("End")]
     [SerializeField] GameObject objExplosion;
     [SerializeField] AudioClip[] sfxExplosion;
+    [Space]
+    [SerializeField] GameObject HPBar;
 
     AudioSource audioSource;
     bool bIsExploded = false;
 
-    //Material mat;
+    GameObject objHPBar;
 
     void Start ()
     {
@@ -23,15 +25,20 @@ public class HAVIODurability : MonoBehaviour
 
         nCurrDurability = nMaxDurability;
 
-        //mat = new Material(GetComponent<MeshRenderer>().material);
+        objHPBar = Instantiate(HPBar, transform.position + new Vector3(0.0f, 5.0f, 0.0f), transform.rotation, transform);
     }
 	
 	void Update ()
     {
         if (nCurrDurability < 0)
         {
+            Destroy(objHPBar);
+
             if (objExplosion)
+            {
                 Instantiate(objExplosion);
+                objExplosion = null;
+            }
             if (audioSource && !bIsExploded)
             {
                 bIsExploded = true;
@@ -41,13 +48,13 @@ public class HAVIODurability : MonoBehaviour
             foreach (Collider co in GetComponentsInChildren<Collider>())
                 co.enabled = false;
         }
-            
 
-        /* //for the test
-        mat.color = new Color(((float)nCurrDurability / nMaxDurability), 0.0f, 0.0f);
-        GetComponent<MeshRenderer>().material = mat;
-        */
-	}
+        if (objHPBar)
+        {
+            objHPBar.transform.localScale = new Vector3((float)nCurrDurability / nMaxDurability, 1.0f, 1.0f);
+            objHPBar.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
+        }
+    }
 
     void OnTriggerEnter(Collider co)
     {

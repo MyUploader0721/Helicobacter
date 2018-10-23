@@ -44,7 +44,7 @@ public class InputController : MonoBehaviour
 	
 	void Update ()
     {
-		if (helicopterInfo.bIsPlayWithGamePad)
+		if (bControllable && helicopterInfo.bIsPlayWithGamePad)
         {
             if (bControllable && Input.GetButtonDown("EngineToggle") && helicopterInfo.bIsFlyable) ToggleEngine();
 

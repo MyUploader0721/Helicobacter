@@ -54,7 +54,7 @@ public class TutorialBlock1 : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        yield return new WaitForSeconds(1.5f);
+        // yield return new WaitForSeconds(1.5f);
         yield return StartCoroutine(tutorialController.StabilizeHelicopter());
 
         audioSource.PlayOneShot(sfxTutNarr2_2);

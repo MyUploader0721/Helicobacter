@@ -77,6 +77,7 @@ public class RocketBehaviour : MonoBehaviour
     IEnumerator PlayExplosionSound()
     {
         audioSource.Stop();
+        audioSource.spatialBlend = 0.5f;
         audioSource.volume = 1.0f;
         audioSource.maxDistance = 100.0f;
         audioSource.PlayOneShot(sfxExplosion[Random.Range(0, sfxExplosion.Length)]);

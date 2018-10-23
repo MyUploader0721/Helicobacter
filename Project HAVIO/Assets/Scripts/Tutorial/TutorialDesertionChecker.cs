@@ -14,6 +14,8 @@ public class TutorialDesertionChecker : MonoBehaviour
     [Header("UI Setting")]
     [SerializeField] Text txtCountdown;
     [Space]
+    [SerializeField] Text txtAltitude;
+    [Space]
     [Header("SFX")]
     AudioSource audioSource;
 
@@ -34,6 +36,7 @@ public class TutorialDesertionChecker : MonoBehaviour
         {
             if (!bIsTooHigh)
             {
+                txtAltitude.color = Color.red;
                 StartCoroutine("AltitudeWarning");
             }
         }
@@ -41,6 +44,7 @@ public class TutorialDesertionChecker : MonoBehaviour
         {
             if (bIsTooHigh)
             {
+                txtAltitude.color = new Color(0.9296875f, 0.9296875f, 0.9296875f);
                 if (txtCountdown.gameObject.activeInHierarchy)
                     txtCountdown.gameObject.SetActive(false);
                 StopCoroutine("AltitudeWarning");

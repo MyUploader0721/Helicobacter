@@ -29,8 +29,8 @@ public class AATurretBehaviour : MonoBehaviour
 
 	void Start ()
     {
-        //trsPlayer = GameObject.Find("Boeing AH-6").transform;
-        helicopterInfo = trsPlayer.GetComponent<HelicopterInfo>();
+        trsPlayer = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        helicopterInfo = GameObject.Find("Boeing AH-6").GetComponent<HelicopterInfo>();
 
         lineRenderer = GetComponent<LineRenderer>();
         audioSource = GetComponent<AudioSource>();

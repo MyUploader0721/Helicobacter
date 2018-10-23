@@ -64,11 +64,11 @@ public class RocketFireController : MonoBehaviour
 	
 	void Update ()
     {
-		if (bFireAvailable && !bFiring && !bIsReloading && Input.GetKey(KeyCode.Space))
+		if (bFireAvailable && !bFiring && !bIsReloading && (Input.GetKey(KeyCode.Space) || Input.GetAxis("LeftTriggerButton")>0 || Input.GetAxis("RightTriggerButton")>0))
         {
             StartCoroutine(FireRocket());
         }
-        if (!bIsReloading && (nCurrentLeftRocket + nCurrentRightRocket) < (nMaxLeftRocket + nMaxRightRocket) && Input.GetKey(KeyCode.R))
+        if (!bIsReloading && (nCurrentLeftRocket + nCurrentRightRocket) < (nMaxLeftRocket + nMaxRightRocket) && (Input.GetKey(KeyCode.R) || Input.GetButton("FaceButtonY")))
         {
             StartCoroutine(Reloading());
         }
@@ -89,12 +89,12 @@ public class RocketFireController : MonoBehaviour
         {
             v3FireDirection = trsMainCamera.forward;
 
-            RaycastHit hit;
-            Physics.Raycast(trsMainCamera.position, v3FireDirection, out hit, Mathf.Infinity);
+            //RaycastHit hit;
+            //Physics.Raycast(trsMainCamera.position, v3FireDirection, out hit, Mathf.Infinity);
 
-            v3FireDestination = hit.point;
+            //v3FireDestination = hit.point;
             lineRenderer.SetPosition(0, trsLaser.position);
-            lineRenderer.SetPosition(1, v3FireDestination);
+            lineRenderer.SetPosition(1, trsLaser.position + v3FireDirection * 50.0f);
 
             /*
             if (Physics.Raycast(trsMainCamera.position, v3FireDirection, out hit, Mathf.Infinity))
@@ -112,7 +112,7 @@ public class RocketFireController : MonoBehaviour
         else
         {
             lineRenderer.SetPosition(0, trsLaser.position);
-            lineRenderer.SetPosition(1, trsLaser.position + v3FireDestination * 50.0f);
+            lineRenderer.SetPosition(1, trsLaser.position + v3FireDirection * 50.0f);
         }
 
         // Pod Stat
