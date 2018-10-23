@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SabotageController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class SabotageController : MonoBehaviour
     [SerializeField] AudioClip sfxFailed;
     [Space]
     [SerializeField] AudioClip[] sfxMissionBrief;
+    [Space]
+    [Header("UI Settings")]
+    [SerializeField] GameObject cvsInfo;
+    
 
     AudioSource audioSource;
     MotionInput motionInput;
@@ -55,6 +60,7 @@ public class SabotageController : MonoBehaviour
         if ((bMissionAccomplished || bMissionFailed) && !bMissionEnd)
         {
             bMissionEnd = true;
+            cvsInfo.SetActive(false);
 
             if (bMissionAccomplished)
             {

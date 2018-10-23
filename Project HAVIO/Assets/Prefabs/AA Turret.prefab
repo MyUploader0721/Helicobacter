@@ -207,15 +207,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378487045482296}
-  m_LocalRotation: {x: -0, y: -0.99642116, z: -0, w: -0.084527194}
-  m_LocalPosition: {x: 181.8, y: 184.08, z: 315.96}
+  m_LocalRotation: {x: -0, y: -0.93175817, z: -0, w: -0.36307964}
+  m_LocalPosition: {x: 21.004578, y: -19.154953, z: 1.402008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4777412263630142}
   - {fileID: 4374933040922210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -189.698, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -222.579, z: 0}
 --- !u!4 &4643498283073686
 Transform:
   m_ObjectHideFlags: 1
@@ -575,10 +575,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae65d78d1a46ba1469bad8f1cf5fac01, type: 3}
   - {fileID: 8300000, guid: a1065a3b90551b248a15e987896ae011, type: 3}
   - {fileID: 8300000, guid: ec722fa20e940d245958cefa91c2702e, type: 3}
-  componentsToBeDisabled:
-  - {fileID: 114074334717486236}
-  objectsToBeDisabled:
-  - {fileID: 1713587052898090}
 --- !u!120 &120342120448830934
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,12 @@ public class CompetitiveAdvantageBaseCheck : MonoBehaviour
     [SerializeField] CompetitiveAdvantageSFXPlayer sfxPlayer;
     [Space]
     [SerializeField] AudioClip sfxSecured;
+    [Space]
+    [SerializeField] bool bIsLastBase = false;
+    [SerializeField] AudioClip sfxRTB;
+    [Space]
+    [Header("End this Base")]
+    [SerializeField] GameObject objBlocking;
 
     int nTargetRemained;
     int nAAGunRemained;
@@ -30,6 +36,7 @@ public class CompetitiveAdvantageBaseCheck : MonoBehaviour
         if (nTargetRemained == 0 && nAAGunRemained == 0)
         {
             StartCoroutine(BaseSecured());
+            Destroy(objBlocking);
             (this as MonoBehaviour).enabled = false;
         }
     }
@@ -64,5 +71,12 @@ public class CompetitiveAdvantageBaseCheck : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         sfxPlayer.GetComponent<AudioSource>().PlayOneShot(sfxSecured);
+        yield return new WaitForSeconds(sfxSecured.length + 0.5f);
+
+        if (bIsLastBase)
+        {
+            sfxPlayer.GetComponent<AudioSource>().PlayOneShot(sfxRTB);
+            yield return new WaitForSeconds(sfxRTB.length);
+        }
     }
 }

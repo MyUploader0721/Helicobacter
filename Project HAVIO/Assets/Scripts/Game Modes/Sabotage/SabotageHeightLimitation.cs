@@ -14,6 +14,7 @@ public class SabotageHeightLimitation : MonoBehaviour
     [Space]
     [Header("UI Setting")]
     [SerializeField] Text txtCountdown;
+    [SerializeField] Text txtAltitude;
     [Space]
     [Header("SFX")]
     AudioSource audioSource;
@@ -37,6 +38,7 @@ public class SabotageHeightLimitation : MonoBehaviour
         {
             if (!bIsTooHigh)
             {
+                txtAltitude.color = Color.red;
                 StartCoroutine("AltitudeWarning");
             }
         }
@@ -44,6 +46,7 @@ public class SabotageHeightLimitation : MonoBehaviour
         {
             if (bIsTooHigh)
             {
+                txtAltitude.color = new Color(0.9296875f, 0.9296875f, 0.9296875f);
                 if (txtCountdown.gameObject.activeInHierarchy)
                     txtCountdown.gameObject.SetActive(false);
                 StopCoroutine("AltitudeWarning");

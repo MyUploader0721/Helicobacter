@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RocketFireController : MonoBehaviour
 {
@@ -25,10 +26,15 @@ public class RocketFireController : MonoBehaviour
     [SerializeField] float fVerticalLimitAngle = 45.0f;
     [SerializeField] float fVerticalBaseAngle = 30.0f;
     [Space]
-    [Header("SFX")]
+    [Header("SFX Setting")]
     [SerializeField] AudioClip sfxReloading;
     [SerializeField] AudioClip sfxReloaded;
     [SerializeField] AudioClip[] sfxPodShot;
+    [Space]
+    [Header("UI Setting")]
+    [SerializeField] Text txtLeftPod;
+    [SerializeField] Text txtRightPod;
+    [SerializeField] Text txtReloading;
 
     AudioSource audioSource;
 
@@ -103,6 +109,15 @@ public class RocketFireController : MonoBehaviour
                 lineRenderer.SetPosition(1, lineRenderer.GetPosition(0) + v3FireDirection * 50.0f);
             }*/
         }
+        else
+        {
+            lineRenderer.SetPosition(0, trsLaser.position);
+            lineRenderer.SetPosition(1, trsLaser.position + v3FireDestination * 50.0f);
+        }
+
+        // Pod Stat
+        if (txtLeftPod) txtLeftPod.text = "LEFT POD: " + nCurrentLeftRocket + "RND";
+        if (txtRightPod) txtRightPod.text = "RIGHT POD: " + nCurrentRightRocket + "RND";
     }
 
     IEnumerator FireRocket()
@@ -141,6 +156,7 @@ public class RocketFireController : MonoBehaviour
     IEnumerator Reloading()
     {
         bIsReloading = true;
+        txtReloading.gameObject.SetActive(true);
         trsLeftPod.GetComponent<AudioSource>().PlayOneShot(sfxReloading);
         trsRightPod.GetComponent<AudioSource>().PlayOneShot(sfxReloading);
 
@@ -150,6 +166,7 @@ public class RocketFireController : MonoBehaviour
         nCurrentLeftRocket = nMaxLeftRocket;
         nCurrentRightRocket = nMaxRightRocket;
 
+        txtReloading.gameObject.SetActive(false);
         bIsReloading = false;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
  *       TITLE: HelicopterInfo.cs
@@ -20,17 +21,17 @@ public class HelicopterInfo : MonoBehaviour
     public bool bIsEngineStart     = false;
     public bool bIsFlyable         = true;
     public bool bIsPlayWithGamePad = false;
-
+    [Space]
     [Header("Helicopter Durability")]
     public int nMaxDurability = 100;
     public int nCurrentDurability = 0;
     public int nArmor = 0;
-
+    [Space]
     [Header("Available Attachments")]
     [SerializeField] GameObject objSearchLight;
     public bool bUseSearchLight = false;
     public GameObject objCargo;
-
+    [Space]
     AudioSource[] audioSource;
     enum SFX_List{ HELICOPTER_STATUS, HELICOPTER_CRASH };
     [Header("SFX: Helicopter Status")]
@@ -40,6 +41,10 @@ public class HelicopterInfo : MonoBehaviour
     [SerializeField] AudioClip sfxCrashedSound;
     [Header("SFX: Helicopter Crash")]
     [SerializeField] AudioClip[] sfxCrash;
+    [Space]
+    [Header("UI Setting")]
+    [SerializeField] Text txtAltitude;
+    [SerializeField] Text txtVelocity;
 
     FlightController flightController;
 
@@ -69,6 +74,10 @@ public class HelicopterInfo : MonoBehaviour
         SFX_HelicopterStatus();
 
         if (objSearchLight != null) objSearchLight.SetActive(bUseSearchLight);
+
+        // UI
+        if (txtAltitude) txtAltitude.text = "ALT: " + flightController.transform.position.y.ToString("0.00") + "m";
+        if (txtVelocity) txtVelocity.text = "VEL: " + flightController.fVelocity.ToString("0.00") + "m/s";
     }
 
     void OnCollisionEnter(Collision other)
