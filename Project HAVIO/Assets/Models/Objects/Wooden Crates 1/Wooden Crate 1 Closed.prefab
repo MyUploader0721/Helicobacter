@@ -274,6 +274,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4779499442247106}
+  - component: {fileID: 65370097059512954}
   m_Layer: 0
   m_Name: Wooden Crate 1 Closed
   m_TagString: Untagged
@@ -2910,8 +2911,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188871306019472}
   m_LocalRotation: {x: -0, y: -0.000000024214387, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46364647, y: 0, z: 0.3097788}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 348.45224, y: 50.452026, z: 328.90625}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4765570214987714}
   m_Father: {fileID: 0}
@@ -7542,3 +7543,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1211811486557314}
   m_Mesh: {fileID: 4300002, guid: 9024015d9fb40974f93734c368001696, type: 3}
+--- !u!65 &65370097059512954
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188871306019472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89920044, y: 0.4960251, z: 0.53271484}
+  m_Center: {x: -0.017890587, y: 0.25198746, z: 0.0027991533}

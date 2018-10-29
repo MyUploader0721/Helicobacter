@@ -19,15 +19,12 @@ public class CarePackageDeliveryController : MonoBehaviour
     [Header("Player Helicopter")]
     [SerializeField] GameObject objPlayer;
 
-    [Header("Helicopter Setting")]
-    [SerializeField] bool bIsPlayWithGamePad = false;
-
     [Header("Helicopter Armament Setting")]
     [SerializeField] bool bUseSearchLight = false;
 
     [Header("Game Mode Setting")]
     [SerializeField] int nNumReceiver;
-    [SerializeField] GameObject[] objReceiver;
+    [SerializeField] Transform[] objReceiver;
     public bool bAccomplished = false;
 
     void Start ()
@@ -36,7 +33,6 @@ public class CarePackageDeliveryController : MonoBehaviour
             objPlayer = GameObject.FindGameObjectWithTag("Player");
 
         helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
-        helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
         helicopterInfo.bUseSearchLight    = bUseSearchLight;
 
         // 리시버(배달지)를 랜덤으로 바꿔줍니다. 
@@ -47,7 +43,7 @@ public class CarePackageDeliveryController : MonoBehaviour
         {
             nCount--;
             int k = Random.Range(0, nCount + 1);
-            GameObject value = objReceiver[k];
+            Transform value = objReceiver[k];
             objReceiver[k] = objReceiver[nCount];
             objReceiver[nCount] = value;
         }

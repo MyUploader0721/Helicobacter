@@ -10,6 +10,7 @@ public class TutorialBlock1 : MonoBehaviour
     [Header("Player Setting")]
     [SerializeField] InputController inputController;
     [SerializeField] HelicopterInfo helicopterInfo;
+    [SerializeField] SearchLightBehaviour searchLightBehaviour;
     [Space]
     [Header("SFX")]
     [SerializeField] AudioSource audioSource;
@@ -37,7 +38,7 @@ public class TutorialBlock1 : MonoBehaviour
         if (other.CompareTag("Player") && helicopterInfo.bIsFlyable)
         {
             GetComponent<BoxCollider>().enabled = false;
-            StartCoroutine(DoNarration());
+            StartCoroutine("DoNarration");
         }
     }
 
@@ -48,13 +49,15 @@ public class TutorialBlock1 : MonoBehaviour
         audioSource.PlayOneShot(sfxTutNarr2_1);
         yield return new WaitForSeconds(sfxTutNarr2_1.length);
 
-        inputController.bControllable = true;
-        while (!inputController.GetComponentInChildren<SearchLightBehaviour>().bLightOn)
+        //inputController.bControllable = true;
+        while (!searchLightBehaviour.bLightOn)
         {
+            if (searchLightBehaviour.bLightOn) break;
             yield return new WaitForEndOfFrame();
         }
 
         // yield return new WaitForSeconds(1.5f);
+        inputController.bControllable = false;
         yield return StartCoroutine(tutorialController.StabilizeHelicopter());
 
         audioSource.PlayOneShot(sfxTutNarr2_2);

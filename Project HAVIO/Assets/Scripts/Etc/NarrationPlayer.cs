@@ -7,6 +7,9 @@ public class NarrationPlayer : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField] AudioClip sfxNarration;
+    [Space]
+    [SerializeField] PDStyleBGMPlayer bgmplayer;
+    [SerializeField] bool bInFrontOfBase = false;
 
     bool bEntered = false;
 
@@ -21,6 +24,9 @@ public class NarrationPlayer : MonoBehaviour
         {
             bEntered = true;
             StartCoroutine(PlayNarration());
+
+            if (bInFrontOfBase)
+                bgmplayer.GoAssaultBGM();
         }
     }
 

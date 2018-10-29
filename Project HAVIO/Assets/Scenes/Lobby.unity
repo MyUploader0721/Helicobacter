@@ -18248,7 +18248,7 @@ GameObject:
   - component: {fileID: 402465710}
   - component: {fileID: 402465711}
   m_Layer: 0
-  m_Name: TEST DATA
+  m_Name: Competitive Advance(Sabotage, //)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18278,18 +18278,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d30aee767eb5842bd4980c5b5f122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strContractTitle: "\uD0B9\uB458\uAE30\uAC00 \uB0A0\uC544\uB2E4\uB2CC\uB2E4"
-  strGameModeType: "\uD14C\uC2A4\uD2B8 \uBAA8\uB4DC"
-  spriteGameModeIcon: {fileID: 21300000, guid: 61f64fdbd018bde458c65026d80c3ec9, type: 3}
-  strContractDescription: "  \uC774\uAC83\uC740 \uD14C\uC2A4\uD2B8\uC6A9\uC73C\uB85C
-    \uC9D1\uC5B4\uB123\uC740 \uACC4\uC57D\uC785\uB2C8\uB2E4. \n  \uD0B9\uB458\uAE30\uC640
-    \uB9FA\uC740 \uACC4\uC57D\uC740 \uAC70\uC808\uB420 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
-    \uC120\uB73B \uAC70\uC808\uC744 \uB204\uB974\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
-  strContractConditions: "  - \uB354\uBBF8\uB370\uC774\uD130\n  - \uC81C\uBC1C Decline
-    \uD558\uC138\uC694\n  - Accept \uD558\uBA74 Desert01\uB85C \uB118\uC5B4\uAC11\uB2C8\uB2E4"
-  spriteContractImage: {fileID: 21300000, guid: 52dbaaaa251c38444b46d04b1cdf1716,
+  strContractTitle: "Competitive Advance(\uACBD\uC7C1\uC6B0\uC704)"
+  strGameModeType: "\uC0AC\uBCF4\uD0C0\uC8FC"
+  spriteGameModeIcon: {fileID: 21300000, guid: 2b8c66675fafcf144ab4e3c5d389c90e, type: 3}
+  strContractDescription: "  \uC758\uB8B0\uC778\uC73C\uB85C\uBD80\uD130 \uACBD\uC7C1\uC0AC\uC758
+    \uB9C8\uC57D \uACF5\uC7A5\uC744 \uD30C\uAD34\uD574 \uB2EC\uB77C\uB294 \uC758\uB8B0\uB97C
+    \uBC1B\uC558\uC2B5\uB2C8\uB2E4. \uACB0\uAD6D \uB9C8\uC57D\uC7C1\uC774\uB97C \uB3C4\uC640\uC8FC\uB294
+    \uAF34\uC774\uC9C0\uB9CC \uC6B0\uB9B0 \uB3C8\uB9CC \uBC8C\uBA74 \uB418\uB2C8\uAE50\uC694."
+  strContractConditions: "  - 70mm \uB85C\uCF13\uD3EC\uB97C \uD2B8\uB9AC\uAC70 \uBC84\uD2BC\uC73C\uB85C
+    \uBC1C\uC0AC\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4\n  - \uCC29\uB959\uD558\uC5EC
+    \uC2DC\uB3D9\uC744 \uB044\uBA74 \uC218\uB9AC\uB97C \uC2DC\uC791\uD569\uB2C8\uB2E4\n
+    \ - 190m \uC774\uC0C1 \uACE0\uB3C4\uB97C \uB192\uC774\uBA74 \uC784\uBB34\uB97C
+    \uC2E4\uD328\uD569\uB2C8\uB2E4"
+  spriteContractImage: {fileID: 21300000, guid: b51718caef8be204297b7c6f32148377,
     type: 3}
-  sceneToContinue: {fileID: 102900000, guid: 55f6c600ce2906848a28b56c68e31065, type: 3}
+  sceneToContinue: {fileID: 102900000, guid: e6c3342d32281ed458b8836008e59e79, type: 3}
   bDisplayed: 0
   strContractorName: 
   strBtnHashData: 
@@ -19891,6 +19894,130 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 437061460}
   m_Mesh: {fileID: 4300054, guid: 8839edf2611ea1f4cbf72019dd1fa6c7, type: 3}
+--- !u!1 &437247737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 437247741}
+  - component: {fileID: 437247740}
+  - component: {fileID: 437247739}
+  m_Layer: 0
+  m_Name: Ambient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &437247739
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437247737}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &437247740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437247737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d4879061ed51c4ca54b97afd19a166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 437247739}
+  sfxRadioCom:
+  - {fileID: 8300000, guid: 48a448882f995f94db570aa424ed736c, type: 3}
+--- !u!4 &437247741
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437247737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.35, y: 6.86, z: -0.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438804742
 GameObject:
   m_ObjectHideFlags: 0
@@ -27031,7 +27158,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1ccfeadeea9631841a94d21f1fae9013, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbb24cf5ccf41c74892c8a49d12e60de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -54534,63 +54661,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143507218}
   m_Mesh: {fileID: 4300074, guid: 8839edf2611ea1f4cbf72019dd1fa6c7, type: 3}
---- !u!1 &1147357828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1147357829}
-  - component: {fileID: 1147357830}
-  m_Layer: 0
-  m_Name: TEST DATA 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1147357829
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1147357828}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1851303878}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147357830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1147357828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d30aee767eb5842bd4980c5b5f122b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strContractTitle: "\uCE58\uBA85\uC801\uC778 \uD0DC\uC724\uC774"
-  strGameModeType: "\uB354\uBBF8 \uBAA8\uB4DC"
-  spriteGameModeIcon: {fileID: 21300000, guid: 61f64fdbd018bde458c65026d80c3ec9, type: 3}
-  strContractDescription: "  \uD14C\uC2A4\uD2B8\uC6A9\uC73C\uB85C \uB123\uC740 \uC544\uC774\uCF58\uC785\uB2C8\uB2E4.
-    \n  \uD0DC\uC724\uC774\uAC00 \uBC1C\uD45C\uC790\uB8CC\uB97C \uC81C\uC77C \uB2A6\uAC8C
-    \uB118\uACA8\uC8FC\uC5B4 \uD0DC\uC724\uC774\uB97C *\uB9E5\uC774\uAE30 \uC704\uD574
-    \uCD94\uAC00\uD558\uC600\uC2B5\uB2C8\uB2E4. \n  \uD0DC\uC724\uC544 \uB2E4\uC74C\uBD80\uD134
-    \uB2A6\uC9C0 \uB9D0\uC790!"
-  strContractConditions: "  - \uBA39\uC774\uB97C \uC8FC\uC9C0 \uB9C8\uC2DC\uC624\n
-    \ - \uD0DC\uC724\uC774\uC758 \uB208\uC744 \uCCD0\uB2E4\uBCF4\uC9C0 \uB9C8\uC2DC\uC624\n
-    \ - \uC81C\uBC1C Decline \uD558\uC138\uC694"
-  spriteContractImage: {fileID: 21300000, guid: 45082a6c82f4d844db5a7565d13a85ae,
-    type: 3}
-  sceneToContinue: {fileID: 102900000, guid: 55f6c600ce2906848a28b56c68e31065, type: 3}
-  bDisplayed: 0
-  strContractorName: 
-  strBtnHashData: 
 --- !u!1 &1147678612
 GameObject:
   m_ObjectHideFlags: 0
@@ -87781,7 +87851,6 @@ Transform:
   m_Children:
   - {fileID: 722187689}
   - {fileID: 402465710}
-  - {fileID: 1147357829}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

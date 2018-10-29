@@ -16,6 +16,8 @@ public class CompetitiveAdvantageBaseCheck : MonoBehaviour
     [SerializeField] bool bIsLastBase = false;
     [SerializeField] AudioClip sfxRTB;
     [Space]
+    [SerializeField] PDStyleBGMPlayer bgmplayer;
+    [Space]
     [Header("End this Base")]
     [SerializeField] GameObject objBlocking;
 
@@ -37,6 +39,7 @@ public class CompetitiveAdvantageBaseCheck : MonoBehaviour
         {
             StartCoroutine(BaseSecured());
             Destroy(objBlocking);
+            bgmplayer.GoStealthBGM();
             (this as MonoBehaviour).enabled = false;
         }
     }

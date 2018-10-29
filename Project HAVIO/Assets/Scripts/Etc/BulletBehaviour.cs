@@ -48,6 +48,7 @@ public class BulletBehaviour : MonoBehaviour
             {
                 audioSource.PlayOneShot(sfxHit[Random.Range(0, sfxHit.Length)]);
                 collision.attachedRigidbody.GetComponent<HelicopterInfo>().Damage(nDamage);
+                collision.attachedRigidbody.GetComponent<MotionSource>().Play();
             }
 
             StartCoroutine(PlayHitSound());

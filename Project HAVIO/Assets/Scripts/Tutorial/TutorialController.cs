@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialController : MonoBehaviour
 {
@@ -18,6 +20,10 @@ public class TutorialController : MonoBehaviour
     [SerializeField] GameObject objFailedPanel;
     [Space]
     [SerializeField] GameObject objCanvasInfo;
+    [Space]
+    [SerializeField] GameObject objPanelInGameMenu;
+    [SerializeField] Button btnExit;
+    [SerializeField] Button btnRestart;
     [Space]
     [Header("Fader")]
     [SerializeField] SceneFadingController sfc;
@@ -46,6 +52,9 @@ public class TutorialController : MonoBehaviour
     {
         audioSource = transform.gameObject.AddComponent<AudioSource>();
         motionInput = transform.GetComponent<MotionInput>();
+
+        btnExit.onClick.AddListener(delegate { sfc.FadeOutForLoad("Lobby"); });
+        btnRestart.onClick.AddListener(delegate { sfc.FadeOutForLoad(SceneManager.GetActiveScene().name); });
 
         sfc.FadeIn();
         StartCoroutine("TutorialNarrStart");
@@ -96,6 +105,12 @@ public class TutorialController : MonoBehaviour
         if (!helicopterInfo.bIsFlyable)
         {
             SetMissionValue(false);
+        }
+
+        // 인게임 메뉴
+        if (helicopterInfo.bIsFlyable && (Input.GetButtonDown("FaceButtonB") || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            objPanelInGameMenu.SetActive(!objPanelInGameMenu.activeInHierarchy);
         }
 	}
 

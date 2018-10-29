@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SabotageController : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class SabotageController : MonoBehaviour
     [Space]
     [Header("UI Settings")]
     [SerializeField] GameObject cvsInfo;
-    
+    [Space]
+    [SerializeField] GameObject objPanelInGameMenu;
+    [SerializeField] Button btnExit;
+    [SerializeField] Button btnRestart;
 
     AudioSource audioSource;
     MotionInput motionInput;
@@ -46,6 +50,9 @@ public class SabotageController : MonoBehaviour
 
         inputController.bControllable = false;
 
+        btnExit.onClick.AddListener(delegate { sfc.FadeOutForLoad("Lobby"); });
+        btnRestart.onClick.AddListener(delegate { sfc.FadeOutForLoad(SceneManager.GetActiveScene().name); });
+
         sfc.FadeIn();
 
         StartCoroutine(MissionStartBrief());
@@ -62,6 +69,11 @@ public class SabotageController : MonoBehaviour
         {
             bRepairing = true;
             StartCoroutine(Repair());
+        }
+        else
+        {
+            if (bRepairing)
+                StopCoroutine(Repair());
         }
         
         if ((bMissionAccomplished || bMissionFailed) && !bMissionEnd)
@@ -88,7 +100,13 @@ public class SabotageController : MonoBehaviour
                 trsCamera.rotation = objMissionEndCameraPos.rotation;
             });
         }
-	}
+
+        // 인게임 메뉴
+        if (helicopterInfo.bIsFlyable && (Input.GetButtonDown("FaceButtonB") || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            objPanelInGameMenu.SetActive(!objPanelInGameMenu.activeInHierarchy);
+        }
+    }
 
     IEnumerator MissionStartBrief()
     {
