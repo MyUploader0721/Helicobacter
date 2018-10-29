@@ -22,19 +22,23 @@ public class CarePackageStartingPointBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        /*
         if (other.gameObject.CompareTag("Player") && !bisLanding && cpdController.bAccomplished && helicopterInfo.bIsFlyable && !helicopterInfo.bIsEngineStart)
         {
             StartCoroutine(AccomplishLanding());
         }
+        */
     }
 
     void OnCollisionExit(Collision other)
     {
+        /*
         if (other.gameObject.CompareTag("Player") && cpdController.bAccomplished || !helicopterInfo.bIsFlyable)
         {
             StopAllCoroutines();
             bisLanding = false;
         }
+        */
     }
 
     /// <summary>

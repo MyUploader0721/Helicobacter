@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
  *       TITLE: CarePackageDeliveryController.cs
@@ -14,60 +15,199 @@ using UnityEngine;
 
 public class CarePackageDeliveryController : MonoBehaviour
 {
-    HelicopterInfo helicopterInfo;
-
     [Header("Player Helicopter")]
-    [SerializeField] GameObject objPlayer;
-
-    [Header("Helicopter Armament Setting")]
-    [SerializeField] bool bUseSearchLight = false;
-
+    [SerializeField] Transform trsPlayer;
+    [Space]
     [Header("Game Mode Setting")]
     [SerializeField] int nNumReceiver;
-    [SerializeField] Transform[] objReceiver;
-    public bool bAccomplished = false;
+    [SerializeField] DropZoneBehaviour[] dzBehaviour;
+    [Space]
+    [SerializeField] float fMaxHeight;
+    [Space]
+    [Header("UI Setting")]
+    [SerializeField] Text txtAltitude;
+    [SerializeField] Text txtCountdown;
+    [SerializeField] Text txtObjectRemained;
+    [SerializeField] Text txtPackageLoaded;
+    [SerializeField] GameObject objCanvasInfo;
+    [SerializeField] GameObject objSuccessPanel;
+    [SerializeField] GameObject objFailedPanel;
+    [SerializeField] GameObject objPanelInGameMenu;
+    [Space]
+    [SerializeField] Transform trsMissionEndPosition;
+    [SerializeField] Transform trsMainCamera;
+    [Space]
+    [SerializeField] SceneFadingController sfc;
+    [Space]
+    [Header("SFX Setting")]
+    [SerializeField] AudioClip sfxAltWarning;
+    [SerializeField] AudioClip sfxMissionSuccess;
+    [SerializeField] AudioClip sfxMissionFailed;
+    [Space]
+    [SerializeField] AudioClip sfxFailedByDestroyed;
+    [SerializeField] AudioClip sfxFailedByTooHigh;
+    [Space]
+    [SerializeField] AudioClip[] sfxMissionNarr;
+    [Space]
+    [SerializeField] GameObject objBGMPlayer;
+
+    public int nCurrentReceiver = 0;
+
+    [HideInInspector] public bool bMissionEnd = false;
+    [HideInInspector] public bool bMissionAccomplished = false;
+    [HideInInspector] public bool bMissionFailed = false;
+
+    bool bFadeOutAndInCalled;
+
+    HelicopterInfo helicopterInfo;
+    InputController inputController;
+    MotionInput motionInput;
+    AudioSource audioSource;
+
+    bool bIsTooHigh;
 
     void Start ()
     {
-        if (objPlayer == null)
-            objPlayer = GameObject.FindGameObjectWithTag("Player");
+        helicopterInfo = trsPlayer.GetComponent<HelicopterInfo>();
+        inputController = trsPlayer.GetComponent<InputController>();
+        motionInput = trsPlayer.GetComponent<MotionInput>();
+        audioSource = GetComponent<AudioSource>();
 
-        helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
-        helicopterInfo.bUseSearchLight    = bUseSearchLight;
+        sfc.FadeIn();
 
-        // 리시버(배달지)를 랜덤으로 바꿔줍니다. 
-        // Fisher-Yates Shuffle 알고리즘을 적용하였습니다. 
-        // REF: https://stackoverflow.com/questions/273313/randomize-a-listt
-        int nCount = objReceiver.Length;
-        while (nCount > 1)
-        {
-            nCount--;
-            int k = Random.Range(0, nCount + 1);
-            Transform value = objReceiver[k];
-            objReceiver[k] = objReceiver[nCount];
-            objReceiver[nCount] = value;
-        }
-
-        for (int i = 0; i < objReceiver.Length; i++)
-        {
-            if (i >= nNumReceiver)
-            {
-                Destroy(objReceiver[i]);
-                objReceiver[i] = null;
-            }
-        }
+        StartCoroutine("MissionStart");
     }
 	
 	void Update ()
     {
-        int nObjective = 0;
-        for (int i = 0; i < nNumReceiver; i++)
+        // 고도 제한
+        if (trsPlayer.position.y > fMaxHeight)
         {
-            if (objReceiver[i].GetComponent<PackageReceiverBehaviour>().bPackageDelivered)
-                nObjective++;
-
-            if (nObjective == nNumReceiver)
-                bAccomplished = true;
+            if (!bIsTooHigh)
+            {
+                txtAltitude.color = Color.red;
+                StartCoroutine("AltitudeWarning");
+            }
         }
+        else
+        {
+            if (bIsTooHigh)
+            {
+                txtAltitude.color = new Color(0.9296875f, 0.9296875f, 0.9296875f);
+                if (txtCountdown.gameObject.activeInHierarchy)
+                    txtCountdown.gameObject.SetActive(false);
+                StopCoroutine("AltitudeWarning");
+                bIsTooHigh = false;
+            }
+        }
+
+        // 추락사
+        if (!helicopterInfo.bIsFlyable && !bMissionEnd)
+        {
+            AudioSource a = gameObject.AddComponent<AudioSource>();
+            a.PlayOneShot(sfxFailedByDestroyed);
+
+            bMissionEnd = true;
+            bMissionFailed = true;
+        }
+
+        // 승리조건
+        if (dzBehaviour.Length == nCurrentReceiver)
+        {
+            bMissionEnd = true;
+        }
+
+        // 임무가 끝나버림
+        if (bMissionEnd && (bMissionAccomplished || bMissionFailed))
+        {
+            inputController.bControllable = false;
+            objCanvasInfo.SetActive(false);
+
+            if (objBGMPlayer != null)
+                objBGMPlayer.SetActive(false);
+
+            if (!bFadeOutAndInCalled)
+            {
+                if (audioSource.isPlaying)
+                    audioSource.Stop();
+
+                if (bMissionFailed)
+                    audioSource.PlayOneShot(sfxMissionFailed);
+                else if (bMissionAccomplished)
+                    audioSource.PlayOneShot(sfxMissionSuccess);
+
+                if (motionInput.UseAutoRotation)
+                {
+                    motionInput.UseAutoRotation = false;
+                    motionInput.SetInputValues(0.0f);
+                }
+
+                bFadeOutAndInCalled = true;
+
+                sfc.FadeOutAndIn(delegate {
+                    trsMainCamera.SetParent(trsMissionEndPosition);
+                    trsMainCamera.localPosition = Vector3.zero;
+                    trsMainCamera.localRotation = Quaternion.identity;
+
+                    if (bMissionFailed)
+                        objFailedPanel.SetActive(true);
+                    else if (bMissionAccomplished)
+                        objSuccessPanel.SetActive(true);
+                });
+            }
+        }
+
+        // UI
+        if (dzBehaviour.Length - nCurrentReceiver > 0)
+            txtObjectRemained.text = "OBJ: " + (dzBehaviour.Length - nCurrentReceiver) + " LEFT";
+        else
+            if (txtObjectRemained.enabled) txtObjectRemained.enabled = false;
+        txtPackageLoaded.enabled = (helicopterInfo.objCargo != null);
+        // 인게임 메뉴
+        if (!bMissionEnd && helicopterInfo.bIsFlyable && (Input.GetButtonDown("FaceButtonB") || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            objPanelInGameMenu.SetActive(!objPanelInGameMenu.activeInHierarchy);
+        }
+    }
+
+    IEnumerator MissionStart()
+    {
+        inputController.bControllable = false;
+
+        for (int i = 0; i < sfxMissionNarr.Length; i++)
+        {
+            audioSource.PlayOneShot(sfxMissionNarr[i]);
+            yield return new WaitForSecondsRealtime(sfxMissionNarr[i].length);
+        }
+
+        inputController.bControllable = true;
+    }
+
+    IEnumerator AltitudeWarning()
+    {
+        bIsTooHigh = true;
+        txtCountdown.gameObject.SetActive(true);
+
+        audioSource.PlayOneShot(sfxAltWarning);
+        txtCountdown.color = Color.yellow;
+        txtCountdown.text = "3";
+        yield return new WaitForSeconds(1.5f);
+
+        audioSource.PlayOneShot(sfxAltWarning);
+        txtCountdown.color = Color.red;
+        txtCountdown.text = "2";
+        yield return new WaitForSeconds(1.5f);
+
+        audioSource.PlayOneShot(sfxAltWarning);
+        txtCountdown.text = "1";
+        yield return new WaitForSeconds(1.5f);
+
+        txtCountdown.gameObject.SetActive(false);
+
+        AudioSource a = gameObject.AddComponent<AudioSource>();
+        a.PlayOneShot(sfxFailedByTooHigh);
+
+        bMissionEnd = true;
+        bMissionFailed = true;
     }
 }

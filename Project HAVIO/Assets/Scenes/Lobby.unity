@@ -24928,11 +24928,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -32215,11 +32215,11 @@ MonoBehaviour:
     lineCount: 7
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -47915,11 +47915,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -52614,11 +52614,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -65362,7 +65362,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351734608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000011921}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 62890357}
@@ -65371,8 +65371,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.8, y: 20.749996}
-  m_SizeDelta: {x: 90.46, y: 8}
+  m_AnchoredPosition: {x: -4.9, y: 20.749996}
+  m_SizeDelta: {x: 108.27, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351734610
 MonoBehaviour:
@@ -65470,11 +65470,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -87851,6 +87851,7 @@ Transform:
   m_Children:
   - {fileID: 722187689}
   - {fileID: 402465710}
+  - {fileID: 2118459911}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98898,6 +98899,66 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2112619929}
   m_Mesh: {fileID: 4300008, guid: 8839edf2611ea1f4cbf72019dd1fa6c7, type: 3}
+--- !u!1 &2118459910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2118459911}
+  - component: {fileID: 2118459912}
+  m_Layer: 0
+  m_Name: Suspicious Package(CPD, //)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118459911
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118459910}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1851303878}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118459912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118459910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d30aee767eb5842bd4980c5b5f122b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strContractTitle: "Suspicious Package(\uC218\uC0C1\uD55C \uBB3C\uAC74)"
+  strGameModeType: "Care Package Delivery(\uACF5\uC911 \uBCF4\uAE09)"
+  spriteGameModeIcon: {fileID: 21300000, guid: c13b08692820e9a4abe5f725a4ddea44, type: 3}
+  strContractDescription: "  \uC758\uB8B0\uC778\uC73C\uB85C\uBD80\uD130 Red, Green,
+    \uADF8\uB9AC\uACE0 Blue \uC874\uC5D0 \uCF00\uC5B4\uD328\uD0A4\uC9C0\uB97C \uC804\uB2EC\uD558\uB77C\uB294
+    \uC758\uB8B0\uB97C \uBC1B\uC558\uC2B5\uB2C8\uB2E4. \uBB38\uC81C\uB294, \uC774\uB3D9\uACBD\uB85C\uC5D0
+    \uC801\uC758 \uAC10\uC2DC\uB9DD\uC774 \uC788\uB2E4\uB294 \uAC83\uC785\uB2C8\uB2E4!
+    \uB3C4\uB300\uCCB4 \uBB50\uAC00 \uB4E4\uC5C8\uAE30\uC5D0 \uC774\uB7F0 \uC0BC\uC5C4\uD55C
+    \uACBD\uBE44\uB97C \uB6AB\uACE0 \uC784\uBB34\uB97C \uC218\uD589\uD574\uC57C\uD558\uB294\uAC78\uAE4C\uC694?"
+  strContractConditions: "  - \uBCF4\uAE09\uACE0\uC5D0\uC11C \uCF00\uC774\uD328\uD0A4\uC9C0\uB97C
+    \uBC1B\uACE0 \uC624\uB978\uCABD \uC870\uC774\uC2A4\uD2F1 \uBC84\uD2BC\uC73C\uB85C
+    \uD22C\uD558\uD558\uC138\uC694!\n  - \uC801\uC758 \uC2A4\uD3FF\uB77C\uC774\uD2B8\uC5D0\uC11C
+    \uBC97\uC5B4\uB098\uC138\uC694!\n  - 70m \uC774\uC0C1 \uACE0\uB3C4\uB97C \uB192\uC774\uBA74
+    \uC784\uBB34\uB97C \uC2E4\uD328\uD569\uB2C8\uB2E4"
+  spriteContractImage: {fileID: 21300000, guid: 4e947db6f0b81b641855107b0a65ac8b,
+    type: 3}
+  sceneToContinue: {fileID: 102900000, guid: 64630352bf0cedf4dbb52e6651b57e19, type: 3}
+  bDisplayed: 0
+  strContractorName: 
+  strBtnHashData: 
 --- !u!1 &2119018135
 GameObject:
   m_ObjectHideFlags: 0

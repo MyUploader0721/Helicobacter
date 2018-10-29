@@ -5,14 +5,18 @@ using UnityEngine;
 public class PackageBehaviour : MonoBehaviour
 {
     [SerializeField] AudioClip sfxDetach;
+    [Space]
+    [SerializeField] AudioClip[] sfxWrong;
 
     HelicopterInfo helicopterInfo;
     AudioSource audioSource;
 
+    bool bIsOnTerrain = false;
+
 	void Start ()
     {
         helicopterInfo = transform.parent.GetComponent<HelicopterInfo>();
-        audioSource = transform.parent.GetComponent<AudioSource>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 	
 	void Update ()
@@ -27,4 +31,13 @@ public class PackageBehaviour : MonoBehaviour
             gameObject.AddComponent<Rigidbody>();
         }
 	}
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("Terrain") && !bIsOnTerrain)
+        {
+            bIsOnTerrain = true;
+            audioSource.PlayOneShot(sfxWrong[Random.Range(0, sfxWrong.Length)]);
+        }
+    }
 }
