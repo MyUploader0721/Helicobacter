@@ -24,6 +24,8 @@ public class LoaderBehaviour : MonoBehaviour
     [Space]
     [SerializeField] AudioClip sfxStartLoad;
     [SerializeField] AudioClip sfxFinishLoad;
+    [Space]
+    [SerializeField] AudioClip[] sfxLoaded;
 
     bool bIsStabilizing = false;
     bool bIsLoading = false;
@@ -89,6 +91,7 @@ public class LoaderBehaviour : MonoBehaviour
         inputController.bControllable = true;
         
         audioSource.PlayOneShot(sfxStartLoad);
+        audioSource.PlayOneShot(sfxLoaded[Random.Range(0, sfxLoaded.Length)]);
 
         while (trsLift.localPosition.y > fStartYPos)
         {

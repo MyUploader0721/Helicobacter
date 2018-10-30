@@ -10600,7 +10600,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4171fa46fd3cb634098edae6e108ec25, type: 3}
   - {fileID: 8300000, guid: d7d047426e4c45e41b4b236110074e66, type: 3}
   - {fileID: 8300000, guid: 60b36693f22e7ce4186429744731df06, type: 3}
-  objBGMPlayer: {fileID: 0}
+  objBGMPlayer: {fileID: 394932972}
   nCurrentReceiver: 0
   bMissionEnd: 0
   bMissionAccomplished: 0
@@ -14475,6 +14475,10 @@ MonoBehaviour:
   audioSource: {fileID: 1507210778}
   sfxStartLoad: {fileID: 8300000, guid: d22237acbe219ba46b7580ebbdc0a8e4, type: 3}
   sfxFinishLoad: {fileID: 8300000, guid: 764ee1a57ecb4554aa9b383f3a976c6b, type: 3}
+  sfxLoaded:
+  - {fileID: 8300000, guid: 95217e613ce985a44b04f4dd199670d5, type: 3}
+  - {fileID: 8300000, guid: faa65d0e8389e46488f59350fb291764, type: 3}
+  - {fileID: 8300000, guid: eeaaaec509b54de458e5f1f481be8f4f, type: 3}
 --- !u!23 &1274930407
 MeshRenderer:
   m_ObjectHideFlags: 0

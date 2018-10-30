@@ -34,7 +34,7 @@ public class PackageBehaviour : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.CompareTag("Terrain") && !bIsOnTerrain)
+        if (collision.collider.CompareTag("Terrain") && !bIsOnTerrain && !transform.parent)
         {
             bIsOnTerrain = true;
             audioSource.PlayOneShot(sfxWrong[Random.Range(0, sfxWrong.Length)]);
