@@ -5235,8 +5235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 394932973}
-  sfxStealth: {fileID: 8300000, guid: c568db6a5f46ecc44b8d46786b951741, type: 3}
-  sfxAssault: {fileID: 8300000, guid: c568db6a5f46ecc44b8d46786b951741, type: 3}
+  sfxStealth: {fileID: 8300000, guid: 7332c7a723f8a2540a52d75059333477, type: 3}
+  sfxAssault: {fileID: 8300000, guid: 7332c7a723f8a2540a52d75059333477, type: 3}
   helicopterInfo: {fileID: 519124041}
 --- !u!4 &394932975
 Transform:

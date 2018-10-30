@@ -23,16 +23,10 @@ public class RaceController : MonoBehaviour
     MotionInput motionInput;
 
     [Header("Player Helicopter")]
-    [SerializeField] GameObject objPlayer;
-    [SerializeField] GameObject objCamera;
+    [SerializeField] Transform trsPlayer;
+    [SerializeField] Transform trsCamera;
     [Space]
     [SerializeField] Transform trsEndMissionCamPos;
-    [Space]
-    [Header("Helicopter Setting")]
-    [SerializeField] bool bIsPlayWithGamePad = false;
-    [Space]
-    [Header("Helicopter Armament Setting(Recommends default)")]
-    [SerializeField] bool bUseSearchLight = true;
     [Space]
     [Header("Game Mode Setting")]
     [SerializeField] GameObject objTargetNav;
@@ -54,10 +48,9 @@ public class RaceController : MonoBehaviour
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelAccomplished;
     [Space]
-    [SerializeField] GameObject objCanvasScreenSpaced;
+    [SerializeField] GameObject objInfoPanel;
     [SerializeField] Text textTime;
     [SerializeField] Text textGoalLeft;
-    [SerializeField] Text textHP;
     [Space]
     [SerializeField] Text textCountdown;
     [Space] 
@@ -79,9 +72,6 @@ public class RaceController : MonoBehaviour
 
     void Start()
     {
-        if (objPlayer == null)
-            objPlayer = GameObject.FindGameObjectWithTag("Player");
-
         audioSourceBGM = gameObject.AddComponent<AudioSource>();
         audioSourceBGM.clip = sfxBGM;
         audioSourceBGM.loop = true;
@@ -90,12 +80,10 @@ public class RaceController : MonoBehaviour
         audioSourceSFX = gameObject.AddComponent<AudioSource>();
         audioSourceSFX.volume = 0.75f;
 
-        helicopterInfo = objPlayer.GetComponent<HelicopterInfo>();
-        helicopterInfo.bIsPlayWithGamePad = bIsPlayWithGamePad;
-        helicopterInfo.bUseSearchLight = bUseSearchLight;
+        helicopterInfo = trsPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsFlyable = false;
 
-        motionInput = objPlayer.GetComponent<MotionInput>();
+        motionInput = trsPlayer.GetComponent<MotionInput>();
 
         for (int i = 0; i < rpbPassages.Length; i++)
         {
@@ -111,8 +99,11 @@ public class RaceController : MonoBehaviour
 
     void Update()
     {
-        textGoalLeft.text = "Goal Left: " + (nNumPassages - nPassedPassages) + "/" + nNumPassages;
-        textHP.text = "HP: " + helicopterInfo.nCurrentDurability + " / " + helicopterInfo.nMaxDurability;
+        if (nNumPassages == nPassedPassages)
+            textGoalLeft.text = "RUSH TO THE LAST GOAL";
+        else
+            textGoalLeft.text = "GOAL LEFT: " + (nNumPassages - nPassedPassages) + "/" + nNumPassages;
+
 
         // 다음 목표 표시(Target Navigation)
         if (nPassedPassages < rpbPassages.Length)
@@ -126,7 +117,7 @@ public class RaceController : MonoBehaviour
             objTargetNav.transform.position = v3PosNav;
         }
 
-        if (!bIsOnCountdown && !objPlayer.GetComponent<HelicopterInfo>().bIsFlyable && !bAccomplished)
+        if (!bIsOnCountdown && !trsPlayer.GetComponent<HelicopterInfo>().bIsFlyable && !bAccomplished)
         {
             bGameOver = true;
             if (!panelGameOver.activeInHierarchy)
@@ -137,15 +128,15 @@ public class RaceController : MonoBehaviour
         {
             audioSourceBGM.Stop();
 
-            if (objCamera.transform.parent != null)
+            if (trsCamera.parent != null)
             {
-                objCamera.transform.SetParent(null);
+                trsCamera.SetParent(null);
 
-                objCanvasScreenSpaced.SetActive(false);
+                objInfoPanel.SetActive(false);
 
                 sceneFadingController.FadeOutAndIn(delegate {
-                    objCamera.transform.position = trsEndMissionCamPos.position;
-                    objCamera.transform.rotation = trsEndMissionCamPos.rotation;
+                    trsCamera.position = trsEndMissionCamPos.position;
+                    trsCamera.rotation = trsEndMissionCamPos.rotation;
                 });
             }
 
@@ -232,7 +223,7 @@ public class RaceController : MonoBehaviour
         while (nTimeRemained > 0)
         {
             nTimeRemained--;
-            textTime.text = "Time: " + nTimeRemained;
+            textTime.text = "TIME REMAINED: " + nTimeRemained;
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -273,6 +264,6 @@ public class RaceController : MonoBehaviour
         textCountdown.text = "GO!";
         StartCoroutine("StartTimer");
         yield return new WaitForSecondsRealtime(1.0f);
-        textCountdown.gameObject.SetActive(false);
+        Destroy(textCountdown.gameObject);
     }
 }

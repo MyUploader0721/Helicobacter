@@ -32,12 +32,13 @@ public class RaceAIHelicopterController : MonoBehaviour
     [SerializeField] Transform tfWaypointTracker;
     [Space]
 
-
     Rigidbody rigidBody;
 
     float fVerticalSpeed = 0.0f;
     float fRollingAngle = 0.0f;
     float fPitchingAngle = 0.0f;
+
+    [HideInInspector] public bool bIsPassedFirst = false;
 
 	void Start ()
     {

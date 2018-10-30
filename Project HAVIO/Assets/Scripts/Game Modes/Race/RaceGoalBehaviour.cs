@@ -26,7 +26,12 @@ public class RaceGoalBehaviour : MonoBehaviour
 
         if (other.CompareTag("Enemy") && !raceController.bAccomplished)
         {
-            raceController.bGameOver = true;
+            RaceAIHelicopterController raihc = other.attachedRigidbody.GetComponent<RaceAIHelicopterController>();
+
+            if (raihc.bIsPassedFirst)
+                raceController.bGameOver = true;
+            else
+                raihc.bIsPassedFirst = true;
         }
     }
 }

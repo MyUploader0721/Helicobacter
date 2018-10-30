@@ -99,6 +99,7 @@ public class HelicopterInfo : MonoBehaviour
     {
         if (collider.CompareTag("Bullet")) return;
         else if (collider.CompareTag("Package")) return;
+        else if (collider.CompareTag("Flag")) return;
         else if (collider.CompareTag("Narr Block")) return;
         else if (collider.CompareTag("Ignorable")) return;
         else if (collider.CompareTag("Explosion Radius")) return;
