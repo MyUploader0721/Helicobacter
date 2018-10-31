@@ -18,6 +18,15 @@ public class RacePassageBehaviour : MonoBehaviour
     [Space]
     [Header("Number of this Passage")]
     [SerializeField] int nNumber = -1;
+    [Space]
+    [SerializeField] AudioClip sfxNarr;
+
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -25,9 +34,8 @@ public class RacePassageBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && raceController.nPassedPassages == nNumber)
         {
             raceController.EnterPassage(nNumber);
-            GetComponent<AudioSource>().Play();
 
-            Destroy(transform.gameObject, 2.0f);
+            StartCoroutine("PlayNarration");
         }
     }
 
@@ -41,5 +49,21 @@ public class RacePassageBehaviour : MonoBehaviour
         {
             nNumber = n;
         }
+    }
+
+    IEnumerator PlayNarration()
+    {
+        audioSource.Play();
+
+        if (sfxNarr)
+        {
+            audioSource.PlayOneShot(sfxNarr);
+            yield return new WaitForSeconds(sfxNarr.length);
+        }
+
+        while (audioSource.isPlaying)
+            yield return new WaitForEndOfFrame();
+
+        Destroy(gameObject);
     }
 }

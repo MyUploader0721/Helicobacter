@@ -64,6 +64,11 @@ public class RaceController : MonoBehaviour
     [Space]
     [SerializeField] AudioClip sfxCountdown;
     [SerializeField] AudioClip sfxGo;
+    [SerializeField] AudioClip sfxTick;
+    [Space]
+    [SerializeField] AudioClip[] sfxNarr;
+    [SerializeField] AudioClip sfxWinTheRace;
+    [SerializeField] AudioClip sfxFailedDestroyed;
 
     AudioSource audioSourceBGM = new AudioSource();
     AudioSource audioSourceSFX = new AudioSource();
@@ -78,7 +83,6 @@ public class RaceController : MonoBehaviour
         audioSourceBGM.Play();
 
         audioSourceSFX = gameObject.AddComponent<AudioSource>();
-        audioSourceSFX.volume = 0.75f;
 
         helicopterInfo = trsPlayer.GetComponent<HelicopterInfo>();
         helicopterInfo.bIsFlyable = false;
@@ -121,12 +125,18 @@ public class RaceController : MonoBehaviour
         {
             bGameOver = true;
             if (!panelGameOver.activeInHierarchy)
+            {
                 panelGameOver.SetActive(true);
+                audioSourceSFX.PlayOneShot(sfxFailedDestroyed);
+            }
         }
 
         if (bGameOver || bAccomplished)
         {
             audioSourceBGM.Stop();
+            audioSourceBGM.loop = true;
+
+            audioSourceSFX.volume = 1.0f;
 
             if (trsCamera.parent != null)
             {
@@ -137,6 +147,16 @@ public class RaceController : MonoBehaviour
                 sceneFadingController.FadeOutAndIn(delegate {
                     trsCamera.position = trsEndMissionCamPos.position;
                     trsCamera.rotation = trsEndMissionCamPos.rotation;
+
+                    if (bAccomplished)
+                    {
+                        audioSourceSFX.PlayOneShot(sfxWinTheRace);
+                        audioSourceSFX.PlayOneShot(sfxAccomplished);
+                    }
+                    else if (bGameOver)
+                    {
+                        audioSourceSFX.PlayOneShot(sfxFailed);
+                    }
                 });
             }
 
@@ -149,15 +169,12 @@ public class RaceController : MonoBehaviour
             // 임무 실패
             if (bGameOver)
             {
-                if (!audioSourceSFX.isPlaying)
-                    audioSourceSFX.PlayOneShot(sfxFailed);
-
                 if (!panelGameOver.activeInHierarchy)
                     panelGameOver.SetActive(true);
 
                 if (bTimerTicking)
                     StopCoroutine("StartTimer");
-
+                
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
                 {
                 #if UNITY_EDITOR
@@ -174,9 +191,6 @@ public class RaceController : MonoBehaviour
             // 임무 성공
             if (bAccomplished)
             {
-                if (!audioSourceSFX.isPlaying)
-                    audioSourceSFX.PlayOneShot(sfxAccomplished);
-
                 if (!panelAccomplished.activeInHierarchy)
                     panelAccomplished.SetActive(true);
 
@@ -224,6 +238,9 @@ public class RaceController : MonoBehaviour
         {
             nTimeRemained--;
             textTime.text = "TIME REMAINED: " + nTimeRemained;
+            if (nTimeRemained < 5)
+                audioSourceSFX.PlayOneShot(sfxTick);
+
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -236,6 +253,14 @@ public class RaceController : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+        audioSourceSFX.volume = 1.0f;
+        for (int i = 0; i < sfxNarr.Length; i++)
+        {
+            audioSourceSFX.PlayOneShot(sfxNarr[i]);
+            yield return new WaitForSeconds(sfxNarr[i].length);
+        }
+        audioSourceSFX.volume = 0.75f;
+
         yield return new WaitForSecondsRealtime(1.0f);
 
         textCountdown.gameObject.SetActive(true);

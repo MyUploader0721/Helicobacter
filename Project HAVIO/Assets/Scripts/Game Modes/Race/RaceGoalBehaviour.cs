@@ -15,6 +15,8 @@ public class RaceGoalBehaviour : MonoBehaviour
 {
     [Header("Race Controller")]
     [SerializeField] RaceController raceController;
+    [Space]
+    [SerializeField] AudioClip sfxLose;
 
     void OnTriggerEnter(Collider other)
     {
@@ -29,7 +31,10 @@ public class RaceGoalBehaviour : MonoBehaviour
             RaceAIHelicopterController raihc = other.attachedRigidbody.GetComponent<RaceAIHelicopterController>();
 
             if (raihc.bIsPassedFirst)
+            {
+                raceController.GetComponent<AudioSource>().PlayOneShot(sfxLose);
                 raceController.bGameOver = true;
+            }
             else
                 raihc.bIsPassedFirst = true;
         }
