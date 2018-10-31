@@ -18,6 +18,10 @@ public class RaceGoalBehaviour : MonoBehaviour
     [Space]
     [SerializeField] AudioClip sfxLose;
 
+    AudioSource audioSource;
+
+    bool bAIPassed = false;
+
     void OnTriggerEnter(Collider other)
     {
         // 플레이어가 마지막 통과지점에 도달하였을 경우
@@ -30,13 +34,27 @@ public class RaceGoalBehaviour : MonoBehaviour
         {
             RaceAIHelicopterController raihc = other.attachedRigidbody.GetComponent<RaceAIHelicopterController>();
 
-            if (raihc.bIsPassedFirst)
+            if (raihc.bIsPassedFirst && !bAIPassed)
             {
+                bAIPassed = true;
+
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.PlayOneShot(sfxLose);
+
                 raceController.GetComponent<AudioSource>().PlayOneShot(sfxLose);
                 raceController.bGameOver = true;
             }
             else
                 raihc.bIsPassedFirst = true;
         }
+    }
+
+    IEnumerator PlayLoseNarr()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.PlayOneShot(sfxLose);
+        yield return new WaitForSeconds(sfxLose.length);
+
+        Destroy(gameObject);
     }
 }

@@ -47,6 +47,7 @@ public class RaceController : MonoBehaviour
     [Header("UI Setting")]
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelAccomplished;
+    [SerializeField] GameObject objPanelInGameMenu;
     [Space]
     [SerializeField] GameObject objInfoPanel;
     [SerializeField] Text textTime;
@@ -85,7 +86,7 @@ public class RaceController : MonoBehaviour
         audioSourceSFX = gameObject.AddComponent<AudioSource>();
 
         helicopterInfo = trsPlayer.GetComponent<HelicopterInfo>();
-        helicopterInfo.bIsFlyable = false;
+        trsPlayer.GetComponent<InputController>().bControllable = false;
 
         motionInput = trsPlayer.GetComponent<MotionInput>();
 
@@ -127,6 +128,7 @@ public class RaceController : MonoBehaviour
             if (!panelGameOver.activeInHierarchy)
             {
                 panelGameOver.SetActive(true);
+                audioSourceSFX.Stop();
                 audioSourceSFX.PlayOneShot(sfxFailedDestroyed);
             }
         }
@@ -171,41 +173,22 @@ public class RaceController : MonoBehaviour
             {
                 if (!panelGameOver.activeInHierarchy)
                     panelGameOver.SetActive(true);
-
-                if (bTimerTicking)
-                    StopCoroutine("StartTimer");
-                
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonB"))
-                {
-                #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-                #else
-				    Application.Quit();
-                #endif
-                }
-                else if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("JoystickButtonA"))
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }
             }
             // 임무 성공
             if (bAccomplished)
             {
                 if (!panelAccomplished.activeInHierarchy)
                     panelAccomplished.SetActive(true);
-
-                if (bTimerTicking)
-                    StopCoroutine("StartTimer");
-
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("JoystickButtonA"))
-                {
-                #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
-                #else
-                    Application.Quit();
-                #endif
-                }
             }
+
+            if (bTimerTicking)
+                StopCoroutine("StartTimer");
+        }
+
+        // 인게임 메뉴
+        if (!(bGameOver || bAccomplished) && helicopterInfo.bIsFlyable && (Input.GetButtonDown("FaceButtonB") || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            objPanelInGameMenu.SetActive(!objPanelInGameMenu.activeInHierarchy);
         }
     }
 
@@ -264,6 +247,7 @@ public class RaceController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
 
         textCountdown.gameObject.SetActive(true);
+        trsPlayer.GetComponent<InputController>().ToggleEngine();
 
         for (int i = 0; i < 3; i++)
         {
@@ -282,9 +266,9 @@ public class RaceController : MonoBehaviour
         foreach (RaceAIHelicopterController c in raceAIHeliController)
         {
             c.bActiveAI = true;
-            helicopterInfo.bIsFlyable = true;
             bIsOnCountdown = false;
         }
+        trsPlayer.GetComponent<InputController>().bControllable = true;
 
         textCountdown.text = "GO!";
         StartCoroutine("StartTimer");
