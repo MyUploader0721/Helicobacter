@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Terrain
+  - Package
+  - Target
+  - Flag
+  - Enemy
+  - Narr Block
+  - Explosion Radius
+  - Bullet
+  - Ignorable
   layers:
   - Default
   - TransparentFX

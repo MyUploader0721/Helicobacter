@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 69a80e73790b5944b985d01220bb859f
+timeCreated: 1540788366
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004e0000004f0000005000000051000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 4b5fdab16e4aa7771dac723ca8da1a74
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 0.3652366, y: 3.6657126, z: -9.633345}
+      lookAt: {x: 3.3420763, y: 3.653194, z: 3.9505777}
+      up: {x: 0.0001927084, y: 0.9999996, z: 0.00087936746}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Generator
+    100002: Group 10
+    100004: Group 12
+    100006: Group 16
+    100008: Group 17
+    100010: Group 19
+    100012: Group 21
+    100014: Group 23
+    100016: Group 24
+    100018: Group 26
+    100020: Group 28
+    100022: Group 30
+    100024: Group 4
+    100026: Group 46
+    100028: Group 48
+    100030: Group 50
+    100032: Group 52
+    100034: Group 54
+    100036: Group 56
+    100038: Group 58
+    100040: Group 6
+    100042: Group 60
+    100044: Group 62
+    100046: Group 65
+    100048: Group 67
+    100050: Group 68
+    100052: Group 70
+    100054: Group 71
+    100056: Group 73
+    100058: Group 75
+    100060: Group 8
+    100062: Group#793
+    100064: Group#819
+    100066: Group#819 1
+    100068: LED Flood Light Fitting - 100 Watt
+    100070: LED Flood Light Fitting - 100 Watt 1
+    100072: LED Flood Light Fitting - 100 Watt 2
+    100074: LED#1
+    100076: LED#1 1
+    100078: LED#1 2
+    100080: LED#1 3
+    100082: //RootNode
+    100084: Mobile floodlights
+    100086: Telescopic lighting fixture
+    400000: Generator
+    400002: Group 10
+    400004: Group 12
+    400006: Group 16
+    400008: Group 17
+    400010: Group 19
+    400012: Group 21
+    400014: Group 23
+    400016: Group 24
+    400018: Group 26
+    400020: Group 28
+    400022: Group 30
+    400024: Group 4
+    400026: Group 46
+    400028: Group 48
+    400030: Group 50
+    400032: Group 52
+    400034: Group 54
+    400036: Group 56
+    400038: Group 58
+    400040: Group 6
+    400042: Group 60
+    400044: Group 62
+    400046: Group 65
+    400048: Group 67
+    400050: Group 68
+    400052: Group 70
+    400054: Group 71
+    400056: Group 73
+    400058: Group 75
+    400060: Group 8
+    400062: Group#793
+    400064: Group#819
+    400066: Group#819 1
+    400068: LED Flood Light Fitting - 100 Watt
+    400070: LED Flood Light Fitting - 100 Watt 1
+    400072: LED Flood Light Fitting - 100 Watt 2
+    400074: LED#1
+    400076: LED#1 1
+    400078: LED#1 2
+    400080: LED#1 3
+    400082: //RootNode
+    400084: Mobile floodlights
+    400086: Telescopic lighting fixture
+    2100000: _defaultMat
+    2100002: '[Color_A01]'
+    2100004: _Charcoal_
+    2100006: "R\xE4der"
+    2100008: '[Color_002]'
+    2100010: _Black_2
+    2100012: _Black_3
+    2100014: '[Metal_Aluminum_Anodized]'
+    2100016: _Charcoal_2
+    2100018: _Gray5_
+    2100020: Alumina_Metaltex
+    2100022: '[0056_Yellow]'
+    2100024: '[Metal_Aluminum_Anodized]1'
+    2100026: _Logs_
+    2100028: _75
+    2100030: '[Color_008]1'
+    2100032: '[Metal_Corrogated_Shiny]'
+    2300000: Generator
+    2300002: Group 10
+    2300004: Group 12
+    2300006: Group 17
+    2300008: Group 19
+    2300010: Group 21
+    2300012: Group 24
+    2300014: Group 26
+    2300016: Group 28
+    2300018: Group 30
+    2300020: Group 4
+    2300022: Group 46
+    2300024: Group 48
+    2300026: Group 50
+    2300028: Group 52
+    2300030: Group 54
+    2300032: Group 56
+    2300034: Group 58
+    2300036: Group 6
+    2300038: Group 60
+    2300040: Group 62
+    2300042: Group 65
+    2300044: Group 68
+    2300046: Group 71
+    2300048: Group 73
+    2300050: Group 75
+    2300052: Group 8
+    2300054: Group#819
+    2300056: Group#819 1
+    2300058: LED Flood Light Fitting - 100 Watt
+    2300060: LED Flood Light Fitting - 100 Watt 1
+    2300062: LED Flood Light Fitting - 100 Watt 2
+    2300064: LED#1
+    2300066: LED#1 1
+    2300068: LED#1 2
+    2300070: LED#1 3
+    2300072: Telescopic lighting fixture
+    3300000: Generator
+    3300002: Group 10
+    3300004: Group 12
+    3300006: Group 17
+    3300008: Group 19
+    3300010: Group 21
+    3300012: Group 24
+    3300014: Group 26
+    3300016: Group 28
+    3300018: Group 30
+    3300020: Group 4
+    3300022: Group 46
+    3300024: Group 48
+    3300026: Group 50
+    3300028: Group 52
+    3300030: Group 54
+    3300032: Group 56
+    3300034: Group 58
+    3300036: Group 6
+    3300038: Group 60
+    3300040: Group 62
+    3300042: Group 65
+    3300044: Group 68
+    3300046: Group 71
+    3300048: Group 73
+    3300050: Group 75
+    3300052: Group 8
+    3300054: Group#819
+    3300056: Group#819 1
+    3300058: LED Flood Light Fitting - 100 Watt
+    3300060: LED Flood Light Fitting - 100 Watt 1
+    3300062: LED Flood Light Fitting - 100 Watt 2
+    3300064: LED#1
+    3300066: LED#1 1
+    3300068: LED#1 2
+    3300070: LED#1 3
+    3300072: Telescopic lighting fixture
+    4300000: Mesh Generator
+    4300002: Mesh Group 4
+    4300004: Mesh Group 6
+    4300006: Mesh Group 8
+    4300008: Mesh Group 10
+    4300010: Mesh Group 12
+    4300012: Mesh Telescopic lighting fixture
+    4300014: Mesh Group 17
+    4300016: Mesh Group 19
+    4300018: Mesh Group 24
+    4300020: Mesh Group 26
+    4300022: Mesh Group 28
+    4300024: Mesh LED#1
+    4300026: Mesh LED Flood Light Fitting - 100 Watt
+    4300028: Mesh Group 46
+    4300030: Mesh Group 48
+    4300032: Mesh Group 50
+    4300034: Mesh Group 52
+    4300036: Mesh Group 54
+    4300038: Mesh Group 56
+    4300040: Mesh Group 58
+    4300042: Mesh Group 60
+    4300044: Mesh Group 62
+    4300046: Mesh Group 65
+    4300048: Mesh Group 68
+    4300050: Mesh Group 71
+    4300052: Mesh Group 73
+    4300054: Mesh Group 75
+    4300056: Mesh Group#819
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alumina_Metaltex
+    second: {fileID: 2100000, guid: 07701d51ef1793e4390cbb6fb20ef96c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "R\xE4der"
+    second: {fileID: 2100000, guid: fb4e12eb52df7014c90810ec8bb499e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0056_Yellow]'
+    second: {fileID: 2100000, guid: 22ab1093d3a31da4990797e7641bfac6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_002]'
+    second: {fileID: 2100000, guid: 968ce91401d3f1b45b7c355471e1b707, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_008]1'
+    second: {fileID: 2100000, guid: 3be615a5587995c45a4df8a914c3fb79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Color_A01]'
+    second: {fileID: 2100000, guid: 55131c2403261bf4caaf5193665545de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal_Aluminum_Anodized]'
+    second: {fileID: 2100000, guid: be34165476b50aa4f836e6611fcf1d55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal_Aluminum_Anodized]1'
+    second: {fileID: 2100000, guid: 154fa8ec839e57747b26d965f7ab7587, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal_Corrogated_Shiny]'
+    second: {fileID: 2100000, guid: a2c798b547c812844a811272e6a358cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _75
+    second: {fileID: 2100000, guid: 5b0b735e0c9c9164f8954d96cbfa9563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Black_2
+    second: {fileID: 2100000, guid: 5e3e376d619075845b57c7068860460e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Black_3
+    second: {fileID: 2100000, guid: 3217bc3198220c244b3f80dd9cf55fc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Charcoal_
+    second: {fileID: 2100000, guid: 63c461c78f915b04e8e9c2fe6121138d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Charcoal_2
+    second: {fileID: 2100000, guid: 564af4a2e7a78c146a32808066e950bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Gray5_
+    second: {fileID: 2100000, guid: 47ec46e361d8aa0409b4fed08b227bd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Logs_
+    second: {fileID: 2100000, guid: 7fd8fcddf62459747a4e664e55659310, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: beb32c08c9f045c4a9856e6d1acc9991, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Alumina_Metaltex
+    second: {fileID: 2800000, guid: 6a01c7ec452f4eb4f8bb57fc77991642, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Aluminum_Anodized
+    second: {fileID: 2800000, guid: 684746ff261325347b9022f2ffffee26, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Corrogated_Shiny
+    second: {fileID: 2800000, guid: 984196339358dc940877eef35004a1cb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: logs
+    second: {fileID: 2800000, guid: 8eed012e7a9d5894a8d39f3f2a36fc87, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

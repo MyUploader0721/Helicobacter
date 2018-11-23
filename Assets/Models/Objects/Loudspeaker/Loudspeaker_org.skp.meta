@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: bf9fe89db3cd4aa40947e79d04ba3687
+timeCreated: 1539439811
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f00000020000000210000002200000023000000240000002500000026000000270000002800000029000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 7e1910922b8de0b32c2fbf331927e3f5
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 2.1462383, y: 1.2888689, z: -0.8590035}
+      lookAt: {x: 0.69212836, y: 0.5618139, z: 0.59510654}
+      up: {x: -0.23570226, y: 0.94280905, z: 0.23570226}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Group 1
+    100002: Group 10
+    100004: Group 12
+    100006: Group 15
+    100008: Group 17
+    100010: Group 19
+    100012: Group 22
+    100014: Group 24
+    100016: Group 26
+    100018: Group 29
+    100020: Group 3
+    100022: Group 31
+    100024: Group 33
+    100026: Group 36
+    100028: Group 38
+    100030: Group 40
+    100032: Group 5
+    100034: Group 8
+    100036: //RootNode
+    100038: SCREWS
+    100040: SCREWS 1
+    100042: SCREWS 2
+    100044: SCREWS 3
+    100046: SCREWS 4
+    400000: Group 1
+    400002: Group 10
+    400004: Group 12
+    400006: Group 15
+    400008: Group 17
+    400010: Group 19
+    400012: Group 22
+    400014: Group 24
+    400016: Group 26
+    400018: Group 29
+    400020: Group 3
+    400022: Group 31
+    400024: Group 33
+    400026: Group 36
+    400028: Group 38
+    400030: Group 40
+    400032: Group 5
+    400034: Group 8
+    400036: //RootNode
+    400038: SCREWS
+    400040: SCREWS 1
+    400042: SCREWS 2
+    400044: SCREWS 3
+    400046: SCREWS 4
+    2100000: LOUDSPEAKER_SURFACE
+    2100002: '[0010_Snow]'
+    2100004: '[0136_Charcoal]'
+    2100006: SCREW1
+    2300000: Group 1
+    2300002: Group 10
+    2300004: Group 12
+    2300006: Group 15
+    2300008: Group 17
+    2300010: Group 19
+    2300012: Group 22
+    2300014: Group 24
+    2300016: Group 26
+    2300018: Group 29
+    2300020: Group 3
+    2300022: Group 31
+    2300024: Group 33
+    2300026: Group 36
+    2300028: Group 38
+    2300030: Group 40
+    2300032: Group 5
+    2300034: Group 8
+    3300000: Group 1
+    3300002: Group 10
+    3300004: Group 12
+    3300006: Group 15
+    3300008: Group 17
+    3300010: Group 19
+    3300012: Group 22
+    3300014: Group 24
+    3300016: Group 26
+    3300018: Group 29
+    3300020: Group 3
+    3300022: Group 31
+    3300024: Group 33
+    3300026: Group 36
+    3300028: Group 38
+    3300030: Group 40
+    3300032: Group 5
+    3300034: Group 8
+    4300000: Mesh Group 1
+    4300002: Mesh Group 3
+    4300004: Mesh Group 5
+    4300006: Mesh Group 8
+    4300008: Mesh Group 10
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LOUDSPEAKER_SURFACE
+    second: {fileID: 2100000, guid: b9526f99629c80a48b6aaf3942320ab3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SCREW1
+    second: {fileID: 2100000, guid: 3751dae91cd414a46a1e4671e29d7e25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0010_Snow]'
+    second: {fileID: 2100000, guid: 0266307c56ddbfa4db37cdb6f164efa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[0136_Charcoal]'
+    second: {fileID: 2100000, guid: 02d1f622be56b5b4d8f1949fb7b5b4e4, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.075
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,4 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: b2ae9f932c7b0e3429d9f31ae14a9f71
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9d0d5c588badc8442be227b23e1b4d36
+  - enabled: 1
+    path: Assets/Scenes/Game Modes/Sabotage/Competitive Advantage.unity
+    guid: e6c3342d32281ed458b8836008e59e79
+  - enabled: 1
+    path: Assets/Scenes/Game Modes/Care Package Delivery/Suspicious Package.unity
+    guid: 64630352bf0cedf4dbb52e6651b57e19
+  - enabled: 1
+    path: Assets/Scenes/Game Modes/Race/Chopper Run.unity
+    guid: a83ade1b3a132a149bf27389e3de3dba

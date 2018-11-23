@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 11526349fa6961048bb11a5751202916
+timeCreated: 1538965847
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 6e07942209db00e7afeec4f01d23f4a1
+  longitude: -2.25
+  latitude: 53.483
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 0.9111005, y: 1.9129001, z: -2.030274}
+      lookAt: {x: 0.18119608, y: 0.6029773, z: -0.38606027}
+      up: {x: -0.23883584, y: 0.80839396, z: 0.5380118}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Barrel01
+    100002: Barrel02
+    100004: Barrel03
+    100006: Barrel04
+    100008: //RootNode
+    400000: Barrel01
+    400002: Barrel02
+    400004: Barrel03
+    400006: Barrel04
+    400008: //RootNode
+    2100000: Blue1
+    2100002: Red1
+    2100004: Grey1
+    2100006: Green1
+    2300000: Barrel01
+    2300002: Barrel02
+    2300004: Barrel03
+    2300006: Barrel04
+    3300000: Barrel01
+    3300002: Barrel02
+    3300004: Barrel03
+    3300006: Barrel04
+    4300000: Mesh Barrel01
+    4300002: Mesh Barrel02
+    4300004: Mesh Barrel03
+    4300006: Mesh Barrel04
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue1
+    second: {fileID: 2100000, guid: fffa792b8a3a84043820daeea047735d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green1
+    second: {fileID: 2100000, guid: 8922e2fa638cd954391e3d933f723635, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey1
+    second: {fileID: 2100000, guid: a257f530da4c5f34abc13716649c23b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red1
+    second: {fileID: 2100000, guid: d0023b32468c42c41ac24d92d15f2763, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OILSIDE2
+    second: {fileID: 2800000, guid: 7b679c947a45fcb4d8518b626e6f9575, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OILSIDE3
+    second: {fileID: 2800000, guid: 4a92db688b7dee44a95ba5e1f3c980d3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OILSIDE4
+    second: {fileID: 2800000, guid: a1e0659a1a104e84fae7cc4e316fae74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: OILSIDE5
+    second: {fileID: 2800000, guid: 8d77d1d9760be404da9b7eeb201d5b64, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

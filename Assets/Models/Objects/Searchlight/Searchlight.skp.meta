@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 0e7ec1e5a269fe544a84dff6318effbd
+timeCreated: 1540799716
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f00000060000000610000006200000063000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 9668d5d963cba8d574eed75ba61dce26
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 2.5198703, y: 0.9197259, z: -1.7797037}
+      lookAt: {x: -17.014545, y: -0.60014445, z: 12.994512}
+      up: {x: -0.049398597, y: 0.99808013, z: 0.03736101}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Group 11
+    100002: Group 13
+    100004: Group 15
+    100006: Group 18
+    100008: Group 2
+    100010: Group 20
+    100012: Group 22
+    100014: Group 24
+    100016: Group 26
+    100018: Group 28
+    100020: Group 30
+    100022: Group 32
+    100024: Group 34
+    100026: Group 4
+    100028: Group 41
+    100030: Group 48
+    100032: Group 55
+    100034: Group 6
+    100036: Group 68
+    100038: Group 70
+    100040: Group 72
+    100042: Group 74
+    100044: Group 76
+    100046: Group 78
+    100048: Group 8
+    100050: Group 80
+    100052: Group 82
+    100054: Group 84
+    100056: Group 86
+    100058: Group 88
+    100060: Group 9
+    100062: Group 90
+    100064: Group 92
+    100066: Group 94
+    100068: Group 96
+    100070: Group 98
+    100072: Handle Base/2
+    100074: Handle Base/2 1
+    100076: Handle/4
+    100078: Handle/4 1
+    100080: Handle/4 2
+    100082: Handle/4 3
+    100084: Hub
+    100086: Hub 1
+    100088: Hub 2
+    100090: Outside
+    100092: Outside 1
+    100094: Outside 2
+    100096: SCREWS
+    100098: //RootNode
+    100100: Searchlight Navy
+    100102: Spoke
+    100104: Spoke 1
+    100106: Spoke 2
+    400000: Group 11
+    400002: Group 13
+    400004: Group 15
+    400006: Group 18
+    400008: Group 2
+    400010: Group 20
+    400012: Group 22
+    400014: Group 24
+    400016: Group 26
+    400018: Group 28
+    400020: Group 30
+    400022: Group 32
+    400024: Group 34
+    400026: Group 4
+    400028: Group 41
+    400030: Group 48
+    400032: Group 55
+    400034: Group 6
+    400036: Group 68
+    400038: Group 70
+    400040: Group 72
+    400042: Group 74
+    400044: Group 76
+    400046: Group 78
+    400048: Group 8
+    400050: Group 80
+    400052: Group 82
+    400054: Group 84
+    400056: Group 86
+    400058: Group 88
+    400060: Group 9
+    400062: Group 90
+    400064: Group 92
+    400066: Group 94
+    400068: Group 96
+    400070: Group 98
+    400072: Handle Base/2
+    400074: Handle Base/2 1
+    400076: Handle/4
+    400078: Handle/4 1
+    400080: Handle/4 2
+    400082: Handle/4 3
+    400084: Hub
+    400086: Hub 1
+    400088: Hub 2
+    400090: Outside
+    400092: Outside 1
+    400094: Outside 2
+    400096: SCREWS
+    400098: //RootNode
+    400100: Searchlight Navy
+    400102: Spoke
+    400104: Spoke 1
+    400106: Spoke 2
+    2100000: _defaultMat
+    2100002: Light Grey
+    2100004: '[Color_005]'
+    2100006: Glass_Clear-Green
+    2100008: GLASS
+    2100010: '[Mirror 01]'
+    2100012: _7
+    2100014: SHINY_REFLECTIVE_SURFACE
+    2100016: SEARCH LIGHT INTERIOR
+    2100018: '[Color_001]'
+    2100020: '[Color_003]'
+    2100022: '[Translucent Glass Sky Reflection]'
+    2300000: Group 11
+    2300002: Group 13
+    2300004: Group 15
+    2300006: Group 18
+    2300008: Group 2
+    2300010: Group 20
+    2300012: Group 22
+    2300014: Group 24
+    2300016: Group 26
+    2300018: Group 28
+    2300020: Group 30
+    2300022: Group 32
+    2300024: Group 4
+    2300026: Group 6
+    2300028: Group 68
+    2300030: Group 70
+    2300032: Group 72
+    2300034: Group 74
+    2300036: Group 76
+    2300038: Group 78
+    2300040: Group 80
+    2300042: Group 82
+    2300044: Group 84
+    2300046: Group 86
+    2300048: Group 88
+    2300050: Group 9
+    2300052: Group 90
+    2300054: Group 92
+    2300056: Group 94
+    2300058: Group 96
+    2300060: Group 98
+    2300062: Handle Base/2
+    2300064: Handle Base/2 1
+    2300066: Handle/4
+    2300068: Handle/4 1
+    2300070: Handle/4 2
+    2300072: Handle/4 3
+    2300074: Hub
+    2300076: Hub 1
+    2300078: Hub 2
+    2300080: Outside
+    2300082: Outside 1
+    2300084: Outside 2
+    2300086: Spoke
+    2300088: Spoke 1
+    2300090: Spoke 2
+    3300000: Group 11
+    3300002: Group 13
+    3300004: Group 15
+    3300006: Group 18
+    3300008: Group 2
+    3300010: Group 20
+    3300012: Group 22
+    3300014: Group 24
+    3300016: Group 26
+    3300018: Group 28
+    3300020: Group 30
+    3300022: Group 32
+    3300024: Group 4
+    3300026: Group 6
+    3300028: Group 68
+    3300030: Group 70
+    3300032: Group 72
+    3300034: Group 74
+    3300036: Group 76
+    3300038: Group 78
+    3300040: Group 80
+    3300042: Group 82
+    3300044: Group 84
+    3300046: Group 86
+    3300048: Group 88
+    3300050: Group 9
+    3300052: Group 90
+    3300054: Group 92
+    3300056: Group 94
+    3300058: Group 96
+    3300060: Group 98
+    3300062: Handle Base/2
+    3300064: Handle Base/2 1
+    3300066: Handle/4
+    3300068: Handle/4 1
+    3300070: Handle/4 2
+    3300072: Handle/4 3
+    3300074: Hub
+    3300076: Hub 1
+    3300078: Hub 2
+    3300080: Outside
+    3300082: Outside 1
+    3300084: Outside 2
+    3300086: Spoke
+    3300088: Spoke 1
+    3300090: Spoke 2
+    4300000: Mesh Group 2
+    4300002: Mesh Group 4
+    4300004: Mesh Group 6
+    4300006: Mesh Group 9
+    4300008: Mesh Group 11
+    4300010: Mesh Group 13
+    4300012: Mesh Group 15
+    4300014: Mesh Group 18
+    4300016: Mesh Group 20
+    4300018: Mesh Group 24
+    4300020: Mesh Group 26
+    4300022: Mesh Group 32
+    4300024: Mesh Outside
+    4300026: Mesh Hub
+    4300028: Mesh Spoke
+    4300030: Mesh Handle/4
+    4300032: Mesh Handle Base/2
+    4300034: Mesh Handle/4
+    4300036: Mesh Group 68
+    4300038: Mesh Group 70
+    4300040: Mesh Group 72
+    4300042: Mesh Group 74
+    4300044: Mesh Group 76
+    4300046: Mesh Group 78
+    4300048: Mesh Group 80
+    4300050: Mesh Group 82
+    4300052: Mesh Group 84
+    4300054: Mesh Group 88
+    4300056: Mesh Group 90
+    4300058: Mesh Group 92
+    4300060: Mesh Group 94
+    4300062: Mesh Group 96
+    4300064: Mesh Group 98
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
